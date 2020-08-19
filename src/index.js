@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Routes from "./Routes";
-import "./styles/common.scss";
-import "./styles/reset.scss";
+import "./Styles/common.scss";
+import "./Styles/reset.scss";
 
-ReactDOM.render(
+ReactDOM.render( 
   <Routes />,
   document.getElementById("root")
 );
