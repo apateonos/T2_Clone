@@ -1,1 +1,102 @@
 @import "./../../Styles/common.scss";
+
+* {
+	box-sizing: border-box;
+}
+
+a {
+	display: block;
+}
+
+.ProductItem {
+	width: 267px;
+	margin: 0 23.937px 70px 0;
+	.heartBox {
+		position: relative;
+		height: 40px;
+		a {
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 20px;
+			height: 20px;
+		}
+	}
+	.imageBox {
+		@include center;
+	}
+
+	.productName {
+		height: 40px;
+		color: $black;
+		font-size: 15px;
+		font-weight: 600;
+	}
+	.productInfo {
+		margin: 25px 0 5px;
+
+		.ratingBox {
+			margin-bottom: 20px;
+			font-size: 16px;
+		}
+
+		.viewDetail {
+			font-size: 14px;
+			font-weight: 600;
+			color: $black;
+			text-decoration: underline solid $black;
+		}
+	}
+
+	.productVariation {
+		display: flex;
+		align-items: center;
+		height: 216px;
+		li {
+			margin-right: 5px;
+			.variationImgButton {
+				display: flex;
+				align-items: flex-end;
+				height: 84px;
+				border-bottom: solid 2px $black;
+
+				img {
+					margin-bottom: 2px;
+				}
+			}
+			.variationName {
+				height: 50px;
+				margin-top: 10px;
+				font-size: 12px;
+				font-weight: 600;
+			}
+			.price {
+				// margin-top: 65px;
+				font-size: 12px;
+				font-weight: 600;
+			}
+		}
+	}
+	.addTobagBox {
+		display: flex;
+		justify-content: space-between;
+		select {
+			width: 92.89px;
+			height: 42px;
+			// -webkit-appearance: none;
+			// -moz-appearance: none;
+			// appearance: none;
+		}
+		button {
+			width: 157.12px;
+			height: 42px;
+			background: $orange;
+			&:hover {
+				background: $black;
+				color: $white;
+			}
+		}
+	}
+
+	//92.89 42
+}

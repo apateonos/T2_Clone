@@ -1,0 +1,49 @@
+@import "./../../Styles/common.scss";
+
+* {
+	box-sizing: border-box;
+}
+
+.ProductList {
+	font-family: "Helvetica Now", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	@include columnCenter;
+	width: 100%;
+	.productContainer {
+		width: 1200px;
+		padding: 0 40px;
+	}
+
+	header {
+		margin-top: 20px;
+		ul {
+			display: flex;
+			padding-bottom: 40px;
+			font-size: 11px;
+			li {
+				&:after {
+					margin: 0 5px 0 7px;
+					content: ">";
+				}
+				&:last-child:after {
+					content: "";
+				}
+			}
+		}
+		.mainHeading {
+			margin-bottom: 20px;
+			font-size: 48px;
+			font-weight: 600;
+		}
+	}
+
+	.refineByContainer {
+		height: 72px;
+		padding: 15px 0;
+	}
+
+	section {
+		ul {
+			display: flex;
+		}
+	}
+}
