@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import "./Nav.scss";
 
 class Nav extends Component {
@@ -14,9 +15,9 @@ class Nav extends Component {
         <nav>
           <div className="navBox">
             <div className="logo">
-            <a href="#">
+            <Link>
             <img alt="T2 logo" src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw815bd4ad/images/t2-logo.svg" />
-            </a>
+            </Link>
           </div>
             <div className="navContents">
             <div className="navInfo">
