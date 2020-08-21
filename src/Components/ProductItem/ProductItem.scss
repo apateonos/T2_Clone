@@ -1,20 +1,15 @@
 @import "./../../Styles/common.scss";
 
-* {
-	box-sizing: border-box;
-}
-
-a {
-	display: block;
-}
-
 .ProductItem {
 	width: 267px;
-	margin: 0 23.937px 70px 0;
+	margin-bottom: 70px;
+
 	.heartBox {
 		position: relative;
 		height: 40px;
+
 		a {
+			display: block;
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -22,16 +17,19 @@ a {
 			height: 20px;
 		}
 	}
+
 	.imageBox {
 		@include center;
 	}
 
 	.productName {
+		display: block;
 		height: 40px;
 		color: $black;
 		font-size: 15px;
 		font-weight: 600;
 	}
+
 	.productInfo {
 		margin: 25px 0 5px;
 
@@ -58,11 +56,16 @@ a {
 				display: flex;
 				align-items: flex-end;
 				height: 84px;
-				border-bottom: solid 2px $black;
 
 				img {
 					margin-bottom: 2px;
 				}
+			}
+			.borderBlack {
+				border-bottom: solid 2px $black;
+			}
+			.borderNone {
+				border-bottom: solid 2px $white;
 			}
 			.variationName {
 				height: 50px;
@@ -71,7 +74,6 @@ a {
 				font-weight: 600;
 			}
 			.price {
-				// margin-top: 65px;
 				font-size: 12px;
 				font-weight: 600;
 			}
@@ -80,12 +82,10 @@ a {
 	.addTobagBox {
 		display: flex;
 		justify-content: space-between;
+
 		select {
 			width: 92.89px;
 			height: 42px;
-			// -webkit-appearance: none;
-			// -moz-appearance: none;
-			// appearance: none;
 		}
 		button {
 			width: 157.12px;
@@ -97,6 +97,4 @@ a {
 			}
 		}
 	}
-
-	//92.89 42
 }

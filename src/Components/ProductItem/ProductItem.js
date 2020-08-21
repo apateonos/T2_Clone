@@ -3,21 +3,42 @@ import { Link } from "react-router-dom";
 import "./ProductItem.scss";
 
 class ProductItem extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isActive: [],
+    };
   }
 
-  handleClick = (e) => {
-    console.log(e);
-    console.log("click!");
+  componentDidMount() {
+    const { product } = this.props;
+    let arr = [];
+    for (let i; i < product.Variation.length; i++) {
+      arr.push(false);
+    }
+    arr[0] = true;
+    this.setState({
+      isActive: arr,
+    });
+  }
+
+  handleClick = (idx) => {
+    const { isActive } = this.state;
+
+    let arr = Array.from({ length: isActive.length }, () => false);
+    arr[idx] = true;
+
+    this.setState({ isActive: arr });
   };
 
   render() {
     const { product } = this.props;
+
     return (
       <li className="ProductItem">
         <div className="heartBox">
-          <Link>
+          <Link to="/shop">
             <img
               src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1597816184082/images/heart.svg"
               alt="heart"
@@ -29,23 +50,30 @@ class ProductItem extends Component {
           <img src={product.url} alt={product.name} />
         </div>
         <div className="productInfo">
-          <Link className="productName">{product.name}</Link>
+          <Link to="/shop" className="productName">
+            {product.name}
+          </Link>
           <div className="ratingBox">
             <img alt="starRatings" src={product.rating} />
             (3)
           </div>
           <>
-            <Link className="viewDetail">View details</Link>
+            <Link to="/shop" className="viewDetail">
+              View details
+            </Link>
           </>
           <ul className="productVariation">
-            {product.Variation.map((el) => {
+            {product.Variation.map((el, idx) => {
               return (
                 <li key={el.name}>
                   <button
-                    className="variationImgButton"
+                    className={`variationImgButton ${
+                      this.state.isActive[idx] ? `borderBlack` : `borderNone`
+                    }`}
                     name={el.name}
+                    id={el.name}
                     onClick={() => {
-                      this.handleClick(el.name); //set.status 하기
+                      this.handleClick(idx);
                     }}
                   >
                     <img alt="" src={el.url} />

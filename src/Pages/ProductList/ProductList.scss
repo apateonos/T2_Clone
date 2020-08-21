@@ -37,13 +37,25 @@
 	}
 
 	.refineByContainer {
+		display: flex;
 		height: 72px;
+		margin-bottom: 50px;
 		padding: 15px 0;
+
+		.text {
+			display: flex;
+			align-items: center;
+			margin-right: 30px;
+			font-size: 15px;
+			font-weight: 600;
+		}
 	}
 
 	section {
-		ul {
+		.productitemList {
 			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
 		}
 	}
 }

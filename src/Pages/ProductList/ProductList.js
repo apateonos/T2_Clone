@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import ProductItem from "./../../Components/ProductItem/ProductItem";
+import FilterSelectBox from "./Components/FilterSelectBox/FilterSelectBox";
 import "./ProductList.scss";
 
 class ProductList extends Component {
   constructor() {
     super();
     this.state = {
+      isClick: false,
       product: [
         {
           url:
@@ -43,11 +45,86 @@ class ProductList extends Component {
             },
           ],
         },
+        {
+          url:
+            "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw5c3ae3cb/images/UXProject/new-tea-images/T110AI012_matcha_r1.jpg?sw=262&sh=262&sm=fit",
+          name: " 9% Certified Organic Matcha",
+          rating:
+            "https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw3147e413/images/stars/rating-4_6.gif",
+          Variation: [
+            {
+              name: "Tin 30g-1.1oz",
+              price: "26.00",
+              url:
+                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw2cba5a78/images/T110AI012_matcha-black-tin_p1.png?sw=55&sh=55&sm=fit",
+            },
+            {
+              name: "Tin 50g-1.7oz",
+              price: "44.0",
+              url:
+                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dwe989f3ae/images/products/T110AI029_matcha_sha1.png?sw=80&sh=80&sm=fit",
+            },
+          ],
+        },
+        {
+          url:
+            "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw5c3ae3cb/images/UXProject/new-tea-images/T110AI012_matcha_r1.jpg?sw=262&sh=262&sm=fit",
+          name: " 999% Certified Organic Matcha",
+          rating:
+            "https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw3147e413/images/stars/rating-4_6.gif",
+          Variation: [
+            {
+              name: "Tin 30g-1.1oz",
+              price: "26.00",
+              url:
+                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw2cba5a78/images/T110AI012_matcha-black-tin_p1.png?sw=55&sh=55&sm=fit",
+            },
+            {
+              name: "Tin 50g-1.7oz",
+              price: "44.0",
+              url:
+                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dwe989f3ae/images/products/T110AI029_matcha_sha1.png?sw=80&sh=80&sm=fit",
+            },
+          ],
+        },
+        {
+          url:
+            "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw5c3ae3cb/images/UXProject/new-tea-images/T110AI012_matcha_r1.jpg?sw=262&sh=262&sm=fit",
+          name: " 10100% Certified Organic Matcha",
+          rating:
+            "https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw3147e413/images/stars/rating-4_6.gif",
+          Variation: [
+            {
+              name: "Tin 30g-1.1oz",
+              price: "26.00",
+              url:
+                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw2cba5a78/images/T110AI012_matcha-black-tin_p1.png?sw=55&sh=55&sm=fit",
+            },
+            {
+              name: "Tin 50g-1.7oz",
+              price: "44.0",
+              url:
+                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dwe989f3ae/images/products/T110AI029_matcha_sha1.png?sw=80&sh=80&sm=fit",
+            },
+          ],
+        },
       ],
+      styleList: ["tea", "gews", "sss"],
+      typeOfTea: ["a", "b", "c"],
+      price: ["1", "2", "3"],
     };
   }
 
+  handleClick = (name) => {
+    this.setState({ isClick: !this.state.isClick });
+  };
+
+  handleInfo = (name) => {
+    console.log(name);
+  };
+
   render() {
+    const { styleList, typeOfTea, price, product } = this.state;
     return (
       <div className="ProductList">
         <div className="productContainer">
@@ -59,10 +136,19 @@ class ProductList extends Component {
             </ul>
             <div className="mainHeading">Shop all Tea</div>
           </header>
-          <div className="refineByContainer">Refine by:</div>
+          <div className="refineByContainer">
+            <div className="text">Refine by:</div>
+            <FilterSelectBox id="style" name="Style" list={styleList} />
+            <FilterSelectBox
+              id="typeOfTea"
+              name="Type of Tea"
+              list={typeOfTea}
+            />
+            <FilterSelectBox id="price" name="Price" list={price} />
+          </div>
           <section>
-            <ul>
-              {this.state.product.map((el) => {
+            <ul className="productitemList">
+              {product.map((el) => {
                 return <ProductItem product={el} key={el.name} />;
               })}
             </ul>
