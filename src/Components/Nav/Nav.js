@@ -24,7 +24,7 @@ class Nav extends Component {
                 <span>Deliver to</span>
                 <span><img alt="country" src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dwc9e20260/images/country_KR.svg" /></span>
                 <span>KOREA, REPUBLIC OF</span>
-                <span><img src="" alt=""/></span>
+                <div className="icon"></div>
               </button>
               <ul>
                 <li><a href="#">STORES</a></li>
@@ -32,6 +32,7 @@ class Nav extends Component {
                 <li><a href="#">MY FAVOURITES</a></li>
               </ul>
             </div>
+            <div className="emptyBar"></div>
             <div className="navMenu">
                 <ul className="menuList">
                   <li><a href="#">Tea</a></li>
@@ -42,12 +43,10 @@ class Nav extends Component {
                   <li><a href="#">Tea Society</a></li>
                   <li><a href="#">Partnerships</a></li>
                 </ul>
-              <div className="icons">
-                <ul>
-                  <li><a href="#"><img src="" alt=""/></a></li>
-                  <li><a href="#"><img src="" alt=""/></a></li>
+                <ul className="icons">
+                  <li><a href=""></a></li>
+                  <li><a href=""></a></li>
                 </ul> 
-              </div>
             </div>
           </div> 
           </div>
