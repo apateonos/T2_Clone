@@ -5,7 +5,7 @@ import Login from "./Pages/Login/Login";
 import ProductList from "./Pages/ProductList/ProductList";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 
-class Router extends Component {
+class Routes extends Component {
   render() {
     return (
       <Router>
@@ -20,4 +20,4 @@ class Router extends Component {
   }
 }
 
-export default Router;
+export default Routes;

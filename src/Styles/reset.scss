@@ -1,6 +1,5 @@
 a,
 abbr,
-acronym,
 address,
 applet,
 article,
@@ -42,7 +41,6 @@ i,
 iframe,
 img,
 ins,
-kbd,
 label,
 legend,
 li,
@@ -107,8 +105,7 @@ input {
 	outline: none;
 	border: 0;
 }
-// 수정사항
+
 * {
 	box-sizing: border-box;
-	border: 1px solid red;
 }
