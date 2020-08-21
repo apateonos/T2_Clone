@@ -1,0 +1,114 @@
+@import "./../../Styles/common.scss";
+
+.Login {
+  width: 100%;
+  height: 100vh;
+  background-color: $black;
+
+  .headerImg {
+    display: flex;
+    position: relative;
+    max-width: 1140px;
+    height: 335px;
+    margin: 0 auto;
+    background-size: 1140px auto;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-image: url("https://www.t2tea.com/on/demandware.static/-/Library-Sites-T2SharedLibrary/default/dwb94e22cd/images/content/RELAUNCHED-Tea-Society-Banner-Sign-Up-page.jpg");
+
+    span a {
+      display: flex;
+      position: absolute;
+      top: 290px;
+      right: 0;
+      font-size: 14px;
+      color: #777777;
+      text-decoration: underline;
+    }
+  }
+
+  .loginBox {
+    max-width: 740px;
+    height: 350px;
+    margin: 0 auto;
+    top: 50px;
+
+    .contentHeader {
+      width: 350px;
+      height: 86px;
+      font-size: 36px;
+      color: $white;
+      margin: 0 auto;
+      text-align: center;
+
+      h2 {
+        font-weight: 800;
+        font-size: 36px;
+        margin: 0 auto;
+      }
+
+      span {
+        font-weight: 800;
+        font-size: 16px;
+        color: $white;
+      }
+    }
+
+    .formBox {
+      max-width: 350px;
+      max-height: 230px;
+      margin: 0 auto;
+
+      div {
+        width: 350px;
+        height: 12px;
+        margin: 15px 0px 10px;
+        color: $white;
+        font-size: 12px;
+      }
+
+      .inputBox {
+        color: $white;
+        border: 1px solid $white;
+        width: 350px;
+        height: 42px;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+      }
+
+      .inputBox::placeholder {
+        color: $white;
+      }
+
+      input[type="checkbox" i] {
+        background-color: #000;
+      }
+
+      span {
+        font-size: 16px;
+        color: $white;
+        padding: 0 0 0 5px;
+      }
+      .loginBtn {
+        font-size: 15px;
+        line-height: 36px;
+        font-weight: 500;
+        width: 350px;
+        height: 38px;
+        background-color: $orange;
+        padding: 1px 10px;
+        margin-top: 5px;
+        font-family: HelveticaNeueW01-75Bold;
+        border: none;
+      }
+      .inputChek {
+        background-color: $black;
+        color: $black;
+      }
+      .findPassword {
+        color: $white;
+        text-decoration: underline;
+      }
+    }
+  }
+}
