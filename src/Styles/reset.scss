@@ -1,6 +1,5 @@
 a,
 abbr,
-acronym,
 address,
 applet,
 article,
@@ -42,7 +41,6 @@ i,
 iframe,
 img,
 ins,
-kbd,
 label,
 legend,
 li,
@@ -79,31 +77,35 @@ u,
 ul,
 var,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
 }
 
 ul,
 ol {
-  list-style: none;
+	list-style: none;
 }
 
 a,
 a:visited {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 button {
-  background-color: transparent;
-  outline: none;
-  border: 0;
-  cursor: pointer;
+	background-color: transparent;
+	outline: none;
+	border: 0;
+	cursor: pointer;
 }
 
 input {
-  background-color: transparent;
-  outline: none;
-  border: 0;
+	background-color: transparent;
+	outline: none;
+	border: 0;
+}
+
+* {
+	box-sizing: border-box;
 }
