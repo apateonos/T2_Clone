@@ -1,21 +1,31 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./Nav.scss";
 
 class Nav extends Component {
+  state = {
+    textIdx: 0,
+  };
+
+  componentDidMount() {
+    setInterval(() => {
+      let currentIdx = this.state.textIdx;
+      this.setState({ textIdx: currentIdx + 1 });
+    }, 2500);
+  }
+
   render() {
+    let currentBannerText = bannerArr[this.state.textIdx % bannerArr.length];
+
     return (
       <div className="Nav">
         <div className="rollingBanner">
-          <ul>
-            <li>Free shipping on orders of $50 or more</li>
-            <li>Contactless Click & Collect is now available | Find your nearest store here</li>
-          </ul>
+          <span>{currentBannerText}</span>
         </div>
         <div className="searchBar">
           <div className="searchBarContainer">
             <form action="">
-              <input type="text" placeholder="I'm looking for..."/>
+              <input type="text" placeholder="I'm looking for..." />
               <button type="submit"></button>
             </form>
             <div className="closeButton">
@@ -30,46 +40,81 @@ class Nav extends Component {
         <nav>
           <div className="navBox">
             <div className="logo">
-            <Link>
-            <img alt="T2 logo" src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw815bd4ad/images/t2-logo.svg" />
-            </Link>
-          </div>
-            <div className="navContents">
-            <div className="navInfo">
-              <button>
-                <span>Deliver to</span>
-                <img alt="country" src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dwc9e20260/images/country_KR.svg" />
-                <span>KOREA, REPUBLIC OF</span>
-                <span className="icon"></span>
-              </button>
-              <ul>
-                <li><Link>STORES</Link></li>
-                <li><Link>LOGIN</Link></li>
-                <li><Link>MY FAVOURITES</Link></li>
-              </ul>
+              <Link>
+                <img
+                  alt="T2 logo"
+                  src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw815bd4ad/images/t2-logo.svg"
+                />
+              </Link>
             </div>
-            <div className="emptyBar"></div>
-            <div className="navMenu">
-                <ul className="menuList"> 
-                  <li><a href="#">Tea</a></li>
-                  <li><a href="#">Teawares</a></li>
-                  <li><a href="#">Gifts</a></li>
-                  <li><a href="#">Sale</a></li>
-                  <li><a href="#">Recipes</a></li>
-                  <li><a href="#">Tea Society</a></li>
-                  <li><a href="#">Partnerships</a></li>
+            <div className="navContents">
+              <div className="navInfo">
+                <button>
+                  <span>Deliver to</span>
+                  <img
+                    alt="country"
+                    src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dwc9e20260/images/country_KR.svg"
+                  />
+                  <span>KOREA, REPUBLIC OF</span>
+                  <span className="icon"></span>
+                </button>
+                <ul>
+                  <li>
+                    <Link>STORES</Link>
+                  </li>
+                  <li>
+                    <Link>LOGIN</Link>
+                  </li>
+                  <li>
+                    <Link>MY FAVOURITES</Link>
+                  </li>
+                </ul>
+              </div>
+              <div className="emptyBar"></div>
+              <div className="navMenu">
+                <ul className="menuList">
+                  <li>
+                    <a href="#">Tea</a>
+                  </li>
+                  <li>
+                    <a href="#">Teawares</a>
+                  </li>
+                  <li>
+                    <a href="#">Gifts</a>
+                  </li>
+                  <li>
+                    <a href="#">Sale</a>
+                  </li>
+                  <li>
+                    <a href="#">Recipes</a>
+                  </li>
+                  <li>
+                    <a href="#">Tea Society</a>
+                  </li>
+                  <li>
+                    <a href="#">Partnerships</a>
+                  </li>
                 </ul>
                 <ul className="icons">
-                  <li><a href=""></a></li>
-                  <li><a href=""></a></li>
-                </ul> 
+                  <li>
+                    <a href=""></a>
+                  </li>
+                  <li>
+                    <a href=""></a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div> 
           </div>
         </nav>
       </div>
     );
   }
 }
+
+const bannerArr = [
+  "Free shipping on orders of $50 or more",
+  "Contactless Click & Collect is now available | Find your nearest store here.",
+];
 
 export default Nav;
