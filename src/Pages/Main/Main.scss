@@ -1,286 +1,792 @@
+@import "../../Styles/common.scss";
+
+@mixin button {
+  min-width: 120px;
+  margin-right : 40px;
+  padding: 6px 10px 6px 10px;
+  
+  border: 1px solid $orange;
+  background-color: transparent;
+  color: $orange;
+
+  font: {
+    size: 16px;
+    weight: 700;
+  }
+}
 *{
-  box-sizing : border-box;
+  box-sizing: border-box;
 }
 
 main{
-  .styleA{
-    padding : 0 45px;
-    .moduleHead{
-      height : 45px;
-      display : flex;
-      justify-content: space-between;
-      font-size : 30px;
-      font-weight : 700;
-      margin-bottom : 28px;
-      .arrowBox{
-        width : 90px;
-        display : flex;
-        justify-content: space-between;
-        button{
-          width : 22px;
-          height : 22px;
+  
+  .mainBannerBox{
+    position: relative;
+    
+    video{
+      overflow: hidden;
+      width: 100%;
+    }
+    
+    .whiteBox{
+      position: absolute;
+      bottom: 0;
+      z-index: 1;
+      width: 100%;
+      height: 190px;
 
-          background-image : url(/Images/Main/Arrow.svg);
+      background-color: $white;
+    }
+  }
+  .styleA{
+    margin: 0 auto 140px auto;
+    padding: 0 28px;
+
+    .moduleHead{
+      display: flex;
+      justify-content: space-between;
+      height: 45px;
+      margin-bottom: 28px;
+
+      font: {
+        font-size: 30px;
+        font-weight: 700;
+      }
+    
+      .arrowBox{
+        display: flex;
+        justify-content: space-between;
+        width: 90px;
+
+        button{
+          width: 22px;
+          height: 22px;
+
+          background-image: url(/Images/Main/Arrow.svg);
         }
+        
         .leftArrow{
-          transform : rotate(180deg);
+          transform: rotate(180deg);
         }
       }
     }
-    .moduleAside{
 
+    .moduleAside{
+      font-weight: 700;
     }
+
     .moduleItemList{
-      display : flex;
-      overflow : -moz-hidden-unscrollable;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: hidden;
+
       .itemBox{
-        min-width : 335px;
-        margin-right : 30px;
+        display: flex;
+
         .itemImage{
-          margin-bottom : 30px;
+
           img{
-            width  : 100%;
-            height : 385.75px;
+            width: 100%;
+            height: 100%;
+          }
+
+          video{
+            width: 100%;
+            height :100%;
           }
         }
         .itemName{
-          font-size : 25px;
-          margin-bottom : 16px;
+          margin-bottom: 12px;
+          
+          font: {
+            size: 36px;
+            weight: 700;
+          }
         }
+
         .itemDESC{
-          font-size : 16px;
-          margin-bottom : 24px;
+          margin-bottom: 24px;
+          
+          font-size: 18px;
         }
-        .itemButton{
-          min-width : 120px;
-          border: 1px solid orange;
-          font-weight: 700;
-          font-size : 16px;
-          color : orange;
-          padding : 6px 10px 6px 10px;
-          background-color: transparent;
+      }
+
+      .itemButton{
+        @include button;
+      }
+
+      .itemBox1{
+        align-items: center;
+        width: 1140px;
+        height: 570px;
+        margin-right: 70px;
+
+        .itemImage{
+          margin-right: 80px;
+          width: 700px;
+        }
+
+        .itemTextBox{
+          width: 310px;
+        }
+      }
+      .itemBox2{
+        flex-wrap: wrap;
+        width: 400px;
+        margin-right: 70px;
+
+        .itemImage{
+          width: 400px;
+          margin-bottom: 30px;
+        }
+      }
+
+      .itemBox3{
+
+        .itemImage{
+          width: 430px;
+          height: 554px;
+        }
+      }
+
+      .itemBox4{
+
+        .itemImage{
+          width: 480px;
+          height: 618.84px;
+        }
+      }
+
+      .itemBox5{
+
+        .itemImage{
+          width: 370px;
+          height: 446.78px;
         }
       }
     }
   }
-  .styleB{
-    .moduleHead{
-      height : 45px;
-      display : flex;
-      justify-content: space-between;
-      font-size : 30px;
-      font-weight : 700;
-      margin-bottom : 28px;
-      .arrowBox{
-        width : 90px;
-        display : flex;
-        justify-content: space-between;
-        button{
-          width : 22px;
-          height : 22px;
 
-          background-image : url(/Images/Main/Arrow.svg);
-        }
-        .leftArrow{
-          transform : rotate(180deg);
-        }
+  .styleB{
+    position: relative;
+    margin: 0 auto 140px 0;
+    padding: 0 28px;
+
+    .moduleHead{
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      height: 45px;
+      margin-bottom: 28px;
+
+      font: {
+        size: 32px;
+        weight: 700;
       }
     }
-    .moduleAside{
-      width : 100%;
-      height : 500px;
-      background-image: url(/Images/Main/m2_i1.jpg);
-      background-size : 100%, 100%;
-    }
-    .moduleItemList{
-      width : 600px;
-      height : 600px;
-      margin : 0 auto;
-      display : flex;
-      flex-wrap : wrap;
-      .itemBox{
-        display : flex;
-        flex-wrap : wrap;
-        justify-content: center;
-        align-items: center;
-        width : 300px;
-        height : 300px;
-        padding : 16px;
-        img{
-          width : 160px;
-          height : 160px;
+
+    .temp{
+      display: flex;
+
+      .moduleAside{
+        order: 1;
+        width: 960px;
+        height: 620px;
+        margin: 16px;
+
+        background-image: url(/Images/Main/B_aside.jpg);
+        background-size: 100% 100%;
+        font-weight: 700;
+
+        .asideName{
+          width: 320px;
+          padding: 50px;
+          
+          color: $white;
+
+          font: {
+            size: 50px;
+            weight: 700;
+          }
         }
-        .itemTextBox{
-          text-align: center;
-          .itemName{
-            margin-bottom : 2px;
-            font-size : 14px;
-            font-weight : 700;
+      } 
+
+      .moduleItemList{
+        display: flex;
+        align-self: flex-end;
+        flex-wrap: wrap;
+        width: 600px;
+        margin: 0 25px;
+
+        .itemBox{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          width: 300px;
+          height: 300px;
+          padding: 16px;
+
+          .itemImage{
+            width: 170px;
+            height: 170px;
+
+              img{
+              width: 100%;
+              height: 100%;
+            }
           }
-          .itemDESC{
-            margin-bottom : 20px;
-            font-size : 18px;
-            font-weight : 600;
-            color : gray;
-          }
-          .itemButtonBox{
+
+          .itemnoteBox{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            height :60px;
+
+            .itemTextBox{
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+
+              font-size: 14px;
+
+              .itemName{
+                margin-bottom: 2px;
+
+                font-weight: 700;
+              }
+
+              .itemDESC{
+                margin: 0 auto 8px auto;
+              }
+            }
+            
             .itemButton{
-              min-width : 120px;
-              border: 1px solid orange;
-              font-weight: 700;
-              font-size : 16px;
-              color : orange;
-              padding : 6px 10px 6px 10px;
-              background-color: transparent;
+              @include button;
             }
           }
         }
       }
     }
   }
+
   .styleC{
-    .moduleHead{
-      height : 45px;
-      display : flex;
-      justify-content: space-between;
-      font-size : 30px;
-      font-weight : 700;
-      margin-bottom : 28px;
-      .arrowBox{
-        width : 90px;
-        display : flex;
-        justify-content: space-between;
-        button{
-          width : 22px;
-          height : 22px;
+    position: relative;
+    margin: 0 auto 140px auto;
+    padding: 0 28px;
 
-          background-image : url(/Images/Main/Arrow.svg);
-        }
-        .leftArrow{
-          transform : rotate(180deg);
-        }
+    .moduleHead{
+      display: flex;
+      justify-content: space-between;
+      height: 45px;
+      margin-bottom: 28px;
+
+      font: {
+        size: 32px;
+        weight: 700;
       }
     }
-    .moduleAside{
 
-    }
-    .moduleItemList{
-      .itemBox{
-        .itemImage{
+    .temp{
+      display: flex;
 
+      .moduleItemList{
+        display: grid;
+        grid-template-rows: repeat(2, 320px);
+        grid-template-columns: repeat(6, 256px);
+        margin: 0 auto;
+
+        .itemBox{
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-content: flex-end;
+
+          .itemImage{
+            width: 170px;
+            height: 170px;
+
+              img{
+              width: 100%;
+              height: 100%;
+            }
+          }
         }
-        .itemName{
 
-        }
-        .itemDESC{
+        .itemBox1{
+          grid-column-start: 1;
+          grid-column-end: 2;
+          grid-row-start: 1;
+          grid-row-end: 2;
+          width: 512px;
+          height: 640px;
+          padding: 0 70px;
 
+          .itemImage{
+            width: 262px;
+            height: 262px;
+            margin-bottom: 120px;
+          }
+
+          .itemnoteBox{
+            display: flex;
+            margin-bottom: 12px;
+
+            .itemButton{
+              @include button;
+            }
+          }
         }
-        .itemButton{
-          min-width : 120px;
-          border: 1px solid orange;
-          font-weight: 700;
-          font-size : 16px;
-          color : orange;
-          padding : 6px 10px 6px 10px;
-          background-color: transparent;
+
+        .itemBox2{
+          width: 512px;
+          height: 640px;
+          grid-column-start: 3;
+          grid-column-end: 4;
+          grid-row-start: 1;
+          grid-row-end: 2;
+          padding: 0 70px;
+
+          .itemImage{
+            width: 262px;
+            height: 262px;
+            margin-bottom: 120px;
+          }
+
+          .itemnoteBox{
+            display: flex;
+            margin-bottom: 12px;
+
+            .itemButton{
+              @include button;
+            }
+          }
+        }
+
+        .itemBox3{
+          grid-column-start: 5;
+          grid-column-end: 5;
+          grid-row-start: 1;
+          grid-row-end: 1;
+          margin-right: 40px;
+
+          .itemImage{
+            width: 170px;
+            height: 170px;
+            margin-bottom: 10px;
+          }
+
+          .itemnoteBox{
+            font-size: 16px;
+          }
+        }
+
+        .itemBox4{
+          grid-column-start: 6;
+          grid-column-end: 6;
+          grid-row-start: 1;
+          grid-row-end: 1;
+          margin-right: 40px;
+
+          .itemImage{
+            width: 170px;
+            height: 170px;
+            margin-bottom: 10px;
+          }
+
+          .itemnoteBox{
+            font-size: 16px;
+          }
+        }  
+
+        .itemBox5{
+          grid-column-start: 5;
+          grid-column-end: 5;
+          grid-row-start: 2;
+          grid-row-end: 2;
+          margin-right: 40px;
+
+          .itemImage{
+            width: 170px;
+            height: 170px;
+
+            margin-bottom: 10px;
+          }
+
+          .itemnoteBox{
+            font-size: 16px;
+          }
+        }
+
+        .itemBox6{
+          grid-column-start: 6;
+          grid-column-end: 6;
+          grid-row-start: 2;
+          grid-row-end: 2;
+          margin-right: 40px;
+
+          .itemImage{
+            width: 170px;
+            height: 170px;
+            margin-bottom: 10px;
+          }
+
+          .itemnoteBox{
+            font-size: 16px;
+          }
         }
       }
     }
   }
+
   .styleD{
-    .moduleHead{
-      height : 45px;
-      display : flex;
-      justify-content: space-between;
-      font-size : 30px;
-      font-weight : 700;
-      margin-bottom : 28px;
-      .arrowBox{
-        width : 90px;
-        display : flex;
-        justify-content: space-between;
-        button{
-          width : 22px;
-          height : 22px;
+    position:  relative;
+    display: flex;
+    align-items: flex-end;
+    width: 1460px;
+    height: 875px;
+    margin: 0 auto 140px auto;      
+    padding: 80px;
 
-          background-image : url(/Images/Main/Arrow.svg);
+    background: $mediumgray;
+    
+    .moduleHead{
+      position:  absolute;
+      top: 60px;
+      display: flex;
+      justify-content: space-between;
+      height: 45px;
+      margin-bottom: 28px;
+
+      font: {
+        size: 32px;
+        weight: 700;
+      }
+    }
+    .temp{
+      display: flex;
+
+      .moduleAside{
+        order: 1;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        width: 360px;
+        margin-left: 100px;
+
+        font-weight: 700;
+
+        .asideName{
+          margin-bottom: 15px;
+          font-size: 36px;
+        }
+
+        .asideDESC{
+          font-size: 22px;
+        }
+      }
+
+      .moduleItemList{
+        display: flex;
+
+        .itemBox{
+          width: 395px;
+          margin-right: 40px;  
+
+          .itemImage{
+            width: 395px;
+            height: 451.42px;
+            margin-bottom: 30px;
+
+              img{
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          .itemnoteBox{
+            display: flex;
+            flex-wrap: wrap;
+
+            .itemTextBox{
+              display: flex;
+              flex-wrap: wrap;
+              margin-top: 40px;
+
+              .itemName{
+                font-weight: 700;
+                margin-bottom: 4px;
+                font-size: 32px;
+              }
+
+              .itemDESC{
+                margin: 0 auto;
+                font-size: 16px;
+              }
+            }
+
+            .itemButton{
+              @include button;
+            }
+          }
+        } 
+      }
+    }
+  }
+
+  .styleE{
+    width: 100%;
+    height: 740px;
+    margin-bottom: 140px;
+
+    .moduleHead{
+      z-index: 1;
+      position:  absolute;      
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 50px 70px;
+
+      
+      font: {
+        size: 30px;
+        weight: 700;
+      }
+
+      .arrowBox{
+        width: 90px;
+        display: flex;
+        justify-content: space-between;
+
+        button{
+          width: 22px;
+          height: 22px;
+
+          background-image: url(/Images/Main/Arrow.svg);
         }
         .leftArrow{
-          transform : rotate(180deg);
+          transform: rotate(180deg);
         }
       }
     }
-    .moduleAside{
 
-    }
     .moduleItemList{
+      display: flex;
+      overflow: hidden;
+
       .itemBox{
+        position:  relative;
+        min-width: 100%;
+        width: 100%;
+        height: 100%;
+
         .itemImage{
+          width: 100%;
+          height: 100%;
 
+          img{
+            width: 100%;
+            height: 100%;
+          }
         }
-        .itemName{
 
-        }
-        .itemDESC{
+        .itemnoteBox{
+          position: absolute;
+          top: 0;
+          left: 50%;
+          width: 460px;          
+          height: 100%;
+          display: flex;
+          align-content: center;
+          flex-wrap: wrap;
 
-        }
-        .itemButton{
-          min-width : 120px;
-          border: 1px solid orange;
-          font-weight: 700;
-          font-size : 16px;
-          color : orange;
-          padding : 6px 10px 6px 10px;
-          background-color: transparent;
+          .itemTextBox{
+            color: $white;
+            font-size: 30px;
+
+            .itemName{
+              font-size: 36px;
+              margin-bottom: 14px;
+            }
+
+            .itemDESC{
+              font-size: 16px;
+              margin-bottom: 25px;
+            }
+          }
+
+          .itemButton{
+            @include button;
+          }
         }
       }
     }
   }
-  .styleE{
-    .moduleHead{
-      height : 45px;
-      display : flex;
-      justify-content: space-between;
-      font-size : 30px;
-      font-weight : 700;
-      margin-bottom : 28px;
-      .arrowBox{
-        width : 90px;
-        display : flex;
-        justify-content: space-between;
-        button{
-          width : 22px;
-          height : 22px;
 
-          background-image : url(/Images/Main/Arrow.svg);
+  .styleF{
+    position: relative;
+    margin: 0 24.5px 140px 24.5px;
+    padding: 0 28px;
+
+    .itemBox{
+      display: flex;
+      width: 1150px;
+      height: 574px;
+
+      .itemImage{
+        width: 674px;
+
+        img{
+          width: 100%;
+          height: 100%;
         }
+      }
+
+      .itemnoteBox{
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+        width: 363px;
+        margin-left: 30px;
+
+        .itemTextBox{
+          width: 100%;
+          margin-bottom: 28px;
+
+          .itemName{
+            margin-bottom: 16px;
+
+            font: {
+              size: 35px;
+              weight : 700;
+            }
+          }
+
+          .itemDESC{
+            font-size: 16px;
+          }
+        }
+      }
+
+      .itemButton{
+        @include button;
+      }
+    }
+
+    .itemBox1{
+      margin-left: 100px;
+    }
+
+    .itemBox2{
+      margin-left: auto;
+    }
+  }
+
+  .styleG{
+    margin: 0 24.5px;
+    margin-bottom: 140px;
+      
+    padding: 0 28px;
+
+    .moduleHead{
+      display: flex;
+      justify-content: space-between;
+      margin: 0 24.5px;
+      margin-bottom: 50px;
+      padding: 0 28px;
+
+      .arrowBox{
+        display: flex;
+        justify-content: space-between;
+        width: 90px;
+
+        button{
+          width: 22px;
+          height: 22px;
+
+          background-image: url(/Images/Main/Arrow.svg);
+        }
+
         .leftArrow{
-          transform : rotate(180deg);
+          transform: rotate(180deg);
         }
       }
     }
-    .moduleAside{
 
-    }
-    .moduleItemList{
-      .itemBox{
-        .itemImage{
+    .temp{
+      display: flex;
+      
+      .moduleAside{
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        min-width: 400px;
+        padding-right: 100px;
 
+        font-weight: 700;
+
+        .asideName{
+          margin-bottom: 12px;
+        
+          font-size: 36px;
         }
-        .itemName{
 
+        .asideDESC{
+          margin-bottom: 25px;
+        
+          font-size: 16px;
         }
-        .itemDESC{
+      }
 
-        }
-        .itemButton{
-          min-width : 120px;
-          border: 1px solid orange;
-          font-weight: 700;
-          font-size : 16px;
-          color : orange;
-          padding : 6px 10px 6px 10px;
-          background-color: transparent;
+      .moduleItemList{
+        display: flex;
+        overflow: hidden;
+
+        .itemBox{
+          position:  relative;
+          min-width: 670px;
+          height :670px;
+          margin-right: 30px;
+
+          background-color: black;
+
+          .itemImage{
+
+            img{
+              width: 100%;
+              height: 100%;
+            }
+          }  
+
+          .itemnoteBox{
+            position: absolute;
+            bottom: 0;
+            padding: 10px 50px 110px;
+
+            color: $white;
+
+            .itemTextBox{
+              width: 380px;
+
+              .itemName{
+                margin-bottom: 12px;
+
+                font: {
+                  size: 36px;
+                  weight: 700;
+                }
+              }
+
+              .itemDESC{
+                margin-bottom: 24px;
+        
+                font-size: 18px;
+              }
+            }
+          }
+
+          .itemButton{
+            @include button; 
+          }
         }
       }
     }

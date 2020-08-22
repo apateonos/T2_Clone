@@ -1,21 +1,33 @@
-import React         from "react";
-import { Component } from "react";
-import ItemImage     from "./ItemImage";
-import ItemName      from "./ItemName";
-import ItemDESC      from "./ItemDESC";
+import React, { Component } from "react";
+import ItemImage from "./ItemImage";
+import ItemName from "./ItemName";
+import ItemDESC from "./ItemDESC";
 import ItemButton from "./ItemButton";
 
 class Item extends Component {
   render() {
-    const { itemNum, itemName, itemImage, itemDESC, buttonList }= this.props;
+    const {
+      BoxStyle,
+      imgType,
+      itemName,
+      itemImage,
+      itemDESC,
+      buttonList,
+    } = this.props;
     return (
-      <div className={"itemBox "+itemNum}>
+      <div className={"itemBox " + BoxStyle}>
         {console.log(itemImage)}
-        <ItemImage itemName={itemName} itemImage={itemImage}/>
-        <div className="itemTextBox">
-          <ItemName  itemName={itemName}/>
-          <ItemDESC  itemDESC={itemDESC}/>
-          <ItemButton buttonList={buttonList}/>
+        <ItemImage
+          imgType={imgType}
+          itemName={itemName}
+          itemImage={itemImage}
+        />
+        <div className="itemnoteBox">
+          <div className="itemTextBox">
+            <ItemName itemName={itemName} />
+            <ItemDESC itemDESC={itemDESC} />
+          </div>
+          <ItemButton buttonList={buttonList} />
         </div>
       </div>
     );

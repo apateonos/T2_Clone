@@ -1,11 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class ItemImage extends Component {
   render() {
-    const { itemName, itemImage }= this.props;
+    const { imgType, itemName, itemImage } = this.props;
+
+    console.log(imgType);
     return (
       <div className="itemImage">
-        <img alt={ itemName } src={ itemImage } />
+        {imgType === "video" ? (
+          <video src={itemImage} autoPlay muted loop />
+        ) : (
+          <img alt={itemName} src={itemImage} />
+        )}
       </div>
     );
   }

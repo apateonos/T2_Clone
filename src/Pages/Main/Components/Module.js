@@ -1,24 +1,36 @@
-import React         from "react";
-import { Component } from "react";
+import React, { Component } from "react";
 import ModuleHead from "./ModuleHead";
 import ModuleAside from "./ModuleAside";
 import Item from "./Item";
 
 class Module extends Component {
   render() {
-    const { moduleStyle, moduleName, moduleAside, moduleItemList }= this.props;
+    const {
+      moduleStyle,
+      moduleName,
+      moduleAside,
+      asideDESC,
+      moduleItemList,
+    } = this.props;
+    console.log(moduleItemList[1].imageType);
+    console.log(moduleAside);
     return (
-      <div className={"module "+moduleStyle}>
-        <ModuleHead moduleName={moduleName}/>
-        <ModuleAside moduleAside={moduleAside}/>
-        <div className="moduleItemList">
-          {moduleItemList.map(el => <Item
-            itemNum={el.itemNum}
-            itemName={el.itemName}
-            itemImage={el.itemImage}
-            itemDESC={el.itemDESC}
-            buttonList={el.buttonList}
-          />)}
+      <div className={"module " + moduleStyle}>
+        <ModuleHead moduleName={moduleName} />
+        <div className="temp">
+          <ModuleAside moduleAside={moduleAside} asideDESC={asideDESC} />
+          <div className="moduleItemList">
+            {moduleItemList.map((el) => (
+              <Item
+                BoxStyle={el.itemBoxStyle}
+                itemName={el.itemName}
+                imgType={el.imageType}
+                itemImage={el.itemImage}
+                itemDESC={el.itemDESC}
+                buttonList={el.buttonList}
+              />
+            ))}
+          </div>
         </div>
       </div>
     );
