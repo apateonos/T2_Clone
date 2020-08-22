@@ -17,7 +17,7 @@ class Module extends Component {
     return (
       <div className={"module " + moduleStyle}>
         <ModuleHead moduleName={moduleName} />
-        <div className="temp">
+        <div className="moduleMain">
           <ModuleAside moduleAside={moduleAside} asideDESC={asideDESC} />
           <div className="moduleItemList">
             {moduleItemList.map((el) => (

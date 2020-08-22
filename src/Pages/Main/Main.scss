@@ -15,6 +15,74 @@
   }
 }
 
+@mixin setSize($width, $height){
+  width: $width;
+  height: $height;
+}
+
+@mixin setAbsolute($top: null, $left: null, $bottom: null, $right: null){
+  position: absolute;
+  @if not ($top) {}
+  @else {top: $top;}
+
+  @if not ($left) {}
+  @else {left: $left;}
+
+  @if not ($bottom) {}
+  @else {bottom: $bottom;}
+
+  @if not ($right) {}
+  @else {right: $right;}
+}
+
+@mixin setflex($justify-justify: null, $align-align: null, $flex-wrap: null, $order-order: null){
+  display: flex;
+  @if not ($justify-justify) {}
+  @else {justify-content: $justify-justify;}
+
+  @if not ($align-align) {}
+  @else {align-content: $align-align;}
+
+  @if not ($flex-wrap) {}
+  @else {flex-wrap: $flex-wrap;}
+
+  @if not ($order-order) {}
+  @else {order: $order-order;}
+}
+
+@mixin moduleHead($headArrow: null, $headBtn: null){
+  .moduleHead{
+    @include setflex(space-between)
+    height: 45px;
+    margin-bottom: 28px;
+
+    font: {
+      font-size: 30px;
+      font-weight: 700;
+    }
+     @if not ($headArrow) {}
+     @else {
+      .arrowBox{
+        @include setflex(space-between)
+        width: 90px;
+         button{
+          @include setSize(22px,22px)
+          background-image: url(/Images/Main/Arrow.svg);
+        }
+        
+        .leftArrow{
+          transform: rotate(180deg);
+        }
+      }
+    }
+     @if not ($headBtn) {}
+     @else{
+      @include button;
+    }
+  }
+}
+
+
 main{
   
   .mainBannerBox{
@@ -39,57 +107,24 @@ main{
     margin: 0 auto 140px auto;
     padding: 0 28px;
 
-    .moduleHead{
-      display: flex;
-      justify-content: space-between;
-      height: 45px;
-      margin-bottom: 28px;
-
-      font: {
-        font-size: 30px;
-        font-weight: 700;
-      }
-    
-      .arrowBox{
-        display: flex;
-        justify-content: space-between;
-        width: 90px;
-
-        button{
-          width: 22px;
-          height: 22px;
-
-          background-image: url(/Images/Main/Arrow.svg);
-        }
-        
-        .leftArrow{
-          transform: rotate(180deg);
-        }
-      }
-    }
-
+    @include moduleHead(1);
     .moduleAside{
       font-weight: 700;
     }
 
     .moduleItemList{
-      display: flex;
-      flex-wrap: nowrap;
+      @include setflex(null, null, nowrap);
       overflow: hidden;
 
       .itemBox{
-        display: flex;
-
         .itemImage{
 
           img{
-            width: 100%;
-            height: 100%;
+            @include setSize(700px, 570px);
           }
 
           video{
-            width: 100%;
-            height :100%;
+            @include setSize(100%, 100%);
           }
         }
         .itemName{
@@ -113,22 +148,22 @@ main{
       }
 
       .itemBox1{
-        align-items: center;
-        width: 1140px;
-        height: 570px;
+        @include setflex(null, center);
+        @include setSize(1140px, 570px);
         margin-right: 70px;
 
         .itemImage{
-          margin-right: 80px;
           width: 700px;
+          margin-right: 80px;
         }
-
-        .itemTextBox{
-          width: 310px;
+        .itemnoteBox{
+          @include setflex(null, center, wrap);
+          .itemTextBox{
+            width: 310px;
+          }
         }
       }
       .itemBox2{
-        flex-wrap: wrap;
         width: 400px;
         margin-right: 70px;
 
@@ -139,26 +174,20 @@ main{
       }
 
       .itemBox3{
-
         .itemImage{
-          width: 430px;
-          height: 554px;
+          @include setSize(430px, 554px);
         }
       }
 
       .itemBox4{
-
         .itemImage{
-          width: 480px;
-          height: 618.84px;
+          @include setSize(480px, 618.84px);
         }
       }
 
       .itemBox5{
-
         .itemImage{
-          width: 370px;
-          height: 446.78px;
+          @include setSize(370px, 446.78px);
         }
       }
     }
@@ -171,6 +200,7 @@ main{
 
     .moduleHead{
       position: absolute;
+      @include setflex(space-between)
       display: flex;
       justify-content: space-between;
       height: 45px;
@@ -182,7 +212,7 @@ main{
       }
     }
 
-    .temp{
+    .moduleMain{
       display: flex;
 
       .moduleAside{
@@ -210,7 +240,7 @@ main{
 
       .moduleItemList{
         display: flex;
-        align-self: flex-end;
+        align-content: flex-end;
         flex-wrap: wrap;
         width: 600px;
         margin: 0 25px;
@@ -283,7 +313,7 @@ main{
       }
     }
 
-    .temp{
+    .moduleMain{
       display: flex;
 
       .moduleItemList{
@@ -438,7 +468,7 @@ main{
   .styleD{
     position:  relative;
     display: flex;
-    align-items: flex-end;
+    align-content: flex-end;
     width: 1460px;
     height: 875px;
     margin: 0 auto 140px auto;      
@@ -459,7 +489,7 @@ main{
         weight: 700;
       }
     }
-    .temp{
+    .moduleMain{
       display: flex;
 
       .moduleAside{
@@ -709,7 +739,7 @@ main{
       }
     }
 
-    .temp{
+    .moduleMain{
       display: flex;
       
       .moduleAside{
