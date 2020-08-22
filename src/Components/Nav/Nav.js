@@ -7,10 +7,25 @@ class Nav extends Component {
     return (
       <div className="Nav">
         <div className="rollingBanner">
-          <div className="rollingBannerOne">
-            <a href="#">Free shipping on orders of $50 or more</a>
+          <ul>
+            <li>Free shipping on orders of $50 or more</li>
+            <li>Contactless Click & Collect is now available | Find your nearest store here</li>
+          </ul>
+        </div>
+        <div className="searchBar">
+          <div className="searchBarContainer">
+            <form action="">
+              <input type="text" placeholder="I'm looking for..."/>
+              <button type="submit"></button>
+            </form>
+            <div className="closeButton">
+              <svg viewBox="0 0 10 10" id="icon-close">
+                <title>close</title>
+                <polygon points="9.6 1.1 8.9 0.4 5 4.29 1.1 0.4 0.4 1.1 4.29 5 0.4 8.9 1.1 9.6 5 5.71 8.9 9.6 9.6 8.9 5.71 5 9.6 1.1"></polygon>
+              </svg>
+              <span>CLOSE</span>
+            </div>
           </div>
-          {/* <div className="rollingBannerTwo">Contactless Click & Collect is now available | Find your nearest store here</div> */}
         </div>
         <nav>
           <div className="navBox">
@@ -23,19 +38,19 @@ class Nav extends Component {
             <div className="navInfo">
               <button>
                 <span>Deliver to</span>
-                <span><img alt="country" src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dwc9e20260/images/country_KR.svg" /></span>
+                <img alt="country" src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dwc9e20260/images/country_KR.svg" />
                 <span>KOREA, REPUBLIC OF</span>
-                <div className="icon"></div>
+                <span className="icon"></span>
               </button>
               <ul>
-                <li><a href="#">STORES</a></li>
-                <li><a href="#">LOGIN</a></li>
-                <li><a href="#">MY FAVOURITES</a></li>
+                <li><Link>STORES</Link></li>
+                <li><Link>LOGIN</Link></li>
+                <li><Link>MY FAVOURITES</Link></li>
               </ul>
             </div>
             <div className="emptyBar"></div>
             <div className="navMenu">
-                <ul className="menuList">
+                <ul className="menuList"> 
                   <li><a href="#">Tea</a></li>
                   <li><a href="#">Teawares</a></li>
                   <li><a href="#">Gifts</a></li>
