@@ -7,114 +7,54 @@ class ProductList extends Component {
   constructor() {
     super();
     this.state = {
+      product: [],
       isClick: false,
-      product: [
-        {
-          url:
-            "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw77631367/images/products/2020 Aug/T125AE281_blueberry-crumble_p2.png?sw=262&sh=262&sm=fit",
-          name: "Blueberry Cruble Loose Leaf Feature Cube",
-          rating:
-            "https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dwa0a93cd3/images/stars/rating-4_8.gif",
-          Variation: [
-            {
-              name: "",
-              price: "26.0",
-              url:
-                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw77631367/images/products/2020 Aug/T125AE281_blueberry-crumble_p2.png?sw=80&sh=80&sm=fit",
-            },
-          ],
-        },
-        {
-          url:
-            "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw5c3ae3cb/images/UXProject/new-tea-images/T110AI012_matcha_r1.jpg?sw=262&sh=262&sm=fit",
-          name: " 100% Certified Organic Matcha",
-          rating:
-            "https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw3147e413/images/stars/rating-4_6.gif",
-          Variation: [
-            {
-              name: "Tin 30g-1.1oz",
-              price: "26.00",
-              url:
-                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw2cba5a78/images/T110AI012_matcha-black-tin_p1.png?sw=55&sh=55&sm=fit",
-            },
-            {
-              name: "Tin 50g-1.7oz",
-              price: "44.0",
-              url:
-                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dwe989f3ae/images/products/T110AI029_matcha_sha1.png?sw=80&sh=80&sm=fit",
-            },
-          ],
-        },
-        {
-          url:
-            "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw5c3ae3cb/images/UXProject/new-tea-images/T110AI012_matcha_r1.jpg?sw=262&sh=262&sm=fit",
-          name: " 9% Certified Organic Matcha",
-          rating:
-            "https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw3147e413/images/stars/rating-4_6.gif",
-          Variation: [
-            {
-              name: "Tin 30g-1.1oz",
-              price: "26.00",
-              url:
-                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw2cba5a78/images/T110AI012_matcha-black-tin_p1.png?sw=55&sh=55&sm=fit",
-            },
-            {
-              name: "Tin 50g-1.7oz",
-              price: "44.0",
-              url:
-                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dwe989f3ae/images/products/T110AI029_matcha_sha1.png?sw=80&sh=80&sm=fit",
-            },
-          ],
-        },
-        {
-          url:
-            "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw5c3ae3cb/images/UXProject/new-tea-images/T110AI012_matcha_r1.jpg?sw=262&sh=262&sm=fit",
-          name: " 999% Certified Organic Matcha",
-          rating:
-            "https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw3147e413/images/stars/rating-4_6.gif",
-          Variation: [
-            {
-              name: "Tin 30g-1.1oz",
-              price: "26.00",
-              url:
-                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw2cba5a78/images/T110AI012_matcha-black-tin_p1.png?sw=55&sh=55&sm=fit",
-            },
-            {
-              name: "Tin 50g-1.7oz",
-              price: "44.0",
-              url:
-                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dwe989f3ae/images/products/T110AI029_matcha_sha1.png?sw=80&sh=80&sm=fit",
-            },
-          ],
-        },
-        {
-          url:
-            "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw5c3ae3cb/images/UXProject/new-tea-images/T110AI012_matcha_r1.jpg?sw=262&sh=262&sm=fit",
-          name: " 10100% Certified Organic Matcha",
-          rating:
-            "https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw3147e413/images/stars/rating-4_6.gif",
-          Variation: [
-            {
-              name: "Tin 30g-1.1oz",
-              price: "26.00",
-              url:
-                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw2cba5a78/images/T110AI012_matcha-black-tin_p1.png?sw=55&sh=55&sm=fit",
-            },
-            {
-              name: "Tin 50g-1.7oz",
-              price: "44.0",
-              url:
-                "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dwe989f3ae/images/products/T110AI029_matcha_sha1.png?sw=80&sh=80&sm=fit",
-            },
-          ],
-        },
+      styleList: [
+        "loose leaf tea",
+        "loose leaf tisane",
+        "powdered tisane",
+        "sugar",
+        "teabag",
       ],
-      styleList: ["tea", "gews", "sss"],
-      typeOfTea: ["a", "b", "c"],
-      price: ["1", "2", "3"],
+      typeOfTea: [
+        "black breakfast tea",
+        "black tea",
+        "chinese black tea",
+        "Chinese green tea",
+        "flavored black tea",
+        "flavored green tea",
+        "flavored oolong tea",
+        "flavored white tea",
+        "fruit tisane",
+        "herbal tisane",
+        "japanese green tea",
+        "japanese matcha",
+        "oolong tea",
+        "premium green tea",
+        "smoked black tea",
+        "sugar tisane",
+        "Tea",
+        "white Tea",
+      ],
+      price: ["Under $10", "Under $20", "Under $30", "Under $40", "Under $50"],
+      sortBy: [
+        "Sort by:",
+        "Sort A-Z",
+        "Price Descending",
+        "Price Ascending",
+        "Top Rated",
+        "Best Sellers",
+      ],
     };
   }
 
+  componentDidMount = () => {
+    fetch("http://localhost:3000/Data/product/mockProduct.json")
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({ product: res.product });
+      });
+  };
   handleClick = (name) => {
     this.setState({ isClick: !this.state.isClick });
   };

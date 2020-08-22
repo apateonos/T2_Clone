@@ -8,6 +8,7 @@ class ProductItem extends Component {
 
     this.state = {
       isActive: [],
+      isWishList: false,
     };
   }
 
@@ -22,6 +23,11 @@ class ProductItem extends Component {
       isActive: arr,
     });
   }
+  handleHeartClick = () => {
+    const { isWishList } = this.state;
+    this.setState({ isWishList: !isWishList });
+    console.log(this.props.product);
+  };
 
   handleClick = (idx) => {
     const { isActive } = this.state;
@@ -34,20 +40,19 @@ class ProductItem extends Component {
 
   render() {
     const { product } = this.props;
-
+    const { isWishList } = this.state;
+    const { handleHeartClick } = this;
     return (
       <li className="ProductItem">
         <div className="heartBox">
-          <Link to="/shop">
-            <img
-              src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1597816184082/images/heart.svg"
-              alt="heart"
-            />
-            <div></div>
-          </Link>
+          <button onClick={handleHeartClick}>
+            <div className={isWishList ? "heartImgCheck" : "heartImg"} />
+          </button>
         </div>
         <div className="imageBox">
-          <img src={product.url} alt={product.name} />
+          <Link to="/shop">
+            <img src={product.url} alt={product.name} />
+          </Link>
         </div>
         <div className="productInfo">
           <Link to="/shop" className="productName">

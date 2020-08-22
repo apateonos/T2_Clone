@@ -3,23 +3,47 @@
 .ProductItem {
 	width: 267px;
 	margin-bottom: 70px;
+	margin-right: 2.1%;
+
+	&:nth-child(4n) {
+		margin-right: 0px;
+	}
 
 	.heartBox {
 		position: relative;
 		height: 40px;
 
-		a {
-			display: block;
+		button {
+			width: 20px;
+			height: 20px;
 			position: absolute;
 			top: 0;
 			right: 0;
-			width: 20px;
-			height: 20px;
+			padding: 0;
+			.heartImg {
+				height: inherit;
+				background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart.svg)
+					no-repeat center;
+			}
+
+			&:hover .heartImg {
+				background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart_orange.svg)
+					no-repeat center;
+			}
+			.heartImgCheck {
+				height: inherit;
+				background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart_red.svg)
+					no-repeat center;
+			}
 		}
 	}
 
 	.imageBox {
 		@include center;
+		img {
+			width: 196.47px;
+			height: 196.47px;
+		}
 	}
 
 	.productName {

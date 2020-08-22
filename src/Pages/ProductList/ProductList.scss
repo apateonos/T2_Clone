@@ -10,7 +10,7 @@
 	width: 100%;
 	.productContainer {
 		width: 1200px;
-		padding: 0 40px;
+		padding: 0 30px;
 	}
 
 	header {
@@ -55,7 +55,6 @@
 		.productitemList {
 			display: flex;
 			flex-wrap: wrap;
-			justify-content: space-between;
 		}
 	}
 }
