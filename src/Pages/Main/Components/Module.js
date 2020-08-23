@@ -12,8 +12,7 @@ class Module extends Component {
       asideDESC,
       moduleItemList,
     } = this.props;
-    console.log(moduleItemList[1].imageType);
-    console.log(moduleAside);
+
     return (
       <div className={"module " + moduleStyle}>
         <ModuleHead moduleName={moduleName} />

@@ -14,6 +14,7 @@ class Item extends Component {
       itemDESC,
       buttonList,
     } = this.props;
+
     return (
       <div className={"itemBox " + BoxStyle}>
         {console.log(itemImage)}

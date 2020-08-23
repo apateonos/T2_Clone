@@ -1,90 +1,7 @@
 @import "../../Styles/common.scss";
-
-@mixin button {
-  min-width: 120px;
-  margin-right : 40px;
-  padding: 6px 10px 6px 10px;
-  
-  border: 1px solid $orange;
-  background-color: transparent;
-  color: $orange;
-
-  font: {
-    size: 16px;
-    weight: 700;
-  }
-}
-
-@mixin setSize($width, $height){
-  width: $width;
-  height: $height;
-}
-
-@mixin setAbsolute($top: null, $left: null, $bottom: null, $right: null){
-  position: absolute;
-  @if not ($top) {}
-  @else {top: $top;}
-
-  @if not ($left) {}
-  @else {left: $left;}
-
-  @if not ($bottom) {}
-  @else {bottom: $bottom;}
-
-  @if not ($right) {}
-  @else {right: $right;}
-}
-
-@mixin setflex($justify-justify: null, $align-align: null, $flex-wrap: null, $order-order: null){
-  display: flex;
-  @if not ($justify-justify) {}
-  @else {justify-content: $justify-justify;}
-
-  @if not ($align-align) {}
-  @else {align-content: $align-align;}
-
-  @if not ($flex-wrap) {}
-  @else {flex-wrap: $flex-wrap;}
-
-  @if not ($order-order) {}
-  @else {order: $order-order;}
-}
-
-@mixin moduleHead($headArrow: null, $headBtn: null){
-  .moduleHead{
-    @include setflex(space-between)
-    height: 45px;
-    margin-bottom: 28px;
-
-    font: {
-      font-size: 30px;
-      font-weight: 700;
-    }
-     @if not ($headArrow) {}
-     @else {
-      .arrowBox{
-        @include setflex(space-between)
-        width: 90px;
-         button{
-          @include setSize(22px,22px)
-          background-image: url(/Images/Main/Arrow.svg);
-        }
-        
-        .leftArrow{
-          transform: rotate(180deg);
-        }
-      }
-    }
-     @if not ($headBtn) {}
-     @else{
-      @include button;
-    }
-  }
-}
-
+@import "./Components/module.scss";
 
 main{
-  
   .mainBannerBox{
     position: relative;
     
@@ -94,61 +11,34 @@ main{
     }
     
     .whiteBox{
-      position: absolute;
-      bottom: 0;
       z-index: 1;
-      width: 100%;
-      height: 190px;
+      @include setAbsolute(null, null, 0);
+      @include setSize(100%, 190px);
 
       background-color: $white;
     }
   }
+
   .styleA{
-    margin: 0 auto 140px auto;
-    padding: 0 28px;
+    @include moduleContainerSetting;
+    max-width : 1796px;
 
-    @include moduleHead(1);
-    .moduleAside{
-      font-weight: 700;
+    .moduleHead{
+      @include moduleHead(1);
     }
-
     .moduleItemList{
-      @include setflex(null, null, nowrap);
+      @include setFlex(null, null, nowrap);
       overflow: hidden;
 
       .itemBox{
-        .itemImage{
-
-          img{
-            @include setSize(700px, 570px);
-          }
-
-          video{
-            @include setSize(100%, 100%);
-          }
-        }
-        .itemName{
-          margin-bottom: 12px;
-          
-          font: {
-            size: 36px;
-            weight: 700;
-          }
-        }
-
-        .itemDESC{
-          margin-bottom: 24px;
-          
-          font-size: 18px;
-        }
-      }
-
-      .itemButton{
+        @include itemImgSetting(700px, 570px);
+        @include itemName(36px, 12px);
+        @include itemDESC(18px, 24px);
         @include button;
       }
 
       .itemBox1{
-        @include setflex(null, center);
+        @include setFlex(null, center);
         @include setSize(1140px, 570px);
         margin-right: 70px;
 
@@ -156,13 +46,15 @@ main{
           width: 700px;
           margin-right: 80px;
         }
+
         .itemnoteBox{
-          @include setflex(null, center, wrap);
+          @include setFlex(null, center, wrap);
           .itemTextBox{
             width: 310px;
           }
         }
       }
+
       .itemBox2{
         width: 400px;
         margin-right: 70px;
@@ -195,100 +87,46 @@ main{
 
   .styleB{
     position: relative;
-    margin: 0 auto 140px 0;
-    padding: 0 28px;
-
+    @include moduleContainerSetting();
+    
     .moduleHead{
-      position: absolute;
-      @include setflex(space-between)
-      display: flex;
-      justify-content: space-between;
-      height: 45px;
-      margin-bottom: 28px;
-
-      font: {
-        size: 32px;
-        weight: 700;
+        position: absolute;
+        @include moduleHead();
       }
-    }
 
     .moduleMain{
       display: flex;
 
       .moduleAside{
         order: 1;
-        width: 960px;
-        height: 620px;
+        @include setSize(960px, 620px);
         margin: 16px;
-
+        padding: 50px;
         background-image: url(/Images/Main/B_aside.jpg);
         background-size: 100% 100%;
-        font-weight: 700;
-
-        .asideName{
-          width: 320px;
-          padding: 50px;
-          
-          color: $white;
-
-          font: {
-            size: 50px;
-            weight: 700;
-          }
-        }
+        @include asideName(50px, 0, 700, $white);
       } 
 
       .moduleItemList{
-        display: flex;
-        align-content: flex-end;
-        flex-wrap: wrap;
+        @include setFlex(null, flex-end, wrap);
         width: 600px;
         margin: 0 25px;
 
         .itemBox{
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          width: 300px;
-          height: 300px;
+          @include setFlex(center, null, wrap);
+          @include setSize(300px, 300px);
           padding: 16px;
-
-          .itemImage{
-            width: 170px;
-            height: 170px;
-
-              img{
-              width: 100%;
-              height: 100%;
-            }
-          }
+          @include itemImgSetting(170px, 170px);
 
           .itemnoteBox{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            @include setFlex(center, null, wrap);
             height :60px;
+            @include button;
 
             .itemTextBox{
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: center;
-
-              font-size: 14px;
-
-              .itemName{
-                margin-bottom: 2px;
-
-                font-weight: 700;
-              }
-
-              .itemDESC{
-                margin: 0 auto 8px auto;
-              }
-            }
-            
-            .itemButton{
-              @include button;
+              @include setFlex(center, null, wrap);
+              @include itemName(14px, 2px);
+              @include itemDESC(14px, 8px);
             }
           }
         }
@@ -298,19 +136,10 @@ main{
 
   .styleC{
     position: relative;
-    margin: 0 auto 140px auto;
-    padding: 0 28px;
+    @include moduleContainerSetting;
 
     .moduleHead{
-      display: flex;
-      justify-content: space-between;
-      height: 45px;
-      margin-bottom: 28px;
-
-      font: {
-        size: 32px;
-        weight: 700;
-      }
+      @include moduleHead;
     }
 
     .moduleMain{
@@ -323,277 +152,107 @@ main{
         margin: 0 auto;
 
         .itemBox{
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          align-content: flex-end;
-
-          .itemImage{
-            width: 170px;
-            height: 170px;
-
-              img{
-              width: 100%;
-              height: 100%;
-            }
-          }
+          @include setFlex(center, flex-end, wrap);
+          @include itemImgSetting(170px, 170px, 10px);
+          @include button;
         }
 
         .itemBox1{
-          grid-column-start: 1;
-          grid-column-end: 2;
-          grid-row-start: 1;
-          grid-row-end: 2;
-          width: 512px;
-          height: 640px;
+          @include gridPosition(1, 2, 1, 2);
+          @include setSize(512px, 640px);
+          margin: 0;
           padding: 0 70px;
-
-          .itemImage{
-            width: 262px;
-            height: 262px;
-            margin-bottom: 120px;
-          }
+          @include itemImgSetting(262px, 262px);
 
           .itemnoteBox{
             display: flex;
-            margin-bottom: 12px;
-
-            .itemButton{
-              @include button;
-            }
+            margin: 120px 0 12px 0;
+            @include button;
           }
         }
 
         .itemBox2{
-          width: 512px;
-          height: 640px;
-          grid-column-start: 3;
-          grid-column-end: 4;
-          grid-row-start: 1;
-          grid-row-end: 2;
+          @include gridPosition(3, 4, 1, 2);
+          @include setSize(512px, 640px);
+          margin: 0;
           padding: 0 70px;
-
-          .itemImage{
-            width: 262px;
-            height: 262px;
-            margin-bottom: 120px;
-          }
+          @include itemImgSetting(262px, 262px, 120px);
 
           .itemnoteBox{
             display: flex;
             margin-bottom: 12px;
-
-            .itemButton{
-              @include button;
-            }
+            @include button;
           }
         }
 
         .itemBox3{
-          grid-column-start: 5;
-          grid-column-end: 5;
-          grid-row-start: 1;
-          grid-row-end: 1;
-          margin-right: 40px;
-
-          .itemImage{
-            width: 170px;
-            height: 170px;
-            margin-bottom: 10px;
-          }
-
-          .itemnoteBox{
-            font-size: 16px;
-          }
+          @include gridPosition(5, 5, 1, 1);
         }
 
         .itemBox4{
-          grid-column-start: 6;
-          grid-column-end: 6;
-          grid-row-start: 1;
-          grid-row-end: 1;
-          margin-right: 40px;
-
-          .itemImage{
-            width: 170px;
-            height: 170px;
-            margin-bottom: 10px;
-          }
-
-          .itemnoteBox{
-            font-size: 16px;
-          }
+          @include gridPosition(6, 6, 1, 1);
         }  
 
         .itemBox5{
-          grid-column-start: 5;
-          grid-column-end: 5;
-          grid-row-start: 2;
-          grid-row-end: 2;
-          margin-right: 40px;
-
-          .itemImage{
-            width: 170px;
-            height: 170px;
-
-            margin-bottom: 10px;
-          }
-
-          .itemnoteBox{
-            font-size: 16px;
-          }
+          @include gridPosition(5, 5, 2, 2);
         }
 
         .itemBox6{
-          grid-column-start: 6;
-          grid-column-end: 6;
-          grid-row-start: 2;
-          grid-row-end: 2;
-          margin-right: 40px;
-
-          .itemImage{
-            width: 170px;
-            height: 170px;
-            margin-bottom: 10px;
-          }
-
-          .itemnoteBox{
-            font-size: 16px;
-          }
+          @include gridPosition(6, 6, 2, 2);
         }
       }
     }
   }
 
   .styleD{
-    position:  relative;
-    display: flex;
-    align-content: flex-end;
-    width: 1460px;
-    height: 875px;
-    margin: 0 auto 140px auto;      
+    position: relative;
+    @include setFlex(null, flex-end);
+    @include setSize(1460px, 875px);
+    @include moduleContainerSetting(140px, 80px);
     padding: 80px;
-
     background: $mediumgray;
     
     .moduleHead{
-      position:  absolute;
-      top: 60px;
-      display: flex;
-      justify-content: space-between;
-      height: 45px;
-      margin-bottom: 28px;
-
-      font: {
-        size: 32px;
-        weight: 700;
-      }
+      @include setAbsolute(50px);
+      @include moduleHead;
     }
+
     .moduleMain{
       display: flex;
 
       .moduleAside{
         order: 1;
-        display: flex;
-        flex-wrap: wrap;
-        align-content: center;
+        @include setFlex(null, center, wrap);
         width: 360px;
         margin-left: 100px;
-
-        font-weight: 700;
-
-        .asideName{
-          margin-bottom: 15px;
-          font-size: 36px;
-        }
-
-        .asideDESC{
-          font-size: 22px;
-        }
+        @include asideName(36px, 15px);
+        @include asideDESC(22px);
       }
 
       .moduleItemList{
         display: flex;
+        align-items: flex-end;
 
         .itemBox{
           width: 395px;
           margin-right: 40px;  
-
-          .itemImage{
-            width: 395px;
-            height: 451.42px;
-            margin-bottom: 30px;
-
-              img{
-              width: 100%;
-              height: 100%;
-            }
-          }
-
-          .itemnoteBox{
-            display: flex;
-            flex-wrap: wrap;
-
-            .itemTextBox{
-              display: flex;
-              flex-wrap: wrap;
-              margin-top: 40px;
-
-              .itemName{
-                font-weight: 700;
-                margin-bottom: 4px;
-                font-size: 32px;
-              }
-
-              .itemDESC{
-                margin: 0 auto;
-                font-size: 16px;
-              }
-            }
-
-            .itemButton{
-              @include button;
-            }
-          }
+          @include itemImgSetting(395px, 451.42px, 30px);
+          @include itemName(32px, 4px);
+          @include itemDESC(16px);
+          @include button;
         } 
       }
     }
   }
 
   .styleE{
-    width: 100%;
-    height: 740px;
+    @include setSize(100%, 740px);
     margin-bottom: 140px;
 
     .moduleHead{
       z-index: 1;
       position:  absolute;      
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      padding: 50px 70px;
-
-      
-      font: {
-        size: 30px;
-        weight: 700;
-      }
-
-      .arrowBox{
-        width: 90px;
-        display: flex;
-        justify-content: space-between;
-
-        button{
-          width: 22px;
-          height: 22px;
-
-          background-image: url(/Images/Main/Arrow.svg);
-        }
-        .leftArrow{
-          transform: rotate(180deg);
-        }
-      }
+      @include moduleHead(1);
     }
 
     .moduleItemList{
@@ -603,46 +262,19 @@ main{
       .itemBox{
         position:  relative;
         min-width: 100%;
-        width: 100%;
-        height: 100%;
-
-        .itemImage{
-          width: 100%;
-          height: 100%;
-
-          img{
-            width: 100%;
-            height: 100%;
-          }
-        }
+        @include setSize(100%, 100%);
+        @include itemImgSetting(100%, 100%);
 
         .itemnoteBox{
-          position: absolute;
-          top: 0;
-          left: 50%;
-          width: 460px;          
-          height: 100%;
-          display: flex;
-          align-content: center;
-          flex-wrap: wrap;
-
+          @include setAbsolute(0, 50%);
+          @include setFlex(null, center, wrap);
+          @include setSize(460px, 100%);
+          @include button;
+          
           .itemTextBox{
-            color: $white;
-            font-size: 30px;
-
-            .itemName{
-              font-size: 36px;
-              margin-bottom: 14px;
-            }
-
-            .itemDESC{
-              font-size: 16px;
-              margin-bottom: 25px;
-            }
-          }
-
-          .itemButton{
-            @include button;
+            color : $white;
+            @include itemName(36px, 14px);
+            @include itemDESC(16px, 25px);
           }
         }
       }
@@ -651,117 +283,45 @@ main{
 
   .styleF{
     position: relative;
-    margin: 0 24.5px 140px 24.5px;
-    padding: 0 28px;
-
+    @include moduleContainerSetting(140px,150px);
+    
     .itemBox{
       display: flex;
-      width: 1150px;
-      height: 574px;
-
-      .itemImage{
-        width: 674px;
-
-        img{
-          width: 100%;
-          height: 100%;
-        }
-      }
+      @include setSize(1150px, 574px);
+      @include itemImgSetting(674px);
 
       .itemnoteBox{
-        display: flex;
-        align-content: center;
-        flex-wrap: wrap;
+        @include setFlex(null, center, wrap);
         width: 363px;
         margin-left: 30px;
-
-        .itemTextBox{
-          width: 100%;
-          margin-bottom: 28px;
-
-          .itemName{
-            margin-bottom: 16px;
-
-            font: {
-              size: 35px;
-              weight : 700;
-            }
-          }
-
-          .itemDESC{
-            font-size: 16px;
-          }
-        }
-      }
-
-      .itemButton{
+        @include itemName(35px, 28px);
+        @include itemDESC(16px);
         @include button;
       }
     }
-
-    .itemBox1{
-      margin-left: 100px;
-    }
-
     .itemBox2{
       margin-left: auto;
     }
   }
 
   .styleG{
-    margin: 0 24.5px;
-    margin-bottom: 140px;
-      
-    padding: 0 28px;
+    @include moduleContainerSetting;
 
     .moduleHead{
-      display: flex;
-      justify-content: space-between;
-      margin: 0 24.5px;
-      margin-bottom: 50px;
-      padding: 0 28px;
-
-      .arrowBox{
-        display: flex;
-        justify-content: space-between;
-        width: 90px;
-
-        button{
-          width: 22px;
-          height: 22px;
-
-          background-image: url(/Images/Main/Arrow.svg);
-        }
-
-        .leftArrow{
-          transform: rotate(180deg);
-        }
-      }
+      @include moduleHead;
     }
 
     .moduleMain{
       display: flex;
       
       .moduleAside{
-        display: flex;
-        flex-wrap: wrap;
-        align-content: center;
+        @include setFlex(null, center, wrap);
+        @include asideName(36px, 12px);
+        @include asideDESC(16px, 25px);
         min-width: 400px;
         padding-right: 100px;
-
-        font-weight: 700;
-
-        .asideName{
-          margin-bottom: 12px;
-        
-          font-size: 36px;
-        }
-
-        .asideDESC{
-          margin-bottom: 25px;
-        
-          font-size: 16px;
-        }
+        background-color: white;
+        z-index: 1;
       }
 
       .moduleItemList{
@@ -773,46 +333,21 @@ main{
           min-width: 670px;
           height :670px;
           margin-right: 30px;
-
           background-color: black;
-
-          .itemImage{
-
-            img{
-              width: 100%;
-              height: 100%;
-            }
-          }  
+          @include itemImgSetting(100%, 100%);
+          @include button;
 
           .itemnoteBox{
             position: absolute;
             bottom: 0;
             padding: 10px 50px 110px;
-
             color: $white;
 
             .itemTextBox{
               width: 380px;
-
-              .itemName{
-                margin-bottom: 12px;
-
-                font: {
-                  size: 36px;
-                  weight: 700;
-                }
-              }
-
-              .itemDESC{
-                margin-bottom: 24px;
-        
-                font-size: 18px;
-              }
+              @include itemName(36px, 12px);
+              @include itemDESC(18px, 24px);
             }
-          }
-
-          .itemButton{
-            @include button; 
           }
         }
       }
