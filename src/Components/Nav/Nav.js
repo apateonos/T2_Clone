@@ -1,10 +1,19 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
+import MenuContent1 from "./MenuContent1/MenuContent1";
+import MenuContent2 from "./MenuContent2/MenuContent2";
+import MenuContent3 from "./MenuContent3/MenuContent3";
+import MenuContent4 from "./MenuContent4/MenuContent4";
+import MenuContent5 from "./MenuContent5/MenuContent5";
+import MenuContent6 from "./MenuContent6/MenuContent6";
+import MenuContent7 from "./MenuContent7/MenuContent7";
 
 class Nav extends Component {
   state = {
     textIdx: 0,
+    isShown: false,
+    activeContent: 0,
   };
 
   componentDidMount() {
@@ -13,6 +22,18 @@ class Nav extends Component {
       this.setState({ textIdx: currentIdx + 1 });
     }, 2500);
   }
+
+  switchActiveContent = (idx) => {
+    this.setState({ activeContent: idx });
+  };
+
+  showMenuContent = () => {
+    this.setState({ isShown: true });
+  };
+
+  hideMenuContent = () => {
+    this.setState({ isShown: false });
+  };
 
   render() {
     let currentBannerText = bannerArr[this.state.textIdx % bannerArr.length];
@@ -73,27 +94,20 @@ class Nav extends Component {
               <div className="emptyBar"></div>
               <div className="navMenu">
                 <ul className="menuList">
-                  <li>
-                    <a href="#">Tea</a>
-                  </li>
-                  <li>
-                    <a href="#">Teawares</a>
-                  </li>
-                  <li>
-                    <a href="#">Gifts</a>
-                  </li>
-                  <li>
-                    <a href="#">Sale</a>
-                  </li>
-                  <li>
-                    <a href="#">Recipes</a>
-                  </li>
-                  <li>
-                    <a href="#">Tea Society</a>
-                  </li>
-                  <li>
-                    <a href="#">Partnerships</a>
-                  </li>
+                  {menuName.map((el, idx) => {
+                    return (
+                      <li
+                        key={idx}
+                        onMouseEnter={(e) => {
+                          this.showMenuContent();
+                          this.switchActiveContent(idx);
+                        }}
+                        onMouseLeave={this.hideMenuContent}
+                      >
+                        <a href="#">{el}</a>
+                      </li>
+                    );
+                  })}
                 </ul>
                 <ul className="icons">
                   <li>
@@ -107,6 +121,14 @@ class Nav extends Component {
             </div>
           </div>
         </nav>
+        <div className="MenuContent">
+          <div
+            onMouseEnter={this.showMenuContent}
+            onMouseLeave={this.hideMenuContent}
+          >
+            {this.state.isShown && MenuContentList[this.state.activeContent]}
+          </div>
+        </div>
       </div>
     );
   }
@@ -116,5 +138,25 @@ const bannerArr = [
   "Free shipping on orders of $50 or more",
   "Contactless Click & Collect is now available | Find your nearest store here.",
 ];
+
+const menuName = [
+  "Tea",
+  "Teawares",
+  "Gifts",
+  "Sale",
+  "Recipes",
+  "Tea Society",
+  "Partnerships",
+];
+
+const MenuContentList = {
+  0: <MenuContent1 />,
+  1: <MenuContent2 />,
+  2: <MenuContent3 />,
+  3: <MenuContent4 />,
+  4: <MenuContent5 />,
+  5: <MenuContent6 />,
+  6: <MenuContent7 />,
+};
 
 export default Nav;
