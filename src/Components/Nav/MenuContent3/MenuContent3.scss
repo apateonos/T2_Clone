@@ -1,0 +1,40 @@
+@import "../../../Styles/common.scss";
+
+.MenuContent3 {
+	@include center;
+	font-weight: 600;
+	font-size: 13px;
+
+	.MenuContentContainer {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		height: 100%;
+		margin: 0 190px;
+		padding: 30px;
+		background-color: $orange;
+
+		.MenuContentBox {
+			display: flex;
+			flex-direction: column;
+
+			ul {
+				display: flex;
+				margin-bottom: 20px;
+
+				li {
+					margin: 0 10px 5px 0;
+					width: 200px;
+					line-height: 20px;
+				}
+			}
+
+			.lowerList {
+				ul {
+					display: flex;
+					flex-direction: column;
+				}
+			}
+		}
+	}
+}
