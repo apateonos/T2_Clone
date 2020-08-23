@@ -111,10 +111,10 @@ class Nav extends Component {
                 </ul>
                 <ul className="icons">
                   <li>
-                    <a href=""></a>
+                    <button />
                   </li>
                   <li>
-                    <a href=""></a>
+                    <a href="" />
                   </li>
                 </ul>
               </div>
