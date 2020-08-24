@@ -68,6 +68,7 @@ class Login extends Component {
             />
             <img
               className={this.state.errorActive ? "succesImg" : "errorImg"}
+              alt="succes"
               src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598112872308/images/validation_success.svg"
             />
             <span
@@ -77,6 +78,7 @@ class Login extends Component {
                 className={
                   this.state.errorActive ? "errorIconNone" : "errorIcon"
                 }
+                alt="succes"
                 src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598112872308/images/error_cross.svg"
               />
               {this.state.email.length === 0
@@ -95,14 +97,16 @@ class Login extends Component {
             />
             <img
               className={this.state.pwpass ? "succesImg" : "errorImg"}
+              alt="succes"
               src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598112872308/images/validation_success.svg"
             />
             <img
               className={this.state.pwpass ? "errorIconNone" : "errorIcon"}
+              alt="errorMessage"
               src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598112872308/images/error_cross.svg"
             />
             <span className={this.state.pwpass ? "displayNone" : "displayOn"}>
-              {this.state.password.length > 8
+              {this.state.password.length === 0
                 ? "Please enter your password"
                 : "The information you have entered is invalid.Please try again."}
             </span>
