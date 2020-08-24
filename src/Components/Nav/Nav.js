@@ -40,14 +40,16 @@ class Nav extends Component {
   };
 
   openSearchBar = () => {
-    console.log("hello");
-    // this.setState({ isSearchBarShown: true });
+    this.setState({ isSearchBarShown: true });
+  };
+
+  hideSearchBar = () => {
+    this.setState({ isSearchBarShown: false });
   };
 
   onScroll = () => {};
 
   render() {
-    // console.log(this.openSearchBar);
     let currentBannerText = bannerArr[this.state.textIdx % bannerArr.length];
 
     return (
@@ -55,7 +57,9 @@ class Nav extends Component {
         <div className="rollingBanner">
           <span>{currentBannerText}</span>
         </div>
-        {this.state.isSearchBarShown && <SearchBar />}
+        {this.state.isSearchBarShown && (
+          <SearchBar hideSearchBar={this.hideSearchBar} />
+        )}
         <nav>
           <div className="navBox">
             <div className="logo">
@@ -108,11 +112,9 @@ class Nav extends Component {
                   })}
                 </ul>
                 <ul className="icons">
+                  <li onClick={this.openSearchBar}></li>
                   <li>
-                    <button onClick={this.openSearchBar} />
-                  </li>
-                  <li>
-                    <a href="" onClick={this.openSearchBar} />
+                    <a href="" />
                   </li>
                 </ul>
               </div>
