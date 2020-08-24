@@ -1,6 +1,11 @@
 @import "../../Styles/common.scss";
 
 .Nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 99;
+
 	.rollingBanner {
 		@include center;
 		height: 40px;
@@ -136,6 +141,7 @@
 							height: 25px;
 							background-image: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1597911659385/images/new_sprite.png");
 							background-size: 360px 360px;
+							margin-top: 5px;
 
 							&:hover {
 								cursor: pointer;

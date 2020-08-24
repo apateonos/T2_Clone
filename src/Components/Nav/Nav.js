@@ -14,8 +14,10 @@ class Nav extends Component {
   state = {
     textIdx: 0,
     isShown: false,
-    // isSearchBarShown: false,
+    isSearchBarShown: false,
     activeContent: 0,
+    scrollPos: 0,
+    showNavInfo: false,
   };
 
   componentDidMount() {
@@ -24,7 +26,7 @@ class Nav extends Component {
       this.setState({ textIdx: currentIdx + 1 });
     }, 2500);
 
-    window.addEventListener("scroll", this.onScroll);
+    window.addEventListener("scroll", this.handleScroll);
   }
 
   switchActiveContent = (idx) => {
@@ -47,6 +49,14 @@ class Nav extends Component {
     this.setState({ isSearchBarShown: false });
   };
 
+  handleScroll = () => {
+    console.log(document.body.getBoundingClientRect().top);
+    this.setState({
+      scrollPos: document.body.getBoundingClientRect().top,
+      showNavInfo: document.body.getBoundingClientRect().top === -40,
+    });
+  };
+
   render() {
     let currentBannerText = bannerArr[this.state.textIdx % bannerArr.length];
 
@@ -58,7 +68,7 @@ class Nav extends Component {
         {this.state.isSearchBarShown && (
           <SearchBar hideSearchBar={this.hideSearchBar} />
         )}
-        <nav>
+        <nav style={{ height: this.state.scrollPos === 0 ? "85px" : "50px" }}>
           <div className="navBox">
             <div className="logo">
               <Link>
@@ -69,7 +79,13 @@ class Nav extends Component {
               </Link>
             </div>
             <div className="navContents">
-              <div className="navInfo">
+              <div
+                className="navInfo"
+                onScroll={this.handleScroll}
+                style={{
+                  display: this.state.scrollPos === 0 ? "flex" : "none",
+                }}
+              >
                 <button>
                   <span>Deliver to</span>
                   <img
