@@ -47,8 +47,6 @@ class Nav extends Component {
     this.setState({ isSearchBarShown: false });
   };
 
-  onScroll = () => {};
-
   render() {
     let currentBannerText = bannerArr[this.state.textIdx % bannerArr.length];
 

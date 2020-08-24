@@ -4,11 +4,13 @@
 	@include center;
 	font-weight: 600;
 	font-size: 13px;
+	z-index: 99;
+	position: absolute;
 
 	.MenuContentContainer {
 		display: flex;
 		justify-content: space-between;
-		width: 100%;
+		width: 1150px;
 		height: 100%;
 		margin: 0 190px;
 		padding: 30px;
