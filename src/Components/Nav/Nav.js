@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
+import SearchBar from "./SearchBar/SearchBar";
 import MenuContent1 from "./MenuContent1/MenuContent1";
 import MenuContent2 from "./MenuContent2/MenuContent2";
 import MenuContent3 from "./MenuContent3/MenuContent3";
@@ -13,6 +14,7 @@ class Nav extends Component {
   state = {
     textIdx: 0,
     isShown: false,
+    // isSearchBarShown: false,
     activeContent: 0,
   };
 
@@ -21,6 +23,8 @@ class Nav extends Component {
       let currentIdx = this.state.textIdx;
       this.setState({ textIdx: currentIdx + 1 });
     }, 2500);
+
+    window.addEventListener("scroll", this.onScroll);
   }
 
   switchActiveContent = (idx) => {
@@ -35,7 +39,15 @@ class Nav extends Component {
     this.setState({ isShown: false });
   };
 
+  openSearchBar = () => {
+    console.log("hello");
+    // this.setState({ isSearchBarShown: true });
+  };
+
+  onScroll = () => {};
+
   render() {
+    // console.log(this.openSearchBar);
     let currentBannerText = bannerArr[this.state.textIdx % bannerArr.length];
 
     return (
@@ -43,21 +55,7 @@ class Nav extends Component {
         <div className="rollingBanner">
           <span>{currentBannerText}</span>
         </div>
-        <div className="searchBar">
-          <div className="searchBarContainer">
-            <form action="">
-              <input type="text" placeholder="I'm looking for..." />
-              <button type="submit"></button>
-            </form>
-            <div className="closeButton">
-              <svg viewBox="0 0 10 10" id="icon-close">
-                <title>close</title>
-                <polygon points="9.6 1.1 8.9 0.4 5 4.29 1.1 0.4 0.4 1.1 4.29 5 0.4 8.9 1.1 9.6 5 5.71 8.9 9.6 9.6 8.9 5.71 5 9.6 1.1"></polygon>
-              </svg>
-              <span>CLOSE</span>
-            </div>
-          </div>
-        </div>
+        {this.state.isSearchBarShown && <SearchBar />}
         <nav>
           <div className="navBox">
             <div className="logo">
@@ -111,10 +109,10 @@ class Nav extends Component {
                 </ul>
                 <ul className="icons">
                   <li>
-                    <button />
+                    <button onClick={this.openSearchBar} />
                   </li>
                   <li>
-                    <a href="" />
+                    <a href="" onClick={this.openSearchBar} />
                   </li>
                 </ul>
               </div>
