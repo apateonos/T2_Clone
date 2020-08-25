@@ -106,9 +106,7 @@ class Login extends Component {
                 ? "Please enter your password"
                 : "The information you have entered is invalid.Please try again."}
             </span>
-
             <span className={pwpass ? "displayOn" : "displayNone"}></span>
-
             <div className="inputChekBox">
               <input className="inputChek" type="checkbox" />
               <span className="inpuChekText">Remember me.</span>
