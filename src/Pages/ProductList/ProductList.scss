@@ -1,13 +1,10 @@
 @import "./../../Styles/common.scss";
 
-* {
-	box-sizing: border-box;
-}
-
 .ProductList {
-	font-family: "Helvetica Now", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	@include columnCenter;
+	font-family: "Helvetica Now", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	width: 100%;
+
 	.productContainer {
 		width: 1200px;
 		padding: 0 30px;
@@ -15,10 +12,12 @@
 
 	header {
 		margin-top: 20px;
+
 		ul {
 			display: flex;
 			padding-bottom: 40px;
 			font-size: 11px;
+
 			li {
 				&:after {
 					margin: 0 5px 0 7px;
@@ -29,6 +28,7 @@
 				}
 			}
 		}
+
 		.mainHeading {
 			margin-bottom: 20px;
 			font-size: 48px;
@@ -38,6 +38,7 @@
 
 	.refineByContainer {
 		display: flex;
+		position: relative;
 		height: 72px;
 		margin-bottom: 50px;
 		padding: 15px 0;
@@ -48,6 +49,16 @@
 			margin-right: 30px;
 			font-size: 15px;
 			font-weight: 600;
+		}
+
+		.FilterSelectBox:last-child {
+			position: absolute;
+			right: 0;
+			margin-right: 0;
+
+			.customCheckBox {
+				display: none;
+			}
 		}
 	}
 

@@ -20,6 +20,7 @@
 			top: 0;
 			right: 0;
 			padding: 0;
+
 			.heartImg {
 				height: inherit;
 				background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart.svg)
@@ -30,6 +31,7 @@
 				background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart_orange.svg)
 					no-repeat center;
 			}
+
 			.heartImgCheck {
 				height: inherit;
 				background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart_red.svg)
@@ -40,6 +42,7 @@
 
 	.imageBox {
 		@include center;
+
 		img {
 			width: 196.47px;
 			height: 196.47px;
@@ -74,47 +77,101 @@
 		display: flex;
 		align-items: center;
 		height: 216px;
+
 		li {
 			margin-right: 5px;
+
 			.variationImgButton {
 				display: flex;
 				align-items: flex-end;
-				height: 84px;
+				padding: 0;
+				padding-bottom: 2px;
 
 				img {
-					margin-bottom: 2px;
+					height: 84px;
 				}
 			}
+
 			.borderBlack {
 				border-bottom: solid 2px $black;
 			}
+
 			.borderNone {
 				border-bottom: solid 2px $white;
 			}
+
 			.variationName {
 				height: 50px;
 				margin-top: 10px;
 				font-size: 12px;
 				font-weight: 600;
 			}
+
 			.price {
 				font-size: 12px;
 				font-weight: 600;
 			}
 		}
 	}
+
 	.addTobagBox {
 		display: flex;
 		justify-content: space-between;
 
-		select {
+		.quantitySelectBox {
+			display: flex;
+			flex-direction: column;
 			width: 92.89px;
 			height: 42px;
+			border: 1px solid $black;
+			line-height: 42px;
+			text-align: center;
+
+			.number {
+				display: flex;
+				justify-content: space-between;
+				width: inherit;
+				height: inherit;
+				border: solid 1px $black;
+
+				input {
+					appearance: none;
+				}
+
+				.arrow {
+					width: 41px;
+					border-left: 1px solid $black;
+					background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1597940061845/images/new_sprite.png) -460px -45px
+						no-repeat;
+				}
+
+				input:checked ~ .arrow {
+					background-position: -460px -217px;
+				}
+			}
+
+			.quantityList {
+				position: absolute;
+				z-index: 1;
+				width: inherit;
+				background-color: white;
+				border: solid 1px $black;
+				border-top: none;
+				cursor: pointer;
+
+				input {
+					appearance: none;
+				}
+			}
 		}
+
 		button {
 			width: 157.12px;
 			height: 42px;
 			background: $orange;
+			font-style: inherit;
+			font-weight: 600;
+
 			&:hover {
 				background: $black;
 				color: $white;

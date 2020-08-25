@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import "./filterSelectBox.scss";
+import "./quantityBox.scss";
 
-class FilterSelectBox extends Component {
+class QuantityBox extends Component {
   constructor() {
     super();
 
@@ -12,14 +12,15 @@ class FilterSelectBox extends Component {
 
   handleCheck = (e) => {
     this.props.handleClick(e);
+    this.setState({ isClick: false });
   };
 
   render() {
     const { isClick } = this.state;
     const { list, name } = this.props;
     return (
-      <div className="FilterSelectBox">
-        <label className="refineByName">
+      <div className="QuantityBox">
+        <label className="sortBy">
           <input
             type="checkbox"
             onClick={() => {
@@ -27,22 +28,15 @@ class FilterSelectBox extends Component {
             }}
           />
           {name}
-          <div className="arrow"></div>
+          <div className={`arrow ${isClick && `rotate`}`}></div>
         </label>
         {isClick && (
           <ul>
             {list.map((el) => {
               return (
-                <li key={el}>
+                <li key={el} onChange={this.handleCheck}>
                   <label>
-                    <input
-                      className="checkInput"
-                      type="checkbox"
-                      id={el}
-                      name={name}
-                      onClick={this.handleCheck}
-                    />
-                    <span className="customCheckBox"></span>
+                    <input className="checkInput" type="radio" value={el} />
                     {el}
                   </label>
                 </li>
@@ -55,4 +49,4 @@ class FilterSelectBox extends Component {
   }
 }
 
-export default FilterSelectBox;
+export default QuantityBox;

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import ProductItem from "./../../Components/ProductItem/ProductItem";
 import FilterSelectBox from "./Components/FilterSelectBox/FilterSelectBox";
+import ProductItem from "./../../Components/ProductItem/ProductItem";
 import "./ProductList.scss";
 
 class ProductList extends Component {
   constructor() {
     super();
+
     this.state = {
       product: [],
       isClick: false,
@@ -49,22 +50,42 @@ class ProductList extends Component {
   }
 
   componentDidMount = () => {
-    fetch("http://localhost:3000/Data/product/mockProduct.json")
+    // "http://10.58.4.238:8000/products/all"
+    fetch("http://localhost:3000/Data/product.json")
       .then((res) => res.json())
-      .then((res) => {
-        this.setState({ product: res.product });
-      });
-  };
-  handleClick = (name) => {
-    this.setState({ isClick: !this.state.isClick });
+      .then((res) => this.setState({ product: res.product_list }));
   };
 
-  handleInfo = (name) => {
-    console.log(name);
+  handleSort = (e) => {
+    //sortby 정렬 기능
+    console.log("sortby: " + e.target.id);
+  };
+
+  handlefilterClick = (e) => {
+    //refine by 기능 <백엔드 통신>
+    const { id, name } = e.target;
+    console.log(name + ":" + id);
+  };
+
+  sort_by = (field, reverse, primer) => {
+    const key = primer
+      ? function (x) {
+          return primer(x[field]);
+        }
+      : function (x) {
+          return x[field];
+        };
+
+    reverse = !reverse ? 1 : -1;
+
+    return function (a, b) {
+      return (a = key(a)), (b = key(b)), reverse * ((a > b) - (b > a));
+    };
   };
 
   render() {
-    const { styleList, typeOfTea, price, product } = this.state;
+    const { styleList, typeOfTea, price, sortBy, product } = this.state;
+
     return (
       <div className="ProductList">
         <div className="productContainer">
@@ -78,18 +99,35 @@ class ProductList extends Component {
           </header>
           <div className="refineByContainer">
             <div className="text">Refine by:</div>
-            <FilterSelectBox id="style" name="Style" list={styleList} />
+            <FilterSelectBox
+              id="style"
+              name="Style"
+              list={styleList}
+              handleClick={this.handlefilterClick}
+            />
             <FilterSelectBox
               id="typeOfTea"
               name="Type of Tea"
               list={typeOfTea}
+              handleClick={this.handlefilterClick}
             />
-            <FilterSelectBox id="price" name="Price" list={price} />
+            <FilterSelectBox
+              id="price"
+              name="Price"
+              list={price}
+              handleClick={this.handlefilterClick}
+            />
+            <FilterSelectBox
+              id="sortby"
+              name="Sort by:"
+              list={sortBy}
+              handleClick={this.handleSort}
+            />
           </div>
           <section>
             <ul className="productitemList">
               {product.map((el) => {
-                return <ProductItem product={el} key={el.name} />;
+                return <ProductItem key={el.product_id} data={el} />;
               })}
             </ul>
           </section>

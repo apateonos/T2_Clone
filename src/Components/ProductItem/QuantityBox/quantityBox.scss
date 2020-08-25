@@ -1,10 +1,10 @@
-@import "../../../../Styles/common.scss";
+@import "./../../../Styles/common.scss";
 
-.FilterSelectBox {
-	width: 180px;
+.QuantityBox {
+	width: 91.3px;
 	margin-right: 10px;
 
-	.refineByName {
+	.sortBy {
 		display: flex;
 		justify-content: space-between;
 		width: inherit;
@@ -17,9 +17,6 @@
 
 		input {
 			display: none;
-			&:checked ~ .arrow {
-				background-position: -460px -217px;
-			}
 		}
 
 		.arrow {
@@ -28,10 +25,14 @@
 			background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1597940061845/images/new_sprite.png) -460px -45px
 				no-repeat;
 		}
+
+		.rotate {
+			background-position: -460px -217px;
+		}
 	}
 
 	ul {
-		position: relative;
+		position: absolute;
 		width: inherit;
 		padding: 10px 15px;
 		background-color: $white;
@@ -42,10 +43,13 @@
 		li {
 			display: flex;
 			align-items: center;
-			width: 148px;
 			height: 23px;
 			font-size: 13px;
 			font-weight: 600;
+
+			&:hover {
+				text-decoration: underline;
+			}
 
 			label {
 				display: flex;
@@ -55,19 +59,6 @@
 
 				.checkInput {
 					display: none;
-				}
-
-				.customCheckBox {
-					display: inline-block;
-					width: 10px;
-					height: 10px;
-					margin-right: 10px;
-					border: 1px solid $black;
-					background-color: $white;
-				}
-
-				.checkInput:checked ~ .customCheckBox {
-					background-color: $black;
 				}
 			}
 		}

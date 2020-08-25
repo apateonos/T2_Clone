@@ -1,47 +1,59 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import QuantityBox from "./QuantityBox/QuantityBox";
 import "./ProductItem.scss";
 
+//TODO :  기존에 있던 wishlist 정보를 바탕으로 하트 활성화. 이미지 및 리뷰 갯수,장바구니..
+
 class ProductItem extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
-      isActive: [],
+      selectItem: 0,
       isWishList: false,
+      quantity: 1,
+      isQuantityClick: false,
     };
   }
 
-  componentDidMount() {
-    const { product } = this.props;
-    let arr = [];
-    for (let i; i < product.Variation.length; i++) {
-      arr.push(false);
-    }
-    arr[0] = true;
-    this.setState({
-      isActive: arr,
-    });
-  }
   handleHeartClick = () => {
     const { isWishList } = this.state;
+    const { data } = this.props;
+
+    if (isWishList === false) {
+      console.log("to wishList", data);
+    } else {
+      console.log("remove", data);
+    }
     this.setState({ isWishList: !isWishList });
-    console.log(this.props.product);
   };
 
-  handleClick = (idx) => {
-    const { isActive } = this.state;
+  handleOptionClick = (idx) => {
+    this.setState({ selectItem: idx });
+  };
 
-    let arr = Array.from({ length: isActive.length }, () => false);
-    arr[idx] = true;
+  handleQuantityChange = (e) => {
+    this.setState({ quantity: e.target.value });
+  };
 
-    this.setState({ isActive: arr });
+  handleSubmit = () => {
+    const { selectItem, quantity } = this.state;
+    const { data } = this.props;
+    console.log("Add to Bag", data);
+    console.log(`Add to Bag : size : ${selectItem}, quantitiy: ${quantity} `);
   };
 
   render() {
-    const { product } = this.props;
-    const { isWishList } = this.state;
-    const { handleHeartClick } = this;
+    const { data } = this.props;
+    const { isWishList, quantity, selectItem } = this.state;
+    const {
+      handleHeartClick,
+      handleOptionClick,
+      handleQuantityChange,
+      handleSubmit,
+    } = this;
+
     return (
       <li className="ProductItem">
         <div className="heartBox">
@@ -51,15 +63,15 @@ class ProductItem extends Component {
         </div>
         <div className="imageBox">
           <Link to="/shop">
-            <img src={product.url} alt={product.name} />
+            <img src={data.product_image} alt={data.product_name} />
           </Link>
         </div>
         <div className="productInfo">
           <Link to="/shop" className="productName">
-            {product.name}
+            {data.product_name}
           </Link>
           <div className="ratingBox">
-            <img alt="starRatings" src={product.rating} />
+            {/* <img alt="starRatings" src={product.rating} /> */}
             (3)
           </div>
           <>
@@ -68,35 +80,43 @@ class ProductItem extends Component {
             </Link>
           </>
           <ul className="productVariation">
-            {product.Variation.map((el, idx) => {
-              return (
-                <li key={el.name}>
-                  <button
-                    className={`variationImgButton ${
-                      this.state.isActive[idx] ? `borderBlack` : `borderNone`
-                    }`}
-                    name={el.name}
-                    id={el.name}
-                    onClick={() => {
-                      this.handleClick(idx);
-                    }}
-                  >
-                    <img alt="" src={el.url} />
-                  </button>
-                  <div className="variationName">{el.name}</div>
-                  <div className="price">A${el.price}</div>
-                </li>
-              );
-            })}
+            {data.product_price && (
+              <li>
+                <button className="variationImgButton borderBlack">
+                  <img alt="" src={data.product_image} />
+                </button>
+                <div className="variationName"></div>
+                <div className="price">A${data.product_price}</div>
+              </li>
+            )}
+            {!data.product_price &&
+              data.size_unit.map((el, idx) => {
+                return (
+                  <li key={el}>
+                    <button
+                      className={`variationImgButton ${
+                        selectItem === idx ? `borderBlack` : `borderNone`
+                      }`}
+                      onClick={() => {
+                        handleOptionClick(idx);
+                      }}
+                    >
+                      <img alt={data.size_unit} src={data.size_image[idx]} />
+                    </button>
+                    <div className="variationName">{el}</div>
+                    <div className="price">A${data.size_price[idx]}</div>
+                  </li>
+                );
+              })}
           </ul>
           <div className="addTobagBox">
-            <select>
-              <option value="1">1</option> <option value="2">2</option>
-              <option value="3">3</option> <option value="4">4</option>
-              <option value="5">5</option> <option value="6">6</option>
-              <option value="7">7</option> <option value="8">8</option>
-            </select>
-            <button>Add to Bag</button>
+            <QuantityBox
+              id="quantity"
+              name={quantity}
+              list={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
+              handleClick={handleQuantityChange}
+            />
+            <button onClick={handleSubmit}>Add to Bag</button>
           </div>
         </div>
       </li>
