@@ -15,7 +15,6 @@
     background-repeat: no-repeat;
     background-position: center top;
     background-image: url("https://www.t2tea.com/on/demandware.static/-/Library-Sites-T2SharedLibrary/default/dwb94e22cd/images/content/RELAUNCHED-Tea-Society-Banner-Sign-Up-page.jpg");
-
     .headeText a {
       display: flex;
       position: absolute;
@@ -31,7 +30,6 @@
     max-width: 740px;
     height: 350px;
     margin: 0 auto;
-
     .displayNone {
       color: red;
       display: none;
@@ -39,7 +37,6 @@
       width: 100%;
       padding: 10px 0;
     }
-
     .displayOn {
       color: red;
       display: inline;
@@ -48,7 +45,6 @@
       height: 100px;
       padding: 10px 0;
     }
-
     .contentHeader {
       width: 350px;
       height: 86px;
@@ -56,25 +52,21 @@
       color: $white;
       margin: 0 auto;
       text-align: center;
-
       .contentText {
         margin: 0 auto;
         font-weight: 800;
         font-size: 36px;
       }
-
       .contentSubText {
         font-weight: 800;
         font-size: 16px;
         color: $white;
       }
     }
-
     .formBox {
       max-width: 350px;
       max-height: 230px;
       margin: 0 auto;
-
       .formBoxText {
         width: 350px;
         height: 12px;
@@ -82,7 +74,6 @@
         color: $white;
         font-size: 12px;
       }
-
       .inputEmail,
       .inputPassWord {
         position: relative;
@@ -101,22 +92,18 @@
         height: 20px;
         border-radius: 100%;
       }
-
       .errorImg {
         display: none;
         vertical-align: middle;
       }
-
       .errorIcon {
         width: 20px;
         height: 20px;
         vertical-align: middle;
       }
-
       .errorIconNone {
         display: none;
       }
-
       .inputBox {
         width: 350px;
         height: 42px;
@@ -125,11 +112,9 @@
         color: $white;
         border: 1px solid red;
       }
-
       .inputBox::placeholder {
         color: $white;
       }
-
       .inputChekBox {
         display: flex;
       }
@@ -144,7 +129,6 @@
           top: 0;
           left: 0;
         }
-
         .inputChekText {
           font-size: 12px;
           line-height: 1;
@@ -178,7 +162,6 @@
         font-family: HelveticaNeueW01-75Bold;
         border: none;
       }
-
       .inputChek {
         background-color: $black;
         color: $black;

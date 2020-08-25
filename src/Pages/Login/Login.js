@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Login.scss";
+import { API } from "./config";
 
 class Login extends Component {
   constructor() {
@@ -11,9 +12,11 @@ class Login extends Component {
       errorActive: true,
     };
   }
+
   loginEmail = (e) => {
+    const { email } = this.state;
     this.setState({ email: e.target.value });
-    if (this.state.email.length > 5 && this.state.email.includes("@")) {
+    if (email.length > 5 && email.includes("@")) {
       this.setState({ errorActive: true });
     } else {
       this.setState({ errorActive: false });
@@ -21,8 +24,9 @@ class Login extends Component {
   };
 
   loginPassWord = (e) => {
+    const { password } = this.state;
     this.setState({ password: e.target.value });
-    if (this.state.password.length >= 8) {
+    if (password.length >= 8) {
       this.setState({ pwpass: true });
     } else {
       this.setState({ pwpass: false });
@@ -30,7 +34,7 @@ class Login extends Component {
   };
 
   handleClick = () => {
-    fetch("http://10.58.4.149:8000/user/login", {
+    fetch(`http://${API}:8000/user/login`, {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
@@ -38,11 +42,11 @@ class Login extends Component {
       }),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res.message));
+      .then((res) => alert(res.message));
   };
 
   render() {
-    console.log(this.state.errorActive);
+    const { email, pwpass, errorActive, password } = this.state;
     return (
       <main className="Login">
         <div className="headerImg">
@@ -59,61 +63,51 @@ class Login extends Component {
           </div>
           <div className="formBox">
             <span className="formBoxText">Fields marked* are mandatory.</span>
-
             <input
               onChange={this.loginEmail}
-              className={this.state.errorActive ? "inputEmail" : "inputBox"}
+              className={errorActive ? "inputEmail" : "inputBox"}
               type="text"
               placeholder="Enter your email*"
             />
             <img
-              className={this.state.errorActive ? "succesImg" : "errorImg"}
+              className={errorActive ? "succesImg" : "errorImg"}
               alt="succes"
               src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598112872308/images/validation_success.svg"
             />
-            <span
-              className={this.state.errorActive ? "displayNone" : "displayOn"}
-            >
+            <span className={errorActive ? "displayNone" : "displayOn"}>
               <img
-                className={
-                  this.state.errorActive ? "errorIconNone" : "errorIcon"
-                }
+                className={errorActive ? "errorIconNone" : "errorIcon"}
                 alt="succes"
                 src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598112872308/images/error_cross.svg"
               />
-              {this.state.email.length === 0
+              {email.length === 0
                 ? "please enter your email address"
                 : "Please enter a valid email address."}
             </span>
-            <span
-              className={this.state.errorActive ? "displayOn" : "displayNone"}
-            ></span>
-
+            <span className={errorActive ? "displayOn" : "displayNone"}></span>
             <input
               onChange={this.loginPassWord}
-              className={this.state.pwpass ? "inputPassWord" : "inputBox"}
+              className={pwpass ? "inputPassWord" : "inputBox"}
               type="password"
               placeholder="Enter your password*"
             />
             <img
-              className={this.state.pwpass ? "succesImg" : "errorImg"}
+              className={pwpass ? "succesImg" : "errorImg"}
               alt="succes"
               src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598112872308/images/validation_success.svg"
             />
             <img
-              className={this.state.pwpass ? "errorIconNone" : "errorIcon"}
+              className={pwpass ? "errorIconNone" : "errorIcon"}
               alt="errorMessage"
               src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598112872308/images/error_cross.svg"
             />
-            <span className={this.state.pwpass ? "displayNone" : "displayOn"}>
+            <span className={pwpass ? "displayNone" : "displayOn"}>
               {this.state.password.length === 0
                 ? "Please enter your password"
                 : "The information you have entered is invalid.Please try again."}
             </span>
 
-            <span
-              className={this.state.pwpass ? "displayOn" : "displayNone"}
-            ></span>
+            <span className={pwpass ? "displayOn" : "displayNone"}></span>
 
             <div className="inputChekBox">
               <input className="inputChek" type="checkbox" />
@@ -121,18 +115,14 @@ class Login extends Component {
             </div>
             <button
               className={
-                this.state.email.length >= 5 &&
-                this.state.email.includes("@") &&
-                this.state.password.length >= 8
+                email.length >= 5 && email.includes("@") && password.length >= 8
                   ? "nextLoginBtn"
                   : "prevLoginBtn"
               }
               type="button"
               onClick={this.handleClick}
               disabled={
-                this.state.email.length >= 5 &&
-                this.state.email.includes("@") &&
-                this.state.password.length >= 9
+                email.length >= 5 && email.includes("@") && password.length >= 9
                   ? false
                   : true
               }
