@@ -31,6 +31,9 @@
 
   @if not ($order-order) {}
   @else {order: $order-order;}
+
+  flex-grow: 0;
+  flex-shrink: 0;
 };
 
 @mixin gridPosition($ges, $gce, $grs, $gre){
@@ -93,17 +96,23 @@
 }
 
 
-@mixin itemImgSetting($width:auto, $height:auto, $margin-bottom:0) {
+@mixin itemImgSetting($width:auto, $height:auto, $margin-bottom:0, $imgwidth:100%, $imgheight: 100%) {
   .itemImage{
+    @include setFlex(center, center);
     width: $width;
-    height: $width;
+    height: $height;
     margin-bottom: $margin-bottom;
-    img{ @include setSize(100%, 100%) }
-    video{ @include setSize(100%, 100%) }
+    img{
+      @include setSize($imgwidth, $imgheight);
+    }
+    video{ 
+      @include setSize($imgwidth, $imgheight);
+      margin: 0 auto;
+    }
   }
 }
 
-@mixin itemName($size, $bottom, $weight: 700, $color: null){
+@mixin itemName($size, $bottom: 0, $weight: 700, $color: null){
   .itemName{
     margin-bottom: $bottom;
     color: $color;
@@ -128,6 +137,7 @@
 @mixin button($margin: 0) {
   button{
     min-width: 120px;
+    height: 36px;
     margin-right: $margin;
     padding: 6px 10px 6px 10px;
     border: 1px solid $orange;
@@ -138,4 +148,4 @@
       weight: 700;
     }
   }
-};
+}

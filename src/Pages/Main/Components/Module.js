@@ -6,6 +6,7 @@ import Item from "./Item";
 class Module extends Component {
   render() {
     const {
+      transform,
       moduleStyle,
       moduleName,
       moduleAside,
@@ -15,12 +16,17 @@ class Module extends Component {
 
     return (
       <div className={"module " + moduleStyle}>
-        <ModuleHead moduleName={moduleName} />
+        <ModuleHead
+          moduleName={moduleName}
+          click={this.props.click}
+          moduleStyle={this.props.moduleID}
+        />
         <div className="moduleMain">
           <ModuleAside moduleAside={moduleAside} asideDESC={asideDESC} />
           <div className="moduleItemList">
             {moduleItemList.map((el) => (
               <Item
+                transform={transform}
                 BoxStyle={el.itemBoxStyle}
                 itemName={el.itemName}
                 imgType={el.imageType}

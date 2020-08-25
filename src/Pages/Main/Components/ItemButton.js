@@ -5,7 +5,6 @@ class ItemButton extends Component {
     const { buttonList } = this.props;
     return (
       <div className="itemButtonBox">
-        {console.log(buttonList)}
         {buttonList.map((el) => (
           <button className="itemButton">{el}</button>
         ))}

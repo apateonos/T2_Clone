@@ -16,14 +16,13 @@ class Item extends Component {
     } = this.props;
 
     return (
-      <div className={"itemBox " + BoxStyle}>
-        {console.log(itemImage)}
+      <div className={"itemBox " + BoxStyle} style={{transform: "translateX("+this.props.transform+"px)"}} >
         <ItemImage
           imgType={imgType}
           itemName={itemName}
           itemImage={itemImage}
         />
-        <div className="itemnoteBox">
+        <div className="itemNoteBox">
           <div className="itemTextBox">
             <ItemName itemName={itemName} />
             <ItemDESC itemDESC={itemDESC} />
@@ -31,7 +30,7 @@ class Item extends Component {
           <ItemButton buttonList={buttonList} />
         </div>
       </div>
-    );
+    )
   }
 }
 

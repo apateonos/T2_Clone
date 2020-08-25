@@ -1,11 +1,13 @@
 {"moduleList" : [{
-  "moduleStyle": "styleA",
-  "moduleName": "Feature",
+  "moduleID": "featured",
+  "moduleStyle": "crouselModule",
+  "moduleName": "Featured",
   "moduleAside": "",
   "AsideDESC": "",
   "moduleItemList": [
     {
-      "itemBoxStyle": "itemBox1",
+      
+      "itemBoxStyle": "matchaBox",
       "itemName": "Matcha",
       "imageType": "img",
       "itemImage": "Images/Main/item_1.jpg",
@@ -14,7 +16,7 @@
       "buttonList": ["Shop now"]
     },
     {
-      "itemBoxStyle": "itemBox2",
+      "itemBoxStyle": "matchaFlaskBox",
       "itemName": "Matcha Flask",
       "imageType": "video",
       "itemImage": "Images/Main/A_item2.mp4",
@@ -23,7 +25,7 @@
       "buttonList": ["Shop now"]
     },
     {
-      "itemBoxStyle": "itemBox3",
+      "itemBoxStyle": "moroccan",
       "itemName": "Moroccan Tealeidscope",
       "imageType": "img",
       "itemImage": "Images/Main/item_4.webp",
@@ -32,7 +34,7 @@
       "buttonList": ["Shop now"]
     },
     {
-      "itemBoxStyle": "itemBox4",
+      "itemBoxStyle": "moroccan",
       "itemName": "Moroccan Tealeidscope",
       "imageType": "img",
       "itemImage": "Images/Main/item_3.webp",
@@ -41,7 +43,7 @@
       "buttonList": ["Shop now"]
     },
     {
-      "itemBoxStyle": "itemBox5",
+      "itemBoxStyle": "moroccan",
       "itemName": "Moroccan Tealeidscope",
       "imageType": "img",
       "itemImage": "Images/Main/item_3.webp",
@@ -52,18 +54,21 @@
   ]
 },
 {
-  "moduleStyle": "styleB",
+  "moduleID": "shopthelook",
+  "moduleStyle": "bookdeskModule",
   "moduleName": "Shop the look",
   "moduleAside": "Bonnie and Neil",
   "AsideDESC": "",
   "moduleItemList": [
     {
+      
       "itemBoxStyle": "",
       "itemName": "Bonnie and Neil Tea For One Pink Orchid",
       "imageType": "img",
       "itemImage": "Images/Main/B_item1.png",
       "itemDESC": "A$70.00",
-      "buttonList": ["Add to bag"]    },
+      "buttonList": ["Add to bag"]
+    },
     {
       "itemBoxStyle": "",
       "itemName": "Bonnie and Neil Tea For One Pink Orchid",
@@ -91,13 +96,15 @@
   ]
 },
 {
-  "moduleStyle": "styleC",
+  "moduleID": "curatedForYou",
+  "moduleStyle": "showWindowModule",
   "moduleName": "Curated for you",
   "moduleAside": "",
   "AsideDESC": "",
   "moduleItemList": [
     {
-      "itemBoxStyle": "itemBox1",
+      
+      "itemBoxStyle": "biggerItemBox",
       "itemName": "Tea",
       "imageType": "img",
       "itemImage": "Images/Main/C_item1.png",
@@ -105,7 +112,7 @@
       "buttonList": ["Add to bag"]
     },
     {
-      "itemBoxStyle": "itemBox2",
+      "itemBoxStyle": "biggerItemBox",
       "itemName": "Tea",
       "imageType": "img",
       "itemImage": "Images/Main/C_item2.png",
@@ -113,7 +120,7 @@
       "buttonList": ["Add to bag"]
     },
     {
-      "itemBoxStyle": "itemBox3",
+      "itemBoxStyle": "",
       "itemName": "Tea",
       "imageType": "img",
       "itemImage": "Images/Main/C_item3.png",
@@ -121,7 +128,7 @@
       "buttonList": []
     },
     {
-      "itemBoxStyle": "itemBox4",
+      "itemBoxStyle": "",
       "itemName": "Tea",
       "imageType": "img",
       "itemImage": "Images/Main/C_item4.png",
@@ -129,7 +136,7 @@
       "buttonList": []
     },
     {
-      "itemBoxStyle": "itemBox5",
+      "itemBoxStyle": "",
       "itemName": "Tea",
       "imageType": "img",
       "itemImage": "Images/Main/C_item5.png",
@@ -137,7 +144,7 @@
       "buttonList": []
     },
     {
-      "itemBoxStyle": "itemBox6",
+      "itemBoxStyle": "",
       "itemName": "Tea",
       "imageType": "img",
       "itemImage": "Images/Main/C_item6.png",
@@ -147,13 +154,15 @@
   ]
 },
 {
-  "moduleStyle": "styleD",
+  "moduleID": "partnership",
+  "moduleStyle": "galleryModule",
   "moduleName": "PartnerShips",
   "moduleAside": "T2 Collaborations",
   "asideDESC":
     "Our mission is to celebrate difference to make a difference. Discover our latest collaborations with Goanna Hut and The Smith Family.",
   "moduleItemList": [
     {
+      
       "itemBoxStyle": "",
       "itemName": "Goanna Hut",
       "imageType": "img",
@@ -174,12 +183,14 @@
   ]
 },
 {
-  "moduleStyle": "styleE",
+  "moduleID": "teaLibrary",
+  "moduleStyle": "fadeModule",
   "moduleName": "Tea Library",
   "moduleAside": "",
   "AsideDESC": "",
   "moduleItemList": [
     {
+      
       "itemBoxStyle": "",
       "itemName": "Black Teas",
       "imageType": "img",
@@ -215,13 +226,15 @@
   ]
 },
 {
-  "moduleStyle": "styleF",
+  "moduleID": "",
+  "moduleStyle": "jigModule",
   "moduleName": "",
   "moduleAside": "",
   "AsideDESC": "",
   "moduleItemList": [
     {
-      "itemBoxStyle": "itemBox1",
+      
+      "itemBoxStyle": "leftStruckBox",
       "itemName": "Teawears",
       "imageType": "img",
       "itemImage": "Images/Main/H_item1.jpg",
@@ -229,7 +242,7 @@
       "buttonList": ["Add to bag"]
     },
     {
-      "itemBoxStyle": "itemBox2",
+      "itemBoxStyle": "rightStruckBox",
       "itemName": "Brewing Tools",
       "imageType": "img",
       "itemImage": "Images/Main/H_item2.jpg",
@@ -239,12 +252,14 @@
   ]
 },
 {
-  "moduleStyle": "styleD",
+  "moduleID": "discover",
+  "moduleStyle": "galleryModule",
   "moduleName": "Shop the look",
   "moduleAside": "A flavour for you",
   "asideDESC":"It's tea with a twist. Discover tips and tricks to perfect your fave brew or explore our tea-infused recipes.",
   "moduleItemList": [
     {
+      
       "itemBoxStyle": "",
       "itemName": "Matcha Cacao Bliss Balls",
       "imageType": "img",
@@ -263,13 +278,15 @@
   ]
 },
 {
-  "moduleStyle": "styleG",
+  "moduleID": "findYourGift",
+  "moduleStyle": "crouselGalleryModule",
   "moduleName": "",
   "moduleAside": "Find Your Gift",
   "asideDESC":
     "We’ve curated a list of gifts to fit the needs of those you’re buying a gift for.",
   "moduleItemList": [
     {
+      
       "itemBoxStyle": "",
       "itemName": "Tea Gift Pack",
       "imageType": "img",
