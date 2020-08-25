@@ -118,53 +118,6 @@
 		display: flex;
 		justify-content: space-between;
 
-		.quantitySelectBox {
-			display: flex;
-			flex-direction: column;
-			width: 92.89px;
-			height: 42px;
-			border: 1px solid $black;
-			line-height: 42px;
-			text-align: center;
-
-			.number {
-				display: flex;
-				justify-content: space-between;
-				width: inherit;
-				height: inherit;
-				border: solid 1px $black;
-
-				input {
-					appearance: none;
-				}
-
-				.arrow {
-					width: 41px;
-					border-left: 1px solid $black;
-					background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1597940061845/images/new_sprite.png) -460px -45px
-						no-repeat;
-				}
-
-				input:checked ~ .arrow {
-					background-position: -460px -217px;
-				}
-			}
-
-			.quantityList {
-				position: absolute;
-				z-index: 1;
-				width: inherit;
-				background-color: white;
-				border: solid 1px $black;
-				border-top: none;
-				cursor: pointer;
-
-				input {
-					appearance: none;
-				}
-			}
-		}
-
 		button {
 			width: 157.12px;
 			height: 42px;
