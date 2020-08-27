@@ -100,10 +100,10 @@ class Nav extends Component {
                     <Link>STORES</Link>
                   </li>
                   <li>
-                    <Link>LOGIN</Link>
+                    <Link to="/account">LOGIN</Link>
                   </li>
                   <li>
-                    <Link>MY FAVOURITES</Link>
+                    <Link to="/mypage">MY FAVOURITES</Link>
                   </li>
                 </ul>
               </div>
