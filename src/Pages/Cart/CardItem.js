@@ -15,7 +15,7 @@ class CardItem extends Component {
         <div className="productPriceBox">
           <div
             className="productRemove"
-            onClick={() => this.props.handleButton(this.props.ordering_number)}
+            onClick={() => this.props.handleRemove(this.props.idx)}
           >
             Remove
           </div>

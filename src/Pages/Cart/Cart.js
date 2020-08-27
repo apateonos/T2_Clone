@@ -49,6 +49,11 @@ class Cart extends Component {
     this.setState({ message: newData }, () => {});
   };
 
+  handleRemove = (idx) => {
+    const { name, unit } = this.state.message[idx];
+    console.log(`user/shoppingbag?product_name=${name}&product_size=${unit}`);
+  };
+
   handleResult = () => {
     let result = 0;
     for (let i = 0; i < this.state.message.length; i++) {
@@ -92,7 +97,7 @@ class Cart extends Component {
             </button>
           </div>
           <div className="cartTable">
-            {this.state.message.map((el) => (
+            {this.state.message.map((el, idx) => (
               <CardItem
                 key={el.ordering_number}
                 name={el.name}
@@ -101,7 +106,9 @@ class Cart extends Component {
                 unit={el.unit}
                 count={el.count}
                 price={el.price}
+                idx={idx}
                 handleButton={this.handleButton}
+                handleRemove={this.handleRemove}
               />
             ))}
           </div>
