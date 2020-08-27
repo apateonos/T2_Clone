@@ -14,11 +14,12 @@ class ProductDetail extends Component {
       imgNum: 0,
       quantity: 1,
       btnRotated: false,
+      clickedImgIdx: 0,
     };
   }
   componentDidMount() {
-    //fetch("http://localhost:3000/Data/ProductDetail/ProductDetail.json")
-    fetch("http://10.58.7.91:8000/products/464")
+    fetch("http://localhost:3000/Data/ProductDetail/ProductDetail.json")
+      // fetch("http://10.58.7.91:8000/products/464")
       .then((res) => res.json())
       .then((res) => this.setState({ product_detail: res.product_detail }));
   }
@@ -33,20 +34,13 @@ class ProductDetail extends Component {
     this.setState({ quantity: e.target.value });
   };
 
-  // rotateBtn = () => {
-  //   this.setState({ btnRotated: !this.state.btnRotated });
-  // };
+  clickHandler = (idx) => {
+    this.setState({ clickedImgIdx: idx });
+  };
 
   render() {
-    // console.log(this.state.isFold);
-
     const { product_detail, isFold, quantity } = this.state;
-    const {
-      clickMoreBtn,
-      clickHandler,
-      handleQuantityChange,
-      rotateBtn,
-    } = this;
+    const { clickMoreBtn, clickHandler, handleQuantityChange } = this;
 
     return (
       <div className="ProductDetail">
@@ -65,21 +59,12 @@ class ProductDetail extends Component {
                 <MainImgSlider product_detail={product_detail} />
               </div>
               <div className="subImg">
-                <img
-                  onClick={clickHandler}
-                  alt="product 1"
-                  src="https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw1815455f/images/products/2020 Aug/T115AE120_apple-maple-muffin_p2.png?sw=100&sh=100&sm=fit"
-                />
-                <img
-                  onClick={clickHandler}
-                  alt="product 2"
-                  src="https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw1c74c431/images/products/2020 Aug/T115AE120_apple-maple-muffin_p1.png?sw=100&sh=100&sm=fit"
-                />
-                <img
-                  onClick={clickHandler}
-                  alt="product 3"
-                  src="https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw6918da87/images/products/2020 Aug/Apple_Mobile_1024x1024.png?sw=100&sh=100&sm=fit"
-                />
+                {product_detail.small_image &&
+                  product_detail.small_image.map((el, idx) => {
+                    return (
+                      <img onClick={() => clickHandler(idx)} src={el}></img>
+                    );
+                  })}
               </div>
               <div className="sns">
                 <span>Share</span>
@@ -128,11 +113,7 @@ class ProductDetail extends Component {
               <div className="tabInfo">
                 <div className="tab">
                   <span>Description</span>
-                  <MoreBtn
-                    clickMoreBtn={() => clickMoreBtn("Description")}
-                    // rotateBtn={rotateBtn}
-                    //isFold={isFold}
-                  />
+                  <MoreBtn clickMoreBtn={() => clickMoreBtn("Description")} />
                 </div>
                 <div className="subTab">
                   <div
