@@ -21,10 +21,10 @@ export default class MyPage extends Component {
     const { name } = this.state;
 
     return (
-      <div className="MyAccount">
+      <div className="MyPage">
         <div className="accountContainer">
           <header className="accountHeader">
-            <ul>
+            <ul className="accountUl">
               <li>HOME</li>
               <li>MY ACCOUNT</li>
               <li>MY WISHLIST</li>
@@ -39,7 +39,10 @@ export default class MyPage extends Component {
                   key={el.name}
                   onClick={() => this.handleClick(idx)}
                 >
-                  <Link className={idx === this.state.isClick ? `checked` : ``}>
+                  <Link
+                    to="/mypage"
+                    className={idx === this.state.isClick ? `checked` : ``}
+                  >
                     <div className={el.class} />
                     <span>{el.name}</span>
                   </Link>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import "./wishlist.scss";
+import { config } from "./../../../../src/config";
 import ProductItem from "../../../Components/ProductItem/ProductItem";
+import "./wishlist.scss";
 
 class Wishlist extends Component {
   constructor() {
@@ -9,16 +10,33 @@ class Wishlist extends Component {
       data: [],
     };
   }
-  //test용
-  componentDidMount = () => {
-    // "http://10.58.4.238:8000/products"
-    fetch("http://localhost:3000/Data/product.json")
-      .then((res) => res.json())
+
+  componentDidMount() {
+    const headers = {
+      Authorization: config.token,
+    };
+    fetch(`${config.apiWishlist}/user/wishlist`, { headers })
+      .then((response) => response.json())
       .then((res) => this.setState({ data: res.product_list }));
-  };
+  }
 
   handleRemove = (removeId) => {
     console.log(removeId);
+
+    fetch(`${config.apiWishlist}/user/wishlist`, {
+      method: "POST",
+      headers: {
+        Authorization: config.token,
+      },
+      body: JSON.stringify({
+        product_id: removeId,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      });
+
     let newData = this.state.data.filter((el) => el.product_id !== removeId);
     this.setState({ data: newData });
   };

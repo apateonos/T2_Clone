@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { config } from "./../../config";
 import QuantityBox from "./QuantityBox/QuantityBox";
 import "./ProductItem.scss";
-//TODO :  기존에 있던 wishlist 정보를 바탕으로 하트 활성화. 이미지 및 리뷰 갯수,장바구니..
 
 class ProductItem extends Component {
   constructor() {
@@ -13,30 +13,33 @@ class ProductItem extends Component {
       isWishList: false,
       quantity: 1,
       isQuantityClick: false,
+      wishIdList: [],
     };
   }
 
   handleHeartClick = () => {
     const { isWishList } = this.state;
     const { data } = this.props;
-    // data.product_id
 
-    //console.log(data.product_id);
-    fetch("http://10.58.4.149:8000/user/wishlist", {
+    fetch(`${config.apiWishlist}/user/wishlist`, {
       method: "POST",
-      body: JSON.stringify({ product_id: 89 }),
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.8iHvXMKzOHzuvmIejw1maLNlMt7njYSPtQM7fIrTp3E",
+        Authorization: config.token,
       },
+      body: JSON.stringify({
+        product_id: data.product_id,
+      }),
     })
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
+        // if (res.message.is_wished) {
+        //   this.setState({
+        //     wishIdList: [...this.state.wishIdList, res.message.product_id],
+        //   });
+        // }
+        this.setState({ isWishList: !isWishList });
       });
-    // .catch((err) => err);
-
-    this.setState({ isWishList: !isWishList });
   };
 
   handleOptionClick = (idx) => {
@@ -51,7 +54,7 @@ class ProductItem extends Component {
     const { selectItem, quantity } = this.state;
     const { data } = this.props;
     const size_unit = data.size_unit[selectItem];
-    let result = {};
+    const result = {};
 
     result["product_id"] = data.product_id;
     result["count"] = quantity;
@@ -63,6 +66,18 @@ class ProductItem extends Component {
     }
     console.log("Add to Bag", data.product_id);
     console.log(result);
+
+    fetch(`${config.apiWishlist}/user/shoppingbag`, {
+      method: "POST",
+      headers: {
+        Authorization: config.token,
+      },
+      body: JSON.stringify(result),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      });
   };
 
   render() {

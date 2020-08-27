@@ -1,6 +1,6 @@
 @import "../../Styles/common.scss";
 
-.MyAccount {
+.MyPage {
 	@include columnCenter;
 	font-family: "Helvetica Now", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	width: 100%;
@@ -13,7 +13,7 @@
 	.accountHeader {
 		margin-top: 20px;
 
-		ul {
+		.accountUl {
 			display: flex;
 			padding-bottom: 40px;
 			font-size: 11px;
