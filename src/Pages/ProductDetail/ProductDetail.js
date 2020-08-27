@@ -17,11 +17,9 @@ class ProductDetail extends Component {
   }
   componentDidMount() {
     //fetch("http://localhost:3000/Data/ProductDetail/ProductDetail.json")
-    fetch("http://10.58.7.91:8000/products/463")
+    fetch("http://10.58.7.91:8000/products/464")
       .then((res) => res.json())
       .then((res) => this.setState({ product_detail: res.product_detail }));
-
-    // .then((res) => console.log(res));
   }
 
   clickMoreBtn = (name) => {
@@ -46,30 +44,17 @@ class ProductDetail extends Component {
           <ul>
             <li>HOME</li>
             <li>TEA</li>
-            {/* {product_detail.map((el) => { */}
-            {/* return ( */}
-            {/* <> */}
             <li>{product_detail.product_type}</li>
             <li>{product_detail.product_name}</li>
-            {/* </> */}
-            {/* ); */}
-            {/* })} */}
           </ul>
         </header>
         <div className="sectionArea">
           <div className="sectionContainer">
             <section className="left">
               <div className="mainImg">
-                {/* {product_detail.map((el) => {
-                    return <img alt="product" src={el.product_image}></img>;
-                })} */}
                 <MainImgSlider product_detail={product_detail} />
               </div>
               <div className="subImg">
-                {/* {product_detail.product_image &&
-                  product_detail.product_image.map((el, idx) => {
-                    return <img key={idx} alt="subImg" src={el} />;
-                  })} */}
                 <img
                   onClick={clickHandler}
                   alt="product 1"
@@ -96,9 +81,6 @@ class ProductDetail extends Component {
             </section>
             <section className="right">
               <div className="mainInfo">
-                {/* {product_detail.map((el) => { */}
-                {/* return ( */}
-                {/* <> */}
                 <div className="productName">{product_detail.product_name}</div>
                 <div className="price">
                   A$
@@ -106,9 +88,6 @@ class ProductDetail extends Component {
                     ? product_detail.size_price[0]
                     : product_detail.product_price}
                 </div>
-                {/* </> */}
-                {/* ); */}
-                {/* })} */}
                 <div className="review">
                   <span className="rating">
                     <span>★★★★★</span>
@@ -137,15 +116,9 @@ class ProductDetail extends Component {
                 </div>
               </div>
               <div className="tabInfo">
-                {/* {product_detail.map((el) => { */}
-                {/* return ( */}
-                {/* <> */}
                 <div className="tab">
                   <span>Description</span>
-                  <MoreBtn
-                    // className={isFold === "Description" ? "rotateBtn" : ""}
-                    clickMoreBtn={() => clickMoreBtn("Description")}
-                  />
+                  <MoreBtn clickMoreBtn={() => clickMoreBtn("Description")} />
                 </div>
                 <div className="subTab">
                   <div
@@ -175,22 +148,34 @@ class ProductDetail extends Component {
                       isFold === "Brewing guide" ? "showTab" : "hideTab"
                     }
                   >
-                    <div>
-                      <img
-                        alt="quantity"
-                        src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dwe72e4d99/images/brewing-quantity.png"
-                      />
-                      <span>{product_detail.brewing_quantity}</span>
-                      <img
-                        alt="time"
-                        src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw0539ea3b/images/brewing-time.png"
-                      />
-                      <span>{product_detail.brewing_time}</span>
-                      <img
-                        alt="temp"
-                        src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw18ddadb8/images/brewing-degrees.png"
-                      />
-                      <span>{product_detail.brewing_temp}</span>
+                    <div className="brewingTab">
+                      {product_detail.brewing_quantity ? (
+                        <div className="brewingTabEl">
+                          <img
+                            alt="quantity info"
+                            src={product_detail.quantity_img}
+                          ></img>
+                          <span>{product_detail.brewing_quantity}</span>
+                        </div>
+                      ) : null}
+                      {product_detail.brewing_time ? (
+                        <div className="brewingTabEl">
+                          <img
+                            alt="time info"
+                            src={product_detail.time_img}
+                          ></img>
+                          <span>{product_detail.brewing_time}</span>
+                        </div>
+                      ) : null}
+                      {product_detail.brewing_temp ? (
+                        <div className="brewingTabEl">
+                          <img
+                            alt="temp info"
+                            src={product_detail.temp_img}
+                          ></img>
+                          <span>{product_detail.brewing_temp}</span>
+                        </div>
+                      ) : null}
                     </div>
                   </div>
                 </div>
@@ -225,9 +210,6 @@ class ProductDetail extends Component {
                 >
                   <div></div>
                 </div>
-                {/* </> */}
-                {/* ); */}
-                {/* })} */}
               </div>
             </section>
           </div>

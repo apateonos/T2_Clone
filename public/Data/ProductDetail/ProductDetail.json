@@ -1,34 +1,47 @@
+// {
+// 	"product_detail": {
+// 		"product_type": "Matcha",
+// 		"product_name": "100% Organic Matcha",
+// 		"product_price": null,
+// 		"product_image": [
+// 			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw2cba5a78/images/T110AI012_matcha-black-tin_p1.png?sw=100&sh=100&sm=fit",
+// 			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw5c3ae3cb/images/UXProject/new-tea-images/T110AI012_matcha_r1.jpg?sw=100&sh=100&sm=fit",
+// 			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw8830f1ff/images/products/2020 Aug/Mobile_APAC_Featured-1_matcha_@2x.jpg?sw=100&sh=100&sm=fit"
+// 		],
+// 		"size_unit": ["Tin 30g-1.1oz", "Tin 50g-1.7oz"],
+// 		"size_price": ["27.00", "44.00"],
+// 		"size_image": [
+// 			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw2cba5a78/images/T110AI012_matcha-black-tin_p1.png?sw=55&sh=55&sm=fit",
+// 			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dwe989f3ae/images/products/T110AI029_matcha_sha1.png?sw=100&sh=100&sm=fit"
+// 		],
+// 		"description": "Energy booster. Power through study or work with Matcha - it's filled with the stuff that's thought to keep you focused and energised. The combo of caffeine and amino acid L-theanine in matcha buddy up to give you a slower release of energy. This means no caffeine jitters, and also means you can power on for longer. Great for hitting the books or before a work out!  Our Matcha is a highly prized powdered green tea tradtionally used as part of the Japanese tea ceremony. Enjoy straight up on it's own or as a latte, sweetened with a little honey and a dash of cold milk of choice.Store in a cool, dry place.",
+// 		"ingredients": "100% certified organic ingredients: Powdered green tea",
+// 		"brewing_quantity": "1/2 tsp per tea bowl",
+// 		"brewing_time": "",
+// 		"brewing_temp": "80°C (176°F)"
+// 	}
+// }
+
 {
 	"product_detail": {
-		"product_type": "Matcha",
-		"product_name": "100% Organic Matcha",
-		"product_price": null,
+		"product_type": "Chocolate, Indulgent & Sweet Tea",
+		"product_name": "Apple Maple Muffin Loose Leaf Feature Cube",
+		"product_price": "26.00",
 		"product_image": [
-			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw2cba5a78/images/T110AI012_matcha-black-tin_p1.png?sw=100&sh=100&sm=fit",
-			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw5c3ae3cb/images/UXProject/new-tea-images/T110AI012_matcha_r1.jpg?sw=100&sh=100&sm=fit",
-			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw8830f1ff/images/products/2020 Aug/Mobile_APAC_Featured-1_matcha_@2x.jpg?sw=100&sh=100&sm=fit"
+			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw1815455f/images/products/2020 Aug/T115AE120_apple-maple-muffin_p2.png?sw=100&sh=100&sm=fit",
+			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw1c74c431/images/products/2020 Aug/T115AE120_apple-maple-muffin_p1.png?sw=100&sh=100&sm=fit",
+			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw6918da87/images/products/2020 Aug/Apple_Mobile_1024x1024.png?sw=100&sh=100&sm=fit"
 		],
-		"size_unit": ["Tin 30g-1.1oz", "Tin 50g-1.7oz"],
-		"size_price": ["27.00", "44.00"],
-		"size_image": [
-			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw2cba5a78/images/T110AI012_matcha-black-tin_p1.png?sw=55&sh=55&sm=fit",
-			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dwe989f3ae/images/products/T110AI029_matcha_sha1.png?sw=100&sh=100&sm=fit"
-		],
-		"description": "Energy booster. Power through study or work with Matcha - it's filled with the stuff that's thought to keep you focused and energised. The combo of caffeine and amino acid L-theanine in matcha buddy up to give you a slower release of energy. This means no caffeine jitters, and also means you can power on for longer. Great for hitting the books or before a work out!  Our Matcha is a highly prized powdered green tea tradtionally used as part of the Japanese tea ceremony. Enjoy straight up on it's own or as a latte, sweetened with a little honey and a dash of cold milk of choice.Store in a cool, dry place.",
-		"ingredients": "100% certified organic ingredients: Powdered green tea",
-		"brewing_quantity": "1/2 tsp per tea bowl",
-		"brewing_time": "",
+		"size_unit": [],
+		"size_price": [],
+		"size_image": [],
+		"description": "Net Wt. 120g/4.2oz  Prepare yourself to taste a green tea like no other…Juicy apple, sweet maple, dashes of cinnamon and pieces of caramel transform this tea into a baker’s delight! Sit back, sip and savour this apple dessert with all the benefits of green tea!",
+		"ingredients": "Green tea (48%), apple (26%),  flakes, natural flavouring, cinnamon bits (4%), caramel bits (3.9%) (condensed skimmed , sugar, glucose syrup, butterfat, humectant: sorbitol syrup (E420), emulsifier: mono and diglycerides of fatty acids (E471)), natural maple syrup flavouring (1.5%), rose petals",
+		"brewing_quantity": "1 tsp per cup",
+		"brewing_time": "1-3 mins",
 		"brewing_temp": "80°C (176°F)",
-		"product_image_big": [
-			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw1815455f/images/products/2020 Aug/T115AE120_apple-maple-muffin_p2.png?sw=555&sh=555&sm=fit",
-			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw1c74c431/images/products/2020 Aug/T115AE120_apple-maple-muffin_p1.png?sw=555&sh=555&sm=fit",
-			"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw6918da87/images/products/2020 Aug/Apple_Mobile_1024x1024.png?sw=555&sh=555&sm=fit"
-		]
+		"quantity_img ": "https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw5cb19559/images/brewing-quantity.png",
+		"time_img": "https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dwc12463fa/images/brewing-time.png",
+		"temp_img": "https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw29446e3d/images/brewing-degrees.png"
 	}
 }
-
-// "product_image_big" : [
-// 	"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw1815455f/images/products/2020 Aug/T115AE120_apple-maple-muffin_p2.png?sw=555&sh=555&sm=fit",
-// 	"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw1c74c431/images/products/2020 Aug/T115AE120_apple-maple-muffin_p1.png?sw=555&sh=555&sm=fit",
-// 	"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw6918da87/images/products/2020 Aug/Apple_Mobile_1024x1024.png?sw=555&sh=555&sm=fit"
-// ]
