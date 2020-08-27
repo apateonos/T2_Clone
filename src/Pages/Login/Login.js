@@ -34,7 +34,9 @@ class Login extends Component {
   };
 
   handleClick = () => {
-    fetch(`http://${API}:8000/user/login`, {
+    console.log(this.state.email);
+    console.log(this.state.password);
+    fetch(`http://10.58.4.149:8000/user/login`, {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
@@ -42,8 +44,17 @@ class Login extends Component {
       }),
     })
       .then((res) => res.json())
-      .then((res) => alert(res.message));
+      .then((res) => console.log(res));
   };
+  // merge 할때 사용될 코드
+  //  {
+  // if (res.access_token) {
+  //     window.sessionStorage.setItem("login_token", res.access_token);
+  //     this.props.history.push("/")
+  //   } else {
+  //     alert("로그인 정보가 다릅니다");
+  //   }
+  // });
 
   render() {
     const { email, pwpass, errorActive, password } = this.state;
