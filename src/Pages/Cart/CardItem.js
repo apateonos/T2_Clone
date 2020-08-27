@@ -1,19 +1,11 @@
 import React, { Component } from "react";
 
 class CardItem extends Component {
-  state = {
-    itemList: "",
-    error: false,
-  };
-
-  handleResult = () => {};
-  subtotal;
   render() {
     return (
       <div>
         <div className="cartItem">
           <img className="mainImg" src={this.props.img} alt="productImg" />
-
           <div className="product">
             <div className="productName">{this.props.name}</div>
             <div className="productUnit">{this.props.unit}</div>

@@ -40,10 +40,10 @@
       justify-content: space-between;
       font-weight: 400;
       margin: 20px;
-      h5 {
+      .headText {
         font-size: 24px;
       }
-      span {
+      .headSubText {
         margin: 0 0 0 150px;
         font-size: 16px;
         line-height: 2;
@@ -116,15 +116,24 @@
     position: absolute;
     bottom: 20px;
 
-    .subTotalList {
+    .subtoTalBox {
       display: flex;
       justify-content: space-between;
       margin: 10px;
       border-bottom: 1px solid $footergray;
       padding: 10px 5px 10px 5px;
-      .subTotal {
-        font-weight: bold;
+
+      .subtoTalBox {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+        border-bottom: 1px solid $footergray;
+        padding: 10px 5px 10px 5px;
+        .subTotal {
+          font-weight: bold;
+        }
       }
+
       .subTotalPrice {
         font-size: 16px;
         font-weight: bold;
@@ -154,7 +163,7 @@
       .total {
         font-weight: 400;
         font-size: 24px;
-        span {
+        .totalText {
           font-size: 14px;
         }
       }
@@ -179,7 +188,7 @@
         &:hover {
           color: $white;
         }
-        img {
+        .arrowImg {
           width: 20px;
           height: 15px;
           vertical-align: text-bottom;
