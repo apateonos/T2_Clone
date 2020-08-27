@@ -108,7 +108,7 @@ class ProductItem extends Component {
           </Link>
           <div className="ratingBox">
             {/* <img alt="starRatings" src={product.rating} /> */}
-            (3)
+            {`(${data.review_count})`}
           </div>
           <>
             <Link to="/shop" className="viewDetail">
