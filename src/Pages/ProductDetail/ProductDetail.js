@@ -13,6 +13,7 @@ class ProductDetail extends Component {
       isFold: "",
       imgNum: 0,
       quantity: 1,
+      btnRotated: false,
     };
   }
   componentDidMount() {
@@ -32,11 +33,20 @@ class ProductDetail extends Component {
     this.setState({ quantity: e.target.value });
   };
 
+  // rotateBtn = () => {
+  //   this.setState({ btnRotated: !this.state.btnRotated });
+  // };
+
   render() {
-    console.log(this.state.isFold);
+    // console.log(this.state.isFold);
 
     const { product_detail, isFold, quantity } = this.state;
-    const { clickMoreBtn, clickHandler, handleQuantityChange } = this;
+    const {
+      clickMoreBtn,
+      clickHandler,
+      handleQuantityChange,
+      rotateBtn,
+    } = this;
 
     return (
       <div className="ProductDetail">
@@ -118,7 +128,11 @@ class ProductDetail extends Component {
               <div className="tabInfo">
                 <div className="tab">
                   <span>Description</span>
-                  <MoreBtn clickMoreBtn={() => clickMoreBtn("Description")} />
+                  <MoreBtn
+                    clickMoreBtn={() => clickMoreBtn("Description")}
+                    // rotateBtn={rotateBtn}
+                    //isFold={isFold}
+                  />
                 </div>
                 <div className="subTab">
                   <div
