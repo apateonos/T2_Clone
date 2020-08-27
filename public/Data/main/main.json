@@ -1,0 +1,325 @@
+{"moduleList" : [{
+  "moduleID": "featured",
+  "moduleStyle": "crouselModule",
+  "moduleName": "Featured",
+  "moduleAside": "",
+  "AsideDESC": "",
+  "moduleItemList": [
+    {
+      
+      "itemBoxStyle": "matchaBox",
+      "itemName": "Matcha",
+      "imageType": "img",
+      "itemImage": "Images/Main/item_1.jpg",
+      "itemDESC":
+        "Curl up on the couch with a creamy, frothy and deliciously indulgent Matcha latte. Get the energy hit without the caffeine jitters – Matcha delivers a slower release of energy thanks to caffeine and L-theanine",
+      "buttonList": ["Shop now"]
+    },
+    {
+      "itemBoxStyle": "matchaFlaskBox",
+      "itemName": "Matcha Flask",
+      "imageType": "video",
+      "itemImage": "Images/Main/A_item2.mp4",
+      "itemDESC":
+        "Green goodness on the go with our Matcha Flask Featuring a hidden stainless-steel whisk to help make your Matcha quick smart. Just add T2 Matcha, water, milk and shake.",
+      "buttonList": ["Shop now"]
+    },
+    {
+      "itemBoxStyle": "moroccan",
+      "itemName": "Moroccan Tealeidscope",
+      "imageType": "img",
+      "itemImage": "Images/Main/item_4.webp",
+      "itemDESC":
+        "What happens when two icons collide? Teatime goes up a notch. Our famous Stainless Steel flask unites with quintessentially T2 Moroccan Tealeidoscope print.",
+      "buttonList": ["Shop now"]
+    },
+    {
+      "itemBoxStyle": "moroccan",
+      "itemName": "Moroccan Tealeidscope",
+      "imageType": "img",
+      "itemImage": "Images/Main/item_3.webp",
+      "itemDESC":
+        "What happens when two icons collide? Teatime goes up a notch. Our famous Stainless Steel flask unites with quintessentially T2 Moroccan Tealeidoscope print.",
+      "buttonList": ["Shop now"]
+    },
+    {
+      "itemBoxStyle": "moroccan",
+      "itemName": "Moroccan Tealeidscope",
+      "imageType": "img",
+      "itemImage": "Images/Main/item_3.webp",
+      "itemDESC":
+        "What happens when two icons collide? Teatime goes up a notch. Our famous Stainless Steel flask unites with quintessentially T2 Moroccan Tealeidoscope print.",
+      "buttonList": ["Shop now"]
+    }
+  ]
+},
+{
+  "moduleID": "shopthelook",
+  "moduleStyle": "bookdeskModule",
+  "moduleName": "Shop the look",
+  "moduleAside": "Bonnie and Neil",
+  "AsideDESC": "",
+  "moduleItemList": [
+    {
+      
+      "itemBoxStyle": "",
+      "itemName": "Bonnie and Neil Tea For One Pink Orchid",
+      "imageType": "img",
+      "itemImage": "Images/Main/B_item1.png",
+      "itemDESC": "A$70.00",
+      "buttonList": ["Add to bag"]
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "Bonnie and Neil Tea For One Pink Orchid",
+      "imageType": "img",
+      "itemImage": "Images/Main/B_item2.png",
+      "itemDESC": "A$70.00",
+      "buttonList": ["Add to bag"]
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "Bonnie and Neil Tea For One Pink Orchid",
+      "imageType": "img",
+      "itemImage": "Images/Main/B_item3.png",
+      "itemDESC": "A$70.00",
+      "buttonList": ["Add to bag"]
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "Bonnie and Neil Tea For One Pink Orchid",
+      "imageType": "img",
+      "itemImage": "Images/Main/B_item4.png",
+      "itemDESC": "A$70.00",
+      "buttonList": ["Add to bag"]
+    }
+  ]
+},
+{
+  "moduleID": "curatedForYou",
+  "moduleStyle": "showWindowModule",
+  "moduleName": "Curated for you",
+  "moduleAside": "",
+  "AsideDESC": "",
+  "moduleItemList": [
+    {
+      
+      "itemBoxStyle": "biggerItemBox",
+      "itemName": "Tea",
+      "imageType": "img",
+      "itemImage": "Images/Main/C_item1.png",
+      "itemDESC": "",
+      "buttonList": ["Add to bag"]
+    },
+    {
+      "itemBoxStyle": "biggerItemBox",
+      "itemName": "Tea",
+      "imageType": "img",
+      "itemImage": "Images/Main/C_item2.png",
+      "itemDESC": "",
+      "buttonList": ["Add to bag"]
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "Tea",
+      "imageType": "img",
+      "itemImage": "Images/Main/C_item3.png",
+      "itemDESC": "",
+      "buttonList": []
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "Tea",
+      "imageType": "img",
+      "itemImage": "Images/Main/C_item4.png",
+      "itemDESC": "",
+      "buttonList": []
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "Tea",
+      "imageType": "img",
+      "itemImage": "Images/Main/C_item5.png",
+      "itemDESC": "",
+      "buttonList": []
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "Tea",
+      "imageType": "img",
+      "itemImage": "Images/Main/C_item6.png",
+      "itemDESC": "",
+      "buttonList": []
+    }
+  ]
+},
+{
+  "moduleID": "partnership",
+  "moduleStyle": "galleryModule",
+  "moduleName": "PartnerShips",
+  "moduleAside": "T2 Collaborations",
+  "asideDESC":
+    "Our mission is to celebrate difference to make a difference. Discover our latest collaborations with Goanna Hut and The Smith Family.",
+  "moduleItemList": [
+    {
+      
+      "itemBoxStyle": "",
+      "itemName": "Goanna Hut",
+      "imageType": "img",
+      "itemImage": "Images/Main/D_item1.webp",
+      "itemDESC":
+        "Delicious teas celebrating native Australian ingredients and superfoods!",
+      "buttonList": ["Find out more"]
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "The Smith family",
+      "imageType": "img",
+      "itemImage": "Images/Main/D_item2.webp",
+      "itemDESC":
+        "Helping Australian children in need to create better futures for themselves.",
+      "buttonList": ["Find out more"]
+    }
+  ]
+},
+{
+  "moduleID": "teaLibrary",
+  "moduleStyle": "fadeModule",
+  "moduleName": "Tea Library",
+  "moduleAside": "",
+  "AsideDESC": "",
+  "moduleItemList": [
+    {
+      
+      "itemBoxStyle": "",
+      "itemName": "Black Teas",
+      "imageType": "img",
+      "itemImage": "Images/Main/E_item1.webp",
+      "itemDESC":
+        "Black tea devotees look no further for everything from light and bright infusions to breakfast blends and every kind of flavour in between.",
+      "buttonList": ["Shop", "Shop all teas"]
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "Bonnie and Neil Tea 123For One Pink Orchid",
+      "imageType": "img",
+      "itemImage": "Images/Main/item_1.jpg",
+      "itemDESC": "A$70.12300",
+      "buttonList": ["Add to bag"]
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "Bonnie and Neil Tea For One Pink Orchid",
+      "imageType": "img",
+      "itemImage": "Images/Main/item_1.jpg",
+      "itemDESC": "A$70.00",
+      "buttonList": ["Add to bag"]
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "Bonnie and Neil Tea For One Pink Orchid",
+      "imageType": "img",
+      "itemImage": "Images/Main/item_1.jpg",
+      "itemDESC": "A$70.00",
+      "buttonList": ["Add to bag"]
+    }
+  ]
+},
+{
+  "moduleID": "",
+  "moduleStyle": "jigModule",
+  "moduleName": "",
+  "moduleAside": "",
+  "AsideDESC": "",
+  "moduleItemList": [
+    {
+      
+      "itemBoxStyle": "leftStruckBox",
+      "itemName": "Teawears",
+      "imageType": "img",
+      "itemImage": "Images/Main/H_item1.jpg",
+      "itemDESC":"Your tea is not complete without one of our beautiful teasets!",
+      "buttonList": ["Add to bag"]
+    },
+    {
+      "itemBoxStyle": "rightStruckBox",
+      "itemName": "Brewing Tools",
+      "imageType": "img",
+      "itemImage": "Images/Main/H_item2.jpg",
+      "itemDESC":"These handy gadgets and contraptions are pick of the bunch – there’s everything you need to get brewing!",
+      "buttonList": ["Add to bag"]
+    }
+  ]
+},
+{
+  "moduleID": "discover",
+  "moduleStyle": "galleryModule",
+  "moduleName": "Shop the look",
+  "moduleAside": "A flavour for you",
+  "asideDESC":"It's tea with a twist. Discover tips and tricks to perfect your fave brew or explore our tea-infused recipes.",
+  "moduleItemList": [
+    {
+      
+      "itemBoxStyle": "",
+      "itemName": "Matcha Cacao Bliss Balls",
+      "imageType": "img",
+      "itemImage": "Images/Main/F_item1.webp",
+      "itemDESC":"Mix up a batch of these tasty Matcha cacao bliss balls, and you’re all set for snack time!",
+      "buttonList": ["Add to bag"]
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "Matcha Affogato",
+      "imageType": "img",
+      "itemImage": "Images/Main/F_item2.webp",
+      "itemDESC":"This super satisfying dessert takes seconds to prepare and makes for the perfect summer treat!",
+      "buttonList": ["Add to bag"]
+    }
+  ]
+},
+{
+  "moduleID": "findYourGift",
+  "moduleStyle": "crouselGalleryModule",
+  "moduleName": "",
+  "moduleAside": "Find Your Gift",
+  "asideDESC":
+    "We’ve curated a list of gifts to fit the needs of those you’re buying a gift for.",
+  "moduleItemList": [
+    {
+      
+      "itemBoxStyle": "",
+      "itemName": "Tea Gift Pack",
+      "imageType": "img",
+      "itemImage": "Images/Main/G_item1.jpg",
+      "itemDESC":
+        "Make an impression with our top selling tea and teaware gift packs.",
+      "buttonList": ["Add to bag"]
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "Tea Packs",
+      "imageType": "img",
+      "itemImage": "Images/Main/G_item2.jpg",
+      "itemDESC": "Delight and devour with our tasty teatime treats, bundled up and dressed to the nines in our tea packs.",
+      "buttonList": ["Add to bag"]
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "Bonnie and Neil Tea For One Pink Orchid",
+      "imageType": "img",
+      "itemImage": "Images/Main/item_1.jpg",
+      "itemDESC": "A$70.00",
+      "buttonList": ["Add to bag"]
+    },
+    {
+      "itemBoxStyle": "",
+      "itemName": "Bonnie and Neil Tea For One Pink Orchid",
+      "imageType": "img",
+      "itemImage": "Images/Main/item_1.jpg",
+      "itemDESC": "A$70.00",
+      "buttonList": ["Add to bag"]
+    }
+  ]
+}
+]
+}
