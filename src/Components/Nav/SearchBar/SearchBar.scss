@@ -2,17 +2,17 @@
 
 .SearchBar {
 	background-color: $white;
-	animation-name: down;
-	animation-duration: 10s;
+	// animation-name: down;
+	// animation-duration: 10s;
 
-	@keyframes down {
-		0% {
-			top: -100px;
-		}
-		100% {
-			top: 0px;
-		}
-	}
+	// @keyframes down {
+	// 	0% {
+	// 		top: -100px;
+	// 	}
+	// 	100% {
+	// 		top: 0px;
+	// 	}
+	// }
 
 	.searchBarArea {
 		@include center;
