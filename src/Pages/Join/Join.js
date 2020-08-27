@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./Join.scss";
 import Card from "./Card";
+import "./Join.scss";
 
-const emailRegex = RegExp(
+const EMAILREGEX = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/
 );
 
@@ -61,7 +61,6 @@ class Join extends Component {
   };
 
   handleClick = () => {
-    // const {firstName,email,password,
     fetch("http://10.58.4.149:8000/user/login", {
       method: "POST",
       body: JSON.stringify({
@@ -95,7 +94,7 @@ class Join extends Component {
           break;
         case "email":
           formErrors.email =
-            emailRegex.test(value) || !value ? "" : "invalid email address";
+            EMAILREGEX.test(value) || !value ? "" : "invalid email address";
           break;
         case "contactNumver":
           formErrors.phone =
@@ -262,7 +261,7 @@ class Join extends Component {
                   className="phoneInput"
                   type="text"
                   placeholder="Contact number*"
-                  name="contactNumver"
+                  name="contactNumber"
                 />
               </div>
               {formErrors.phone.length > 0 && (
@@ -271,7 +270,7 @@ class Join extends Component {
 
               <div
                 className={`pwdInputWrapper ${
-                  formErrors.password.length > 0 ? "error" : null
+                  formErrors.password.length ? "error" : ""
                 }`}
               >
                 <input

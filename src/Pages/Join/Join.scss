@@ -12,6 +12,7 @@
 .Join {
   .teaSoMain {
     position: relative;
+
     .teaSoLogoBox {
       position: absolute;
       display: flex;
@@ -147,9 +148,9 @@
 
   .inputFormSub {
     display: flex;
-    align-items: center;
-    width: 700px;
     flex-direction: column;
+    width: 700px;
+    align-items: center;
     margin: 0 auto;
 
     .emailWrapper {
