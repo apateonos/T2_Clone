@@ -1,5 +1,7 @@
 @import "../../../Styles/common.scss";
 
-.rotateBtn {
-	transform: rotate(180deg);
+.MoreBtn {
+	img {
+		transform: rotate(180deg);
+	}
 }

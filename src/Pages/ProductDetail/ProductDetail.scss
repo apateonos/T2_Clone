@@ -45,12 +45,47 @@
 				// background-color: blue;
 				height: 100%;
 				width: 50%;
+				padding: 0 30px;
 
 				.mainImg {
-					margin: 0 47.5px;
+					//	margin: 0 47.5px;
+					//display: flex;
+					//vertical-align: center;
+
 					img {
 						width: 430px;
+						margin: 0 47.5px;
 					}
+
+					.slick-prev {
+						width: 35px;
+						height: 34px;
+						//background-image: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598427800341/images/pdp-right.png");
+						//background-size: 40px 44px;
+						background-repeat: no-repeat;
+						content: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598458481353/images/left__.png");
+						//transform: rotate(180deg);
+					}
+
+					.slick-next {
+						width: 35px;
+						height: 34px;
+						//background-image: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598427800341/images/pdp-right.png");
+						//background-size: 40px 44px;
+						background-repeat: no-repeat;
+						//content: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598427800341/images/pdp-right.png");
+						content: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598458481353/images/right__.png");
+					}
+
+					// .slick-next {
+					// 	background-image: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598427800341/images/pdp-right.png");
+					// 	background-size: 35px 39px;
+					// 	background-repeat: no-repeat;
+					// }
+
+					// .slick-next:before {
+					// 	background-color: black;
+					// }
 				}
 
 				.subImg {
@@ -218,7 +253,6 @@
 
 					.subTab {
 						font-size: 12px;
-						//margin-bottom: 20px;
 
 						.showTab {
 							display: flex;
@@ -231,6 +265,10 @@
 								to {
 									height: 0%;
 								}
+							}
+
+							div {
+								padding-bottom: 20px;
 							}
 						}
 
