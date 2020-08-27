@@ -1,0 +1,26 @@
+{
+	"product_detail": [
+		{
+			"product_type": "Limited Edition Tea",
+			"product_name": "Irish Breakfast Loose Leaf Icon Tin",
+			"product_price": "22.00",
+			"product_image": [
+				"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw344ddde6/images/products/2020 Aug/T135AE040_jam-on-toast_p2.png?sw=555&sh=555&sm=fit",
+				"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dwd5cc57fc/images/products/2020 Aug/T135AE040_jam-on-toast_p1.png?sw=100&sh=100&sm=fit",
+				"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dwd5cc57fc/images/products/2020 Aug/T135AE040_Jam_Mobile_1024x1024.png?sw=100&sh=100&sm=fit"
+			],
+			"size_unit": [],
+			"size_price": [],
+			"size_image": [
+				"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw344ddde6/images/products/2020 Aug/T135AE040_jam-on-toast_p2.png?sw=100&sh=100&sm=fit",
+				"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dwd5cc57fc/images/products/2020 Aug/T135AE040_jam-on-toast_p1.png?sw=100&sh=100&sm=fit",
+				"https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dwfcfb83f8/images/products/2020 Aug/Jam_Mobile_1024x1024.png?sw=100&sh=100&sm=fit"
+			],
+			"description": "Net Wt. 100g / 3.5oz  No messing around with this stout blend! This hall of famer is rich and full-bodied with a frank aroma. Perfect with a splash of milk and paired with a hearty breakfast to get the day going.",
+			"ingredients": "Black tea",
+			"brewing_quantity": "1 tsp per cup",
+			"brewing_time": "100\u00b0C / 212\u00b0F",
+			"brewing_temp": "2-4 mins"
+		}
+	]
+}
