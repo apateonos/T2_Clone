@@ -13,7 +13,7 @@ class Footer extends Component {
             loop
             type="video/webm"
             src="https://cdn.intelligencebank.com/au/share/NOrD/e3oNW/vvAy3/webm/FA+animated+logo_1583847446"
-          />
+          ></video>
           <div className="textBox">
             <div className="textTitle">Tea Society</div>
             <div className="textDescription">
