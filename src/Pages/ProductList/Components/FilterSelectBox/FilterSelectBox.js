@@ -7,11 +7,29 @@ class FilterSelectBox extends Component {
 
     this.state = {
       isClick: false,
+      checkedItems: [],
     };
   }
 
-  handleCheck = (e) => {
-    this.props.handleClick(e);
+  handleClick = (e) => {
+    const item = e.target.value;
+    const name = e.target.name;
+    let newArr;
+
+    if (this.state.checkedItems.includes(item)) {
+      newArr = this.state.checkedItems.filter((el) => el !== item);
+    } else {
+      newArr = [...this.state.checkedItems, item];
+    }
+
+    this.setState(
+      {
+        checkedItems: newArr,
+      },
+      () => {
+        this.props.handleClick({ [name]: this.state.checkedItems });
+      }
+    );
   };
 
   render() {
@@ -38,9 +56,9 @@ class FilterSelectBox extends Component {
                     <input
                       className="checkInput"
                       type="checkbox"
-                      id={el}
+                      value={el}
                       name={name}
-                      onClick={this.handleCheck}
+                      onChange={this.handleClick}
                     />
                     <span className="customCheckBox"></span>
                     {el}

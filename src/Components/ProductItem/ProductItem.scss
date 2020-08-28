@@ -5,10 +5,6 @@
 	margin-bottom: 70px;
 	margin-right: 2.1%;
 
-	&:nth-child(4n) {
-		margin-right: 0px;
-	}
-
 	.heartBox {
 		position: relative;
 		height: 40px;
@@ -23,18 +19,18 @@
 
 			.heartImg {
 				height: inherit;
-				background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart.svg)
+				background: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart.svg")
 					no-repeat center;
 			}
 
 			&:hover .heartImg {
-				background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart_orange.svg)
+				background: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart_orange.svg")
 					no-repeat center;
 			}
 
 			.heartImgCheck {
 				height: inherit;
-				background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart_red.svg)
+				background: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart_red.svg")
 					no-repeat center;
 			}
 		}
@@ -58,11 +54,16 @@
 	}
 
 	.productInfo {
-		margin: 25px 0 5px;
+		margin: 25px 0 40px;
 
 		.ratingBox {
+			display: flex;
 			margin-bottom: 20px;
 			font-size: 16px;
+
+			.reviewCount {
+				margin-left: 4px;
+			}
 		}
 
 		.viewDetail {
@@ -79,7 +80,7 @@
 		height: 216px;
 
 		li {
-			margin-right: 5px;
+			margin-right: 3px;
 
 			.variationImgButton {
 				display: flex;
@@ -102,6 +103,7 @@
 
 			.variationName {
 				height: 50px;
+				width: inherit;
 				margin-top: 10px;
 				font-size: 12px;
 				font-weight: 600;
@@ -122,13 +124,37 @@
 			width: 157.12px;
 			height: 42px;
 			background: $orange;
-			font-style: inherit;
 			font-weight: 600;
 
 			&:hover {
 				background: $black;
 				color: $white;
 			}
+		}
+	}
+
+	.removeForm {
+		display: none;
+
+		* {
+			padding: 0;
+			font-weight: 600;
+			font-size: 14px;
+		}
+
+		button {
+			@include center;
+			margin: 0 auto;
+		}
+
+		.removeIcon {
+			display: inline-block;
+			width: 15px;
+			height: 15px;
+			margin-right: 4px;
+			background: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598427800341/images/icons/remove.svg")
+				no-repeat center;
+			background-size: contain;
 		}
 	}
 }

@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { config } from "./../../config";
 import QuantityBox from "./QuantityBox/QuantityBox";
 import "./ProductItem.scss";
-
-//TODO :  기존에 있던 wishlist 정보를 바탕으로 하트 활성화. 이미지 및 리뷰 갯수,장바구니..
 
 class ProductItem extends Component {
   constructor() {
@@ -14,6 +13,7 @@ class ProductItem extends Component {
       isWishList: false,
       quantity: 1,
       isQuantityClick: false,
+      wishIdList: [],
     };
   }
 
@@ -21,12 +21,25 @@ class ProductItem extends Component {
     const { isWishList } = this.state;
     const { data } = this.props;
 
-    if (isWishList === false) {
-      console.log("to wishList", data);
-    } else {
-      console.log("remove", data);
-    }
-    this.setState({ isWishList: !isWishList });
+    fetch(`${config.api}/user/wishlist`, {
+      method: "POST",
+      headers: {
+        Authorization: sessionStorage.getItem("login_token"),
+      },
+      body: JSON.stringify({
+        product_id: data.product_id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        // if (res.message.is_wished) {
+        //   this.setState({
+        //     wishIdList: [...this.state.wishIdList, res.message.product_id],
+        //   });
+        // }
+        this.setState({ isWishList: !isWishList });
+      });
   };
 
   handleOptionClick = (idx) => {
@@ -40,8 +53,31 @@ class ProductItem extends Component {
   handleSubmit = () => {
     const { selectItem, quantity } = this.state;
     const { data } = this.props;
-    console.log("Add to Bag", data);
-    console.log(`Add to Bag : size : ${selectItem}, quantitiy: ${quantity} `);
+    const size_unit = data.size_unit[selectItem];
+    const result = {};
+
+    result["product_id"] = data.product_id;
+    result["count"] = quantity;
+
+    if (size_unit) {
+      result["size_unit"] = data.size_unit[selectItem];
+    } else {
+      result["size_unit"] = -1;
+    }
+    console.log("Add to Bag", data.product_id);
+    console.log(result);
+
+    fetch(`${config.apiWishlist}/user/shoppingbag`, {
+      method: "POST",
+      headers: {
+        Authorization: sessionStorage.getItem("login_token"),
+      },
+      body: JSON.stringify(result),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      });
   };
 
   render() {
@@ -71,8 +107,8 @@ class ProductItem extends Component {
             {data.product_name}
           </Link>
           <div className="ratingBox">
-            {/* <img alt="starRatings" src={product.rating} /> */}
-            (3)
+            <img alt="starRatings" src={data.review_img} />
+            <div className="reviewCount"> {`(${data.review_count})`}</div>
           </div>
           <>
             <Link to="/shop" className="viewDetail">
@@ -119,9 +155,19 @@ class ProductItem extends Component {
             <button onClick={handleSubmit}>Add to Bag</button>
           </div>
         </div>
+        <div className="removeForm">
+          <button
+            onClick={() => {
+              this.props.onClickRemove(data.product_id);
+            }}
+          >
+            <span className="removeIcon"></span>
+            Remove
+          </button>
+        </div>
       </li>
     );
   }
 }
 
-export default ProductItem;
+export default withRouter(ProductItem);
