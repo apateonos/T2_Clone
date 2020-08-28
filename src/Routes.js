@@ -4,7 +4,6 @@ import Nav from "./Components/Nav/Nav";
 import Login from "./Pages/Login/Login";
 import ProductList from "./Pages/ProductList/ProductList";
 import ProductDetail from "./Pages/ProductDetail/ProductDetail";
-import Nav from "./Components/Nav/Nav";
 import Footer from "./Components/Footer/Footer";
 import MyPage from "./Pages/MyPage/MyPage";
 
