@@ -13,9 +13,9 @@ class Wishlist extends Component {
 
   componentDidMount() {
     const headers = {
-      Authorization: config.token,
+      Authorization: sessionStorage.getItem("login_token"),
     };
-    fetch(`${config.apiWishlist}/user/wishlist`, { headers })
+    fetch(`${config.api}/user/wishlist`, { headers })
       .then((response) => response.json())
       .then((res) => this.setState({ data: res.product_list }));
   }
@@ -23,10 +23,10 @@ class Wishlist extends Component {
   handleRemove = (removeId) => {
     console.log(removeId);
 
-    fetch(`${config.apiWishlist}/user/wishlist`, {
+    fetch(`${config.api}/user/wishlist`, {
       method: "POST",
       headers: {
-        Authorization: config.token,
+        Authorization: sessionStorage.getItem("login_token"),
       },
       body: JSON.stringify({
         product_id: removeId,

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { config } from "./../../config";
 import QuantityBox from "./QuantityBox/QuantityBox";
 import "./ProductItem.scss";
@@ -21,10 +21,10 @@ class ProductItem extends Component {
     const { isWishList } = this.state;
     const { data } = this.props;
 
-    fetch(`${config.apiWishlist}/user/wishlist`, {
+    fetch(`${config.api}/user/wishlist`, {
       method: "POST",
       headers: {
-        Authorization: config.token,
+        Authorization: sessionStorage.getItem("login_token"),
       },
       body: JSON.stringify({
         product_id: data.product_id,
@@ -70,7 +70,7 @@ class ProductItem extends Component {
     fetch(`${config.apiWishlist}/user/shoppingbag`, {
       method: "POST",
       headers: {
-        Authorization: config.token,
+        Authorization: sessionStorage.getItem("login_token"),
       },
       body: JSON.stringify(result),
     })
@@ -107,8 +107,8 @@ class ProductItem extends Component {
             {data.product_name}
           </Link>
           <div className="ratingBox">
-            {/* <img alt="starRatings" src={product.rating} /> */}
-            {`(${data.review_count})`}
+            <img alt="starRatings" src={data.review_img} />
+            <div className="reviewCount"> {`(${data.review_count})`}</div>
           </div>
           <>
             <Link to="/shop" className="viewDetail">
@@ -170,4 +170,4 @@ class ProductItem extends Component {
   }
 }
 
-export default ProductItem;
+export default withRouter(ProductItem);

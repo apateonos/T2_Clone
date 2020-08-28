@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import FilterSelectBox from "./Components/FilterSelectBox/FilterSelectBox";
 import ProductItem from "./../../Components/ProductItem/ProductItem";
+import { config } from "./../../config";
 import "./ProductList.scss";
-import { Link } from "react-router-dom";
 
 class ProductList extends Component {
   constructor() {
@@ -56,7 +57,7 @@ class ProductList extends Component {
 
   componentDidMount = () => {
     // "http://10.58.4.238:8000/products"
-    fetch("http://localhost:3000/Data/product.json")
+    fetch(`${config.api}/products`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({ product: res.product_list }, () => {
@@ -66,7 +67,7 @@ class ProductList extends Component {
   };
 
   fetchReview = () => {
-    fetch("http://localhost:3000/Data/review.json")
+    fetch(`${config.api}/reviews`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({ review: res.review_list }, () => {
@@ -81,14 +82,14 @@ class ProductList extends Component {
     let result = {};
     for (let info of this.state.review) {
       //TODO : 이미지 저장
-      result[info["product_id"]] = [info["rating"], info["review_count"]];
+      result[info["product_id"]] = [info["rating_img"], info["review_count"]];
     }
     console.log(result);
 
     for (let info of newProduct) {
       console.log(info["product_id"]);
       info["review_count"] = result[+info["product_id"]][1];
-      //info["review_image"] = result[+info["product_id"]][2];
+      info["review_img"] = result[+info["product_id"]][0];
     }
 
     this.setState({ product: newProduct });
@@ -124,7 +125,7 @@ class ProductList extends Component {
     //   .then((res) => res.json())
     //   .then((res) => this.setState({ product: res.product_list }));
 
-    fetch(`http://10.58.7.91:8000/products?${result}`)
+    fetch(`${config.api}/products?${result}`)
       .then((res) => res.json())
       .then((res) => this.setState({ product: res.product_list }));
   };
