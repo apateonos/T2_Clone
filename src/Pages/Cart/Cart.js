@@ -1,48 +1,27 @@
 import React, { Component } from "react";
-import "./Cart.scss";
 import CardItem from "./CardItem";
+import { config } from "../../config";
+import "./Cart.scss";
 
 class Cart extends Component {
   state = {
-    message: [
-      {
-        ordering_number: 1,
-        name: "100% Organic Matcha",
-        image:
-          "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw2cba5a78/images/T110AI012_matcha-black-tin_p1.png?sw=55&sh=55&sm=fit",
-        unit: "Tin 30g-1.1oz",
-        count: 92,
-        price: "2484.00",
-      },
-      {
-        ordering_number: 2,
-        name: "100% Organic Matcha",
-        image:
-          "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dwe989f3ae/images/products/T110AI029_matcha_sha1.png?sw=100&sh=100&sm=fit",
-        unit: "Tin 50g-1.7oz",
-        count: 4,
-        price: "176.00",
-      },
-      {
-        ordering_number: 3,
-        name: "Apple Maple Muffin Loose Leaf Feature Cube",
-        image:
-          "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw1815455f/images/products/2020 Aug/T115AE120_apple-maple-muffin_p2.png?sw=262&sh=262&sm=fit",
-        count: 2,
-        price: "52.00",
-      },
-      {
-        ordering_number: 4,
-        name: "The Quiet Mind Loose Leaf Feature Cube",
-        image:
-          "https://www.t2tea.com/dw/image/v2/AASF_PRD/on/demandware.static/-/Sites-masterCatalog_t2/default/dw4038cfa3/images/products/2211/T140AE217_the-quiet-mind_p2.png?sw=262&sh=262&sm=fit",
-        count: 5,
-        price: "100.00",
-      },
-    ],
+    message: [],
     priceResult: "",
     open: false,
   };
+
+  componentDidMount() {
+    fetch(`${config.apiWishlist}/user/shoppingbag`, {
+      method: "GET",
+      headers: {
+        Authorization: config.token,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({ message: res.message });
+      });
+  }
 
   handleButton = (id) => {
     let newData = this.state.message.filter((el) => el.ordering_number !== id);
@@ -50,8 +29,29 @@ class Cart extends Component {
   };
 
   handleRemove = (idx) => {
+    let united = "";
     const { name, unit } = this.state.message[idx];
+    if (!unit) {
+      united = -1;
+    } else {
+      united = unit;
+    }
+
     console.log(`user/shoppingbag?product_name=${name}&product_size=${unit}`);
+
+    fetch(
+      `${config.apiWishlist}/user/shoppingbag?product_name=${name}&product_size=${united}`,
+      {
+        method: "GET",
+        headers: {
+          Authorization: config.token,
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({ message: res.message });
+      });
   };
 
   handleResult = () => {
