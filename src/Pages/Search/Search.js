@@ -56,7 +56,7 @@ class Search extends Component {
       .map((el) => el + "+")
       .join("")
       .slice(0, -1);
-    fetch(`http://10.58.7.91:8000/products?search=${temp}`)
+    fetch(`http://18.188.104.20:8000/products?search=${temp}`)
       .then((res) => res.json())
       .then((res) => this.setState({ searchedList: res.product_list }));
   };
