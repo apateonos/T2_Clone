@@ -5,7 +5,7 @@ class Footer extends Component {
   render() {
     return (
       <>
-        <div className="teaSocietyBanner">
+        <div className="teaSocietyBanner" >
           <video autoplay="true" muted playsinline loop type="video/webm" src="https://cdn.intelligencebank.com/au/share/NOrD/e3oNW/vvAy3/webm/FA+animated+logo_1583847446"></video>
           <div className="textBox">
             <div className="textTitle">Tea Society</div>

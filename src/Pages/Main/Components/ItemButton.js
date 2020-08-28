@@ -5,8 +5,8 @@ class ItemButton extends Component {
     const { buttonList } = this.props;
     return (
       <div className="itemButtonBox">
-        {buttonList.map((el) => (
-          <button className="itemButton">{el}</button>
+        {buttonList.map((el,index) => (
+          <button key={index} className="itemButton">{el}</button>
         ))}
       </div>
     );

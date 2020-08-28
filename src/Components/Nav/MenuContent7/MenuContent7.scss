@@ -4,12 +4,13 @@
 	@include center;
 	font-weight: 600;
 	font-size: 13px;
+	z-index: 99;
+	position: absolute;
 
 	.MenuContentContainer {
 		display: flex;
 		justify-content: space-between;
-		width: 100%;
-		height: 100%;
+		width: 1150px;
 		margin: 0 190px;
 		padding: 30px;
 		background-color: $orange;
@@ -26,6 +27,11 @@
 					margin: 0 10px 5px 0;
 					width: 200px;
 					line-height: 20px;
+
+					&:hover {
+						color: $white;
+						cursor: pointer;
+					}
 				}
 			}
 

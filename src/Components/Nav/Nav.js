@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.scss";
+import SearchBar from "./SearchBar/SearchBar";
 import MenuContent1 from "./MenuContent1/MenuContent1";
 import MenuContent2 from "./MenuContent2/MenuContent2";
 import MenuContent3 from "./MenuContent3/MenuContent3";
@@ -11,9 +12,14 @@ import MenuContent7 from "./MenuContent7/MenuContent7";
 
 class Nav extends Component {
   state = {
+    searchedValue: "",
     textIdx: 0,
     isShown: false,
+    isSearchBarShown: false,
     activeContent: 0,
+    scrollPos: 0,
+    showNavInfo: false,
+    isActive: false,
   };
 
   componentDidMount() {
@@ -21,6 +27,8 @@ class Nav extends Component {
       let currentIdx = this.state.textIdx;
       this.setState({ textIdx: currentIdx + 1 });
     }, 2500);
+
+    window.addEventListener("scroll", this.handleScroll);
   }
 
   switchActiveContent = (idx) => {
@@ -35,6 +43,31 @@ class Nav extends Component {
     this.setState({ isShown: false });
   };
 
+  openSearchBar = () => {
+    this.setState({ isSearchBarShown: true });
+  };
+
+  hideSearchBar = () => {
+    this.setState({ isSearchBarShown: false });
+  };
+
+  handleScroll = () => {
+    console.log(document.body.getBoundingClientRect().top);
+    this.setState({
+      scrollPos: document.body.getBoundingClientRect().top,
+      showNavInfo: document.body.getBoundingClientRect().top === -40,
+    });
+  };
+
+  onClickSearch() {
+    //this.props.history.push('/searched', { some: this.state.searchedValue })
+  }
+
+  inputHandle=(e)=>{
+    this.setState({searchedValue : e.target.value })
+  }
+  // 김규영 작업
+
   render() {
     let currentBannerText = bannerArr[this.state.textIdx % bannerArr.length];
 
@@ -43,22 +76,18 @@ class Nav extends Component {
         <div className="rollingBanner">
           <span>{currentBannerText}</span>
         </div>
-        <div className="searchBar">
-          <div className="searchBarContainer">
-            <form action="">
-              <input type="text" placeholder="I'm looking for..." />
-              <button type="submit"></button>
-            </form>
-            <div className="closeButton">
-              <svg viewBox="0 0 10 10" id="icon-close">
-                <title>close</title>
-                <polygon points="9.6 1.1 8.9 0.4 5 4.29 1.1 0.4 0.4 1.1 4.29 5 0.4 8.9 1.1 9.6 5 5.71 8.9 9.6 9.6 8.9 5.71 5 9.6 1.1"></polygon>
-              </svg>
-              <span>CLOSE</span>
-            </div>
-          </div>
-        </div>
-        <nav>
+        {/* {this.state.isSearchBarShown && (
+          <SearchBar hideSearchBar={this.hideSearchBar} />
+        )} */}
+        <SearchBar
+          isSearchBarShown={this.state.isSearchBarShown}
+          hideSearchBar={this.hideSearchBar}
+          onClickSearch={this.onClickSearch}
+          inputHandle={this.inputHandle}
+          searchedValue={this.state.searchedValue}//김규영 작업
+        />
+
+        <nav style={{ height: this.state.scrollPos === 0 ? "85px" : "50px" }}>
           <div className="navBox">
             <div className="logo">
               <Link>
@@ -69,7 +98,13 @@ class Nav extends Component {
               </Link>
             </div>
             <div className="navContents">
-              <div className="navInfo">
+              <div
+                className="navInfo"
+                onScroll={this.handleScroll}
+                style={{
+                  display: this.state.scrollPos === 0 ? "flex" : "none",
+                }}
+              >
                 <button>
                   <span>Deliver to</span>
                   <img
@@ -110,9 +145,7 @@ class Nav extends Component {
                   })}
                 </ul>
                 <ul className="icons">
-                  <li>
-                    <button />
-                  </li>
+                  <li onClick={this.openSearchBar}></li>
                   <li>
                     <a href="" />
                   </li>

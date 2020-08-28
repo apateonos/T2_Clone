@@ -5,6 +5,10 @@ import ItemDESC from "./ItemDESC";
 import ItemButton from "./ItemButton";
 
 class Item extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     const {
       BoxStyle,
@@ -14,9 +18,12 @@ class Item extends Component {
       itemDESC,
       buttonList,
     } = this.props;
-
     return (
-      <div className={"itemBox " + BoxStyle} style={{transform: "translateX("+this.props.transform+"px)"}} >
+      <div
+        className={"itemBox " + BoxStyle}
+        ref={this.props.ref}
+        style={{ transform: "translateX(" + this.props.transform + "px)" }}
+      >
         <ItemImage
           imgType={imgType}
           itemName={itemName}
@@ -30,8 +37,10 @@ class Item extends Component {
           <ItemButton buttonList={buttonList} />
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Item;
+export default React.forwardRef((props, ref) => {
+  return <Item ref={ref} {...props} />;
+});
