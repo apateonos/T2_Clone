@@ -12,14 +12,13 @@ import MenuContent7 from "./MenuContent7/MenuContent7";
 
 class Nav extends Component {
   state = {
-    searchedValue: "",
+    searchValue: "",
     textIdx: 0,
     isShown: false,
     isSearchBarShown: false,
     activeContent: 0,
     scrollPos: 0,
     showNavInfo: false,
-    isActive: false,
   };
 
   componentDidMount() {
@@ -58,10 +57,10 @@ class Nav extends Component {
       showNavInfo: document.body.getBoundingClientRect().top === -40,
     });
   };
-
-  inputHandle = (e) => {
-    this.setState({ searchedValue: e.target.value });
-  };
+  
+  inputHandle =(e) =>{
+    this.setState({[e.target.name]: e.target.value})
+  }
 
   render() {
     let currentBannerText = bannerArr[this.state.textIdx % bannerArr.length];
@@ -71,14 +70,9 @@ class Nav extends Component {
         <div className="rollingBanner">
           <span>{currentBannerText}</span>
         </div>
-        <SearchBar
-          isSearchBarShown={this.state.isSearchBarShown}
-          hideSearchBar={this.hideSearchBar}
-          onClickSearch={this.onClickSearch}
-          inputHandle={this.inputHandle}
-          searchedValue={this.state.searchedValue}
-        />
-
+        {this.state.isSearchBarShown && (
+          <SearchBar hideSearchBar={this.hideSearchBar} inputHandle={this.inputHandle} searchedValue={this.state.searchValue}/>
+        )}
         <nav style={{ height: this.state.scrollPos === 0 ? "85px" : "50px" }}>
           <div className="navBox">
             <div className="logo">
@@ -111,10 +105,10 @@ class Nav extends Component {
                     <Link>STORES</Link>
                   </li>
                   <li>
-                    <Link>LOGIN</Link>
+                    <Link to="/account">LOGIN</Link>
                   </li>
                   <li>
-                    <Link>MY FAVOURITES</Link>
+                    <Link to="/mypage">MY FAVOURITES</Link>
                   </li>
                 </ul>
               </div>
@@ -131,7 +125,7 @@ class Nav extends Component {
                         }}
                         onMouseLeave={this.hideMenuContent}
                       >
-                        <a herf="">{el}</a>
+                        <a href="#">{el}</a>
                       </li>
                     );
                   })}
@@ -139,7 +133,7 @@ class Nav extends Component {
                 <ul className="icons">
                   <li onClick={this.openSearchBar}></li>
                   <li>
-                    <a herf="" />
+                    <a href="" />
                   </li>
                 </ul>
               </div>

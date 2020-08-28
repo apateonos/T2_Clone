@@ -41,7 +41,7 @@ main {
 
   .crouselModule {
     @include moduleContainerSetting;
-    width : 1796px;
+    width : 100%;
     
     .moduleHead {
       @include moduleHead(1);
