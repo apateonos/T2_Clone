@@ -44,19 +44,23 @@ class Login extends Component {
       }),
     })
       .then((res) => res.json())
-      .then((res) => console.log(res));
+      .then((res) => {
+        console.log(res);
+        if (res["login response"].access_token) {
+          window.sessionStorage.setItem(
+            "login_token",
+            res["login response"].access_token
+          );
+          this.props.history.push("/");
+        } else {
+          alert("로그인 정보가 다릅니다");
+        }
+      });
   };
-  // merge 할때 사용될 코드
-  //  {
-  // if (res.access_token) {
-  //     window.sessionStorage.setItem("login_token", res.access_token);
-  //     this.props.history.push("/")
-  //   } else {
-  //     alert("로그인 정보가 다릅니다");
-  //   }
-  // });
 
   render() {
+    console.log(1);
+    console.log(sessionStorage.getItem("login_token"));
     const { email, pwpass, errorActive, password } = this.state;
     return (
       <main className="Login">
