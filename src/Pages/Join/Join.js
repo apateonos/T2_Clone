@@ -40,11 +40,16 @@ class Join extends Component {
         },
       ],
 
+      first_name: "",
+      last_name: "",
+      email: "",
       password: "",
       confirmPwd: "",
+      phone: "",
       birthyear: "",
-      birthmon: "",
+      birthmonth: "",
       birthday: "",
+
       formErrors: {
         firstName: "",
         lastName: "",
@@ -61,17 +66,26 @@ class Join extends Component {
   };
 
   handleClick = () => {
-    fetch("http://10.58.4.149:8000/user/login", {
+    console.log(this.state.firstName);
+    console.log(this.state.lastName);
+    console.log(this.state.email);
+    console.log(this.state.phone);
+    console.log(this.state.password);
+    console.log(this.state.birthyear);
+    console.log(this.state.birthmonth);
+    console.log(this.state.birthday);
+
+    fetch("http://10.58.4.149:8000/user/join", {
       method: "POST",
       body: JSON.stringify({
-        first_name: this.state.first_name,
-        last_name: this.state.last_name,
+        first_name: this.state.firstName,
+        last_name: this.state.lastName,
         email: this.state.email,
         password: this.state.password,
         phone: this.state.phone,
-        birthyear: "",
-        birthmon: "",
-        birthday: "",
+        birthyear: this.state.birthyear,
+        birthmonth: this.state.birthmonth,
+        birthday: this.state.birthday,
       }),
     })
       .then((res) => res.json())
@@ -96,7 +110,7 @@ class Join extends Component {
           formErrors.email =
             EMAILREGEX.test(value) || !value ? "" : "invalid email address";
           break;
-        case "contactNumver":
+        case "phone":
           formErrors.phone =
             value.length < 10 && value.length > 0
               ? "minimum 11 chracaters required"
@@ -122,7 +136,7 @@ class Join extends Component {
 
   dateChange = (e) => {
     this.setState({
-      birthyear: e.target.options[e.target.selectedIndex].value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -197,7 +211,7 @@ class Join extends Component {
               alt="formImg"
             />
           </div>
-          <form className="formTable">
+          <div className="formTable">
             <div className="nameTable">
               <div className="firstNameWrap">
                 <div
@@ -261,7 +275,7 @@ class Join extends Component {
                   className="phoneInput"
                   type="text"
                   placeholder="Contact number*"
-                  name="contactNumber"
+                  name="phone"
                 />
               </div>
               {formErrors.phone.length > 0 && (
@@ -307,20 +321,32 @@ class Join extends Component {
                 </span>
               )}
               <div className="dateCategory">
-                <select name="birthyear" onChange={this.dateChange}>
-                  <option value="YYYY">YYYY</option>
+                <select
+                  name="birthyear"
+                  value={this.state.birthyear}
+                  onChange={this.dateChange}
+                >
+                  <option>YYYY</option>
                   {years.map((el) => (
                     <option value={el}> {el}년 </option>
                   ))}
                 </select>
-                <select name="birthmon" onChange={this.dateChange}>
-                  <option value="MM">MM</option>
+                <select
+                  name="birthmonth"
+                  value={this.state.birthmonth}
+                  onChange={this.dateChange}
+                >
+                  <option>MM</option>
                   {month.map((el) => (
                     <option value={el}> {el}월</option>
                   ))}
                 </select>
-                <select name="birthday" onChange={this.dateChange}>
-                  <option value="DD">DD</option>
+                <select
+                  name="birthday"
+                  value={this.state.birthmonth}
+                  onChange={this.dateChange}
+                >
+                  <option>DD</option>
                   {days.map((el) => (
                     <option value={el}> {el}일 </option>
                   ))}
@@ -343,7 +369,7 @@ class Join extends Component {
                 Join tea Society
               </button>
             </div>
-          </form>
+          </div>
         </div>
       </main>
     );
