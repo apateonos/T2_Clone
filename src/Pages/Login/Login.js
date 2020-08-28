@@ -34,8 +34,6 @@ class Login extends Component {
   };
 
   handleClick = () => {
-    console.log(this.state.email);
-    console.log(this.state.password);
     fetch(`http://10.58.4.149:8000/user/login`, {
       method: "POST",
       body: JSON.stringify({
@@ -59,8 +57,6 @@ class Login extends Component {
   };
 
   render() {
-    console.log(1);
-    console.log(sessionStorage.getItem("login_token"));
     const { email, pwpass, errorActive, password } = this.state;
     return (
       <main className="Login">
