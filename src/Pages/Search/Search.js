@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../../Components/Nav/Nav";
-import Footer from "../../Components/Footer/Footer";
 import NoSearch from "./Components/NoSearch";
 import NormalSearch from "./Components/NormalSearch";
 import CategorySearch from "./Components/CategorySearch";
@@ -79,7 +77,6 @@ class Search extends Component {
               : "backgroundcolor black"
           }
         >
-          <Nav />
           {searchedList.length > 0 ? (
             <NormalSearch
               searchedList={searchedList}
@@ -92,7 +89,6 @@ class Search extends Component {
               searchedValue={this.state.SearchedValue}
             />
           )}
-          <Footer />
         </div>
       </div>
     );

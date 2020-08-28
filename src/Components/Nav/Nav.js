@@ -59,14 +59,9 @@ class Nav extends Component {
     });
   };
 
-  onClickSearch() {
-    //this.props.history.push('/searched', { some: this.state.searchedValue })
-  }
-
-  inputHandle=(e)=>{
-    this.setState({searchedValue : e.target.value })
-  }
-  // 김규영 작업
+  inputHandle = (e) => {
+    this.setState({ searchedValue: e.target.value });
+  };
 
   render() {
     let currentBannerText = bannerArr[this.state.textIdx % bannerArr.length];
@@ -76,15 +71,12 @@ class Nav extends Component {
         <div className="rollingBanner">
           <span>{currentBannerText}</span>
         </div>
-        {/* {this.state.isSearchBarShown && (
-          <SearchBar hideSearchBar={this.hideSearchBar} />
-        )} */}
         <SearchBar
           isSearchBarShown={this.state.isSearchBarShown}
           hideSearchBar={this.hideSearchBar}
           onClickSearch={this.onClickSearch}
           inputHandle={this.inputHandle}
-          searchedValue={this.state.searchedValue}//김규영 작업
+          searchedValue={this.state.searchedValue}
         />
 
         <nav style={{ height: this.state.scrollPos === 0 ? "85px" : "50px" }}>
@@ -139,7 +131,7 @@ class Nav extends Component {
                         }}
                         onMouseLeave={this.hideMenuContent}
                       >
-                        <a href="#">{el}</a>
+                        <a herf="">{el}</a>
                       </li>
                     );
                   })}
@@ -147,7 +139,7 @@ class Nav extends Component {
                 <ul className="icons">
                   <li onClick={this.openSearchBar}></li>
                   <li>
-                    <a href="" />
+                    <a herf="" />
                   </li>
                 </ul>
               </div>

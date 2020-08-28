@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import MainBanner from "./Components/MainBanner";
 import Module from "./Components/Module";
-import Nav from "../../Components/Nav/Nav";
-import Footer from "../../Components/Footer/Footer";
 import "./Main.scss";
 
 class Main extends Component {
@@ -425,7 +423,6 @@ class Main extends Component {
   render() {
     return (
       <main>
-        <Nav />
         <MainBanner />
         <div className="moduleList">
           {this.state.moduleList.map((el, index) => {
@@ -445,7 +442,6 @@ class Main extends Component {
             );
           })}
         </div>
-        <Footer />
       </main>
     );
   }

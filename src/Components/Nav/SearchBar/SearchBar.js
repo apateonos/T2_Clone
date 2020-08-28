@@ -3,22 +3,12 @@ import { Link } from "react-router-dom";
 import "./SearchBar.scss";
 
 class SearchBar extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     clicked: false,
-  //   };
-  // }
-
-  // click = () => {
-  //   this.setState = {
-  //     clicked: !clicked,
-  //   };
-  // };
-
-
   render() {
-    const key = this.props.searchedValue.split(" ").map(el=> el+"%20").join("").slice(0, -3);
+    const key = this.props.searchedValue
+      .split(" ")
+      .map((el) => el + "%20")
+      .join("")
+      .slice(0, -3);
     return (
       <div
         className={
@@ -28,8 +18,24 @@ class SearchBar extends Component {
         <div className="searchBarArea">
           <div className="searchBarContainer">
             <form action="">
-              <input type="text" placeholder="I'm looking for..." value={this.props.searchedValue} onChange={this.props.inputHandle}/>
-              <Link to={{ pathname: `/show-search?q=${key}`, state: { keyword: this.props.searchedValue} }}><button type="submit" onClick={this.props.onClickSearch}></button></Link> {/* //onclick기능 추가 김규영 */}
+              <input
+                type="text"
+                placeholder="I'm looking for..."
+                value={this.props.searchedValue}
+                onChange={this.props.inputHandle}
+              />
+              <Link
+                to={{
+                  pathname: `/show-search?q=${key}`,
+                  state: { keyword: this.props.searchedValue },
+                }}
+              >
+                <button
+                  type="submit"
+                  onClick={this.props.onClickSearch}
+                ></button>
+              </Link>{" "}
+              {/* //onclick기능 추가 김규영 */}
             </form>
             <div className="closeButton" onClick={this.props.hideSearchBar}>
               <svg viewBox="0 0 10 10" id="icon-close">
