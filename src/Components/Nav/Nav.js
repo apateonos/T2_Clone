@@ -12,12 +12,14 @@ import MenuContent7 from "./MenuContent7/MenuContent7";
 
 class Nav extends Component {
   state = {
+    searchedValue: "",
     textIdx: 0,
     isShown: false,
     isSearchBarShown: false,
     activeContent: 0,
     scrollPos: 0,
     showNavInfo: false,
+    isActive: false,
   };
 
   componentDidMount() {
@@ -57,6 +59,10 @@ class Nav extends Component {
     });
   };
 
+  inputHandle = (e) => {
+    this.setState({ searchedValue: e.target.value });
+  };
+
   render() {
     let currentBannerText = bannerArr[this.state.textIdx % bannerArr.length];
 
@@ -65,9 +71,14 @@ class Nav extends Component {
         <div className="rollingBanner">
           <span>{currentBannerText}</span>
         </div>
-        {this.state.isSearchBarShown && (
-          <SearchBar hideSearchBar={this.hideSearchBar} />
-        )}
+        <SearchBar
+          isSearchBarShown={this.state.isSearchBarShown}
+          hideSearchBar={this.hideSearchBar}
+          onClickSearch={this.onClickSearch}
+          inputHandle={this.inputHandle}
+          searchedValue={this.state.searchedValue}
+        />
+
         <nav style={{ height: this.state.scrollPos === 0 ? "85px" : "50px" }}>
           <div className="navBox">
             <div className="logo">
@@ -100,10 +111,10 @@ class Nav extends Component {
                     <Link>STORES</Link>
                   </li>
                   <li>
-                    <Link to="/account">LOGIN</Link>
+                    <Link>LOGIN</Link>
                   </li>
                   <li>
-                    <Link to="/mypage">MY FAVOURITES</Link>
+                    <Link>MY FAVOURITES</Link>
                   </li>
                 </ul>
               </div>
@@ -120,7 +131,7 @@ class Nav extends Component {
                         }}
                         onMouseLeave={this.hideMenuContent}
                       >
-                        <a href="#">{el}</a>
+                        <a herf="">{el}</a>
                       </li>
                     );
                   })}
@@ -128,7 +139,7 @@ class Nav extends Component {
                 <ul className="icons">
                   <li onClick={this.openSearchBar}></li>
                   <li>
-                    <a href="" />
+                    <a herf="" />
                   </li>
                 </ul>
               </div>

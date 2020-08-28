@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import FilterSelectBox from "./Components/FilterSelectBox/FilterSelectBox";
 import ProductItem from "./../../Components/ProductItem/ProductItem";
-import { config } from "./../../config";
+import { config } from "../../config";
 import "./ProductList.scss";
+import { Link } from "react-router-dom";
 
 class ProductList extends Component {
   constructor() {
@@ -81,7 +81,6 @@ class ProductList extends Component {
     let newProduct = this.state.product;
     let result = {};
     for (let info of this.state.review) {
-      //TODO : 이미지 저장
       result[info["product_id"]] = [info["rating_img"], info["review_count"]];
     }
     console.log(result);

@@ -54,16 +54,11 @@
 	}
 
 	.productInfo {
-		margin: 25px 0 40px;
+		margin: 25px 0 5px;
 
 		.ratingBox {
-			display: flex;
 			margin-bottom: 20px;
 			font-size: 16px;
-
-			.reviewCount {
-				margin-left: 4px;
-			}
 		}
 
 		.viewDetail {
@@ -80,7 +75,7 @@
 		height: 216px;
 
 		li {
-			margin-right: 3px;
+			margin-right: 5px;
 
 			.variationImgButton {
 				display: flex;
@@ -103,7 +98,6 @@
 
 			.variationName {
 				height: 50px;
-				width: inherit;
 				margin-top: 10px;
 				font-size: 12px;
 				font-weight: 600;
@@ -130,31 +124,6 @@
 				background: $black;
 				color: $white;
 			}
-		}
-	}
-
-	.removeForm {
-		display: none;
-
-		* {
-			padding: 0;
-			font-weight: 600;
-			font-size: 14px;
-		}
-
-		button {
-			@include center;
-			margin: 0 auto;
-		}
-
-		.removeIcon {
-			display: inline-block;
-			width: 15px;
-			height: 15px;
-			margin-right: 4px;
-			background: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598427800341/images/icons/remove.svg")
-				no-repeat center;
-			background-size: contain;
 		}
 	}
 }

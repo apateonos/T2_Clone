@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "./MenuContent1.scss";
 
 class MenuContent1 extends Component {
@@ -9,9 +8,7 @@ class MenuContent1 extends Component {
         <div className="MenuContentContainer">
           <div className="MenuContentBox">
             <ul className="upperList">
-              <li>
-                <Link to="/shop">SHOP ALL TEA</Link>
-              </li>
+              <li>SHOP ALL TEA</li>
               <li>WELLNESS</li>
             </ul>
             <ul className="lowerList">
