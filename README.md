@@ -1,68 +1,48 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# T2 Tea 클론 프로젝트 
+호주 유명 티 브랜드 웹 사이트 클론
+https://www.t2tea.com/
 
-## Available Scripts
+## 개발 인원 및 기간
+- 개발 기간: 2020/08/18 ~ 2020/08/28
+- 개발 인원: 프론트엔드 4명, 백엔드 2명
 
-In the project directory, you can run:
+## 팀원
+- 프론트엔드: 강예지, 김규영, 마상원, 오승하
+- 백엔드: 왕민욱, 이건규
 
-### `npm start`
+## 기술 스택 및 구현 기능
+### 1. 기술 스택
+- JavaScript (ES6)
+- React (CRA)
+- Sass (SCSS)
+- Git /Github
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 리액트 라이브러리
+    - Slick
+    - React-router-dom
+    
+### 2. 협업 툴
+- Git
+- Slack
+- Trello
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### 3. 구현 기능 상세 설명
+[ navigation 바 ]
+- setInterval 함수를 활용한 롤링 배너 구현
+- search icon 클릭 시 searchbar 표시 기능 구현
+- 컴포넌트 활용하여 메뉴 hover 시 세부 메뉴 보여지는 기능 구현
 
-### `npm test`
+[ 메인 페이지 ]
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[ product list 페이지 ]
 
-### `npm run build`
+[ product detail 페이지 ]
+- 동적 라우팅 활용하여 product list 페이지에서 상품 클릭 시 클릭한 상품에 해당하는 상세 페이지 보여주는 기능 구현
+- react slick 라이브러리로 이미지 슬라이더 구현
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[ 로그인 페이지 ]
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+[ 메인 페이지 ]
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[ footer ]
+- map 활용하여 반복되는 list 요소 재사용
