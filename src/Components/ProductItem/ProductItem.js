@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import QuantityBox from "./QuantityBox/QuantityBox";
 import "./ProductItem.scss";
-
+import { config } from "./../../config";
 //TODO :  기존에 있던 wishlist 정보를 바탕으로 하트 활성화. 이미지 및 리뷰 갯수,장바구니..
 
 class ProductItem extends Component {
@@ -14,18 +14,29 @@ class ProductItem extends Component {
       isWishList: false,
       quantity: 1,
       isQuantityClick: false,
+      aaaa: [],
     };
   }
 
   handleHeartClick = () => {
     const { isWishList } = this.state;
     const { data } = this.props;
+    // data.product_id
 
-    if (isWishList === false) {
-      console.log("to wishList", data);
-    } else {
-      console.log("remove", data);
-    }
+    //console.log(data.product_id);
+    fetch(`${config.api}/user/wishlist`, {
+      method: "POST",
+      body: JSON.stringify({ product_id: data.product_id }),
+      headers: {
+        Authorization: sessionStorage.getItem("login_token"),
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+      });
+    // .catch((err) => err);
+
     this.setState({ isWishList: !isWishList });
   };
 
@@ -40,8 +51,32 @@ class ProductItem extends Component {
   handleSubmit = () => {
     const { selectItem, quantity } = this.state;
     const { data } = this.props;
-    console.log("Add to Bag", data);
-    console.log(`Add to Bag : size : ${selectItem}, quantitiy: ${quantity} `);
+    const size_unit = data.size_unit[selectItem];
+    let result = {};
+
+    result["product_id"] = data.product_id;
+    result["count"] = quantity;
+
+    if (size_unit) {
+      result["size_unit"] = data.size_unit[selectItem];
+    } else {
+      result["size_unit"] = -1;
+    }
+    console.log("Add to Bag", data.product_id);
+    console.log(result);
+
+    fetch(`${config.api}/user/shoppingbag`, {
+      method: "post",
+      headers: {
+        Authorization: sessionStorage.getItem("login_token"),
+      },
+      body: JSON.stringify(result),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res));
+  };
+  handleClick = () => {
+    this.props.history.push(`/products/${this.props.data.product_id}`);
   };
 
   render() {
@@ -61,7 +96,7 @@ class ProductItem extends Component {
             <div className={isWishList ? "heartImgCheck" : "heartImg"} />
           </button>
         </div>
-        <div className="imageBox">
+        <div className="imageBox" onClick={this.handleClick}>
           <Link to="/shop">
             <img src={data.product_image} alt={data.product_name} />
           </Link>
@@ -71,8 +106,8 @@ class ProductItem extends Component {
             {data.product_name}
           </Link>
           <div className="ratingBox">
-            {/* <img alt="starRatings" src={product.rating} /> */}
-            (3)
+            <img alt="starRatings" src={data.review_img} />
+            `( ${data.review_count})`
           </div>
           <>
             <Link to="/shop" className="viewDetail">
@@ -124,4 +159,4 @@ class ProductItem extends Component {
   }
 }
 
-export default ProductItem;
+export default withRouter(ProductItem);

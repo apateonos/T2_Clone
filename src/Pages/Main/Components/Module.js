@@ -13,9 +13,8 @@ class Module extends Component {
       asideDESC,
       moduleItemList,
     } = this.props;
-
     return (
-      <div className={"module " + moduleStyle}>
+      <div className={"module " + moduleStyle} ref={this.props.ref}>
         <ModuleHead
           moduleName={moduleName}
           click={this.props.click}
@@ -24,8 +23,9 @@ class Module extends Component {
         <div className="moduleMain">
           <ModuleAside moduleAside={moduleAside} asideDESC={asideDESC} />
           <div className="moduleItemList">
-            {moduleItemList.map((el) => (
+            {moduleItemList.map((el, index) => (
               <Item
+                key={index}
                 transform={transform}
                 BoxStyle={el.itemBoxStyle}
                 itemName={el.itemName}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Card from "./Card";
+import { config } from "./../../config";
 import "./Join.scss";
 
 const EMAILREGEX = RegExp(
@@ -66,16 +67,9 @@ class Join extends Component {
   };
 
   handleClick = () => {
-    console.log(this.state.firstName);
-    console.log(this.state.lastName);
-    console.log(this.state.email);
-    console.log(this.state.phone);
-    console.log(this.state.password);
-    console.log(this.state.birthyear);
-    console.log(this.state.birthmonth);
-    console.log(this.state.birthday);
-
-    fetch("http://10.58.4.149:8000/user/join", {
+    // console.log(first_name);
+    // console.log(last_name);
+    fetch(`${config.api}/user/join`, {
       method: "POST",
       body: JSON.stringify({
         first_name: this.state.firstName,

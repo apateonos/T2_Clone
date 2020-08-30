@@ -5,10 +5,6 @@
 	margin-bottom: 70px;
 	margin-right: 2.1%;
 
-	&:nth-child(4n) {
-		margin-right: 0px;
-	}
-
 	.heartBox {
 		position: relative;
 		height: 40px;
@@ -23,18 +19,18 @@
 
 			.heartImg {
 				height: inherit;
-				background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart.svg)
+				background: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart.svg")
 					no-repeat center;
 			}
 
 			&:hover .heartImg {
-				background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart_orange.svg)
+				background: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart_orange.svg")
 					no-repeat center;
 			}
 
 			.heartImgCheck {
 				height: inherit;
-				background: url(https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart_red.svg)
+				background: url("https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/en_AU/v1598026472502/images/heart_red.svg")
 					no-repeat center;
 			}
 		}
@@ -122,7 +118,6 @@
 			width: 157.12px;
 			height: 42px;
 			background: $orange;
-			font-style: inherit;
 			font-weight: 600;
 
 			&:hover {
