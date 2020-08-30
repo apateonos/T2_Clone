@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import QuantityBox from "./QuantityBox/QuantityBox";
 import "./ProductItem.scss";
-const api = "10.58.4.4.149:8000";
+import { config } from "./../../config";
 //TODO :  기존에 있던 wishlist 정보를 바탕으로 하트 활성화. 이미지 및 리뷰 갯수,장바구니..
 
 class ProductItem extends Component {
@@ -24,12 +24,11 @@ class ProductItem extends Component {
     // data.product_id
 
     //console.log(data.product_id);
-    fetch("http://10.58.4.149:8000/user/wishlist", {
+    fetch(`${config.api}/user/wishlist`, {
       method: "POST",
-      body: JSON.stringify({ product_id: 89 }),
+      body: JSON.stringify({ product_id: data.product_id }),
       headers: {
-        Authorization:
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxfQ.8iHvXMKzOHzuvmIejw1maLNlMt7njYSPtQM7fIrTp3E",
+        Authorization: sessionStorage.getItem("login_token"),
       },
     })
       .then((res) => res.json())
@@ -65,6 +64,19 @@ class ProductItem extends Component {
     }
     console.log("Add to Bag", data.product_id);
     console.log(result);
+
+    fetch(`${config.api}/user/shoppingbag`, {
+      method: "post",
+      headers: {
+        Authorization: sessionStorage.getItem("login_token"),
+      },
+      body: JSON.stringify(result),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res));
+  };
+  handleClick = () => {
+    this.props.history.push(`/products/${this.props.data.product_id}`);
   };
 
   render() {
@@ -84,7 +96,7 @@ class ProductItem extends Component {
             <div className={isWishList ? "heartImgCheck" : "heartImg"} />
           </button>
         </div>
-        <div className="imageBox">
+        <div className="imageBox" onClick={this.handleClick}>
           <Link to="/shop">
             <img src={data.product_image} alt={data.product_name} />
           </Link>
@@ -94,8 +106,8 @@ class ProductItem extends Component {
             {data.product_name}
           </Link>
           <div className="ratingBox">
-            {/* <img alt="starRatings" src={product.rating} /> */}
-            (3)
+            <img alt="starRatings" src={data.review_img} />
+            `( ${data.review_count})`
           </div>
           <>
             <Link to="/shop" className="viewDetail">
@@ -147,4 +159,4 @@ class ProductItem extends Component {
   }
 }
 
-export default ProductItem;
+export default withRouter(ProductItem);

@@ -48,13 +48,14 @@ class Wishlist extends Component {
         <header className="wishlistHeader">My Wishlist</header>
         <section className="wishlistProduct">
           <ul>
-            {data.map((el, idx) => (
-              <ProductItem
-                data={el}
-                key={el.product_id}
-                onClickRemove={this.handleRemove}
-              />
-            ))}
+            {data &&
+              data.map((el, idx) => (
+                <ProductItem
+                  data={el}
+                  key={el.product_id}
+                  onClickRemove={this.handleRemove}
+                />
+              ))}
           </ul>
         </section>
       </div>

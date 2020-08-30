@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./MenuContent6.scss";
 
 class MenuContent6 extends Component {
@@ -9,7 +10,7 @@ class MenuContent6 extends Component {
           <div className="MenuContentBox">
             <ul className="upperList">
               <li>ABOUT T2 SOCIETY</li>
-              <li>JOIN T2 SOCIETY</li>
+              <Link to="/account/join">JOIN T2 SOCIETY</Link>
             </ul>
           </div>
           <div className="MenuBanner">

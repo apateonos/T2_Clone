@@ -36,6 +36,18 @@
 				}
 			}
 
+			.upperList {
+				margin-bottom: 20px;
+
+				a {
+					color: $black;
+
+					&:hover {
+						color: $white;
+					}
+				}
+			}
+
 			.lowerList {
 				ul {
 					display: flex;
