@@ -12,6 +12,7 @@ import MenuContent7 from "./MenuContent7/MenuContent7";
 
 class Nav extends Component {
   state = {
+    searchValue: "",
     textIdx: 0,
     isShown: false,
     isSearchBarShown: false,
@@ -57,6 +58,10 @@ class Nav extends Component {
     });
   };
 
+  inputHandle = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   render() {
     let currentBannerText = bannerArr[this.state.textIdx % bannerArr.length];
 
@@ -66,12 +71,16 @@ class Nav extends Component {
           <span>{currentBannerText}</span>
         </div>
         {this.state.isSearchBarShown && (
-          <SearchBar hideSearchBar={this.hideSearchBar} />
+          <SearchBar
+            hideSearchBar={this.hideSearchBar}
+            inputHandle={this.inputHandle}
+            searchedValue={this.state.searchValue}
+          />
         )}
         <nav style={{ height: this.state.scrollPos === 0 ? "85px" : "50px" }}>
           <div className="navBox">
             <div className="logo">
-              <Link>
+              <Link to="/">
                 <img
                   alt="T2 logo"
                   src="https://www.t2tea.com/on/demandware.static/Sites-UNI-T2-APAC-Site/-/default/dw815bd4ad/images/t2-logo.svg"
@@ -100,10 +109,10 @@ class Nav extends Component {
                     <Link>STORES</Link>
                   </li>
                   <li>
-                    <Link>LOGIN</Link>
+                    <Link to="/account">LOGIN</Link>
                   </li>
                   <li>
-                    <Link>MY FAVOURITES</Link>
+                    <Link to="/mypage">MY FAVOURITES</Link>
                   </li>
                 </ul>
               </div>

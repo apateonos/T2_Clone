@@ -22,7 +22,6 @@ class ProductDetail extends Component {
     // fetch("http://localhost:3000/Data/ProductDetail/ProductDetail.json")
     // fetch("http://10.58.7.91:8000/products/464")
     fetch(`${config.api}/products/${this.props.match.params.id}`)
-      // fetch(`${config.api}/details/${this.props.match.params.id}`)
       .then((res) => res.json())
       .then((res) => this.setState({ product_detail: res.product_detail }));
   }

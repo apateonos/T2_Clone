@@ -1,11 +1,10 @@
 @import "../../Styles/common.scss";
 @import "./Components/module.scss";
 
-
-
 main {
+  padding-top : 125px;
   .itemBox {
-    transition: 0.5s;
+    transition: 1s;
   }
 
   .mainBannerBox {
@@ -42,7 +41,7 @@ main {
 
   .crouselModule {
     @include moduleContainerSetting;
-    width : 1796px;
+    width : 100%;
     
     .moduleHead {
       @include moduleHead(1);
@@ -79,14 +78,25 @@ main {
       }
 
       .moroccan {
-        @include itemImgSetting(430px, 554px);
+        @include itemImgSetting(430px, 554px, 30px);
+        margin-right: 70px;
+
+        @include setFlex(null, center);
+        @include setSize(800px, 554px);
+
+        .itemNoteBox {
+          @include setFlex(null, center, wrap);
+          width: 310px;
+          margin-left: 50px;
+        }
       }
 
-      .itemBox4  {
-        @include itemImgSetting(480px, 618.84px);
+      .subscription  {
+        @include itemImgSetting(480px, 618px, 30px);
+        margin-right: 70px;
       }
 
-      .itemBox5 {
+      .drinking {
         @include itemImgSetting(370px, 446.78px);
       } 
     } 
@@ -324,6 +334,7 @@ main {
       .moduleItemList {
         display: flex;
         overflow: hidden;
+        margin-bottom : 150px;
         .itemBox {
           position:  relative;
           min-width: 670px;
