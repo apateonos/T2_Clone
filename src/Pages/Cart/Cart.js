@@ -11,14 +11,15 @@ class Cart extends Component {
   };
 
   componentDidMount() {
-    fetch(`${config.apiWishlist}/user/shoppingbag`, {
+    fetch(`${config.api}/user/shoppingbag`, {
       method: "GET",
       headers: {
-        Authorization: config.token,
+        Authorization: sessionStorage.getItem("login_token"),
       },
     })
       .then((res) => res.json())
       .then((res) => {
+        console.log("res", res);
         this.setState({ message: res.message });
       });
   }
@@ -40,11 +41,11 @@ class Cart extends Component {
     console.log(`user/shoppingbag?product_name=${name}&product_size=${unit}`);
 
     fetch(
-      `${config.apiWishlist}/user/shoppingbag?product_name=${name}&product_size=${united}`,
+      `${config.api}/user/shoppingbag?product_name=${name}&product_size=${united}`,
       {
         method: "GET",
         headers: {
-          Authorization: config.token,
+          Authorization: sessionStorage.getItem("login_token"),
         },
       }
     )

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Login.scss";
-import { API } from "./config";
+import { config } from "./../../config";
 
 class Login extends Component {
   constructor() {
@@ -34,7 +34,7 @@ class Login extends Component {
   };
 
   handleClick = () => {
-    fetch(`http://${API}:8000/user/login`, {
+    fetch(`${config.api}/user/login`, {
       method: "POST",
       body: JSON.stringify({
         email: this.state.email,
@@ -42,7 +42,18 @@ class Login extends Component {
       }),
     })
       .then((res) => res.json())
-      .then((res) => alert(res.message));
+      .then((res) => {
+        console.log(res);
+        if (res["login response"].access_token) {
+          window.sessionStorage.setItem(
+            "login_token",
+            res["login response"].access_token
+          );
+          this.props.history.push("/");
+        } else {
+          alert("로그인 정보가 다릅니다");
+        }
+      });
   };
 
   render() {
