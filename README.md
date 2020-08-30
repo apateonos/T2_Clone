@@ -33,12 +33,16 @@ https://www.t2tea.com/
 - 컴포넌트 활용하여 메뉴 hover 시 세부 메뉴 보여지는 기능 구현
 
 [ 메인 페이지 ]
+
 [ product list 페이지 ]
+
 [ product detail 페이지 ]
 - 동적 라우팅 활용하여 product list 페이지에서 상품 클릭 시 클릭한 상품에 해당하는 상세 페이지 보여주는 기능 구현
 - react slick 라이브러리로 이미지 슬라이더 구현
 
 [ 로그인 페이지 ]
+
 [ 메인 페이지 ]
+
 [ footer ]
 - map 활용하여 반복되는 list 요소 재사용
