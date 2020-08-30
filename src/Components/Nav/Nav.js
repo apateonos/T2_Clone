@@ -137,7 +137,7 @@ class Nav extends Component {
                 <ul className="icons">
                   <li onClick={this.openSearchBar}></li>
                   <li>
-                    <a href="" />
+                    <Link to="/cart" />
                   </li>
                 </ul>
               </div>
