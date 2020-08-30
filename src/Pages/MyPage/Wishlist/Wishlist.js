@@ -8,6 +8,7 @@ class Wishlist extends Component {
     super();
     this.state = {
       data: [],
+      review: [],
     };
   }
 
@@ -19,6 +20,33 @@ class Wishlist extends Component {
       .then((response) => response.json())
       .then((res) => this.setState({ data: res.product_list }));
   }
+  fetchReview = () => {
+    fetch(`${config.api}/reviews`)
+      .then((res) => res.json())
+      .then((res) =>
+        this.setState({ review: res.review_list }, () => {
+          this.matchId();
+        })
+      );
+  };
+
+  matchId = () => {
+    console.log(this.state.review);
+    const newProduct = this.state.product;
+    const result = {};
+    for (let info of this.state.review) {
+      result[info["product_id"]] = [info["rating_img"], info["review_count"]];
+    }
+    console.log(result);
+
+    for (let info of newProduct) {
+      console.log(info["product_id"]);
+      info["review_count"] = result[+info["product_id"]][1];
+      info["review_img"] = result[+info["product_id"]][0];
+    }
+
+    this.setState({ data: newProduct });
+  };
 
   handleRemove = (removeId) => {
     console.log(removeId);
