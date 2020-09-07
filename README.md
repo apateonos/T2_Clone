@@ -1,3 +1,5 @@
+클론 영상 보러가기 : https://youtu.be/yGTx7MwCLDA
+
 # T2 Tea 클론 프로젝트 
 호주 유명 티 브랜드 웹 사이트 클론
 https://www.t2tea.com/
